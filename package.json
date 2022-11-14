@@ -1,0 +1,17 @@
+{
+  "name": "capstone-worth-a-shot",
+  "version": "1.0.0",
+  "description": "Group 6 Capstone Project, Bar/Club Finder and Guide",
+  "main": "back-end/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bar",
+    "club",
+    "beverage",
+    "alcohol"
+  ],
+  "author": "Emalee Soto",
+  "license": "ISC"
+}
