@@ -12,7 +12,7 @@ app.use(express.json());
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Welcome to Party Up!");
+  res.send("Welcome to Worth a Shot!");
 });
 
 app.get("*", (req, res) => {

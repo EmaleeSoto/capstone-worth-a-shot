@@ -8,5 +8,5 @@ const PORT = process.env.PORT || 3003;
 
 // LISTEN
 app.listen(PORT, () => {
-  console.log(`Partying at ${PORT}`);
+  console.log(`Let's have a drink at ${PORT}`);
 });
