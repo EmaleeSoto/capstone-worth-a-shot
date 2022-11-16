@@ -4,8 +4,8 @@ This is our Capstone Project called Worth a Shot!
 
 ## Important Links
 
-- [Deployed Frontend]()
-- [Deployed Backend]()
+- [Deployed Frontend](https://worth-a-shot.netlify.app/)
+- [Deployed Backend](https://worth-a-shot-api-server.onrender.com/)
 - [Trello Board](https://trello.com/b/41mhSL26/worth-a-shot-group-6-capstone)
 - [Wireframes](https://whimsical.com/worth-a-shot-Ve33oA8m3TCiNNJxam5dGJ)
 - [ERD](https://cloud.smartdraw.com/editor.aspx?depoId=39282039&credID=-42278956&pubDocShare=156DAD5C930F80FB15FB0D65C4004AA7BE6)
