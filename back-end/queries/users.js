@@ -46,7 +46,7 @@ const createUser = async ({ name, age, zip_code, gender }) => {
 const updateUser = async (id, { name, age, zip_code, gender }) => {
   try {
     const updateUser = await db.one(
-      "UPDATE users SET name=$1, age=$2, zip_code=$3, gender=$4 where id=$3 RETURNING *",
+      "UPDATE users SET name=$1, age=$2, zip_code=$3, gender=$4 where id=$5 RETURNING *",
       [name, age, zip_code, gender, id]
     );
     return updateUser;
@@ -62,5 +62,4 @@ module.exports = {
   deleteUser,
   createUser,
   updateUser,
-  getUserInformation,
 };
