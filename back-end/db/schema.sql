@@ -6,8 +6,7 @@ CREATE DATABASE worth_a_shot_user;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    password TEXT NOT NULL
     age INT NOT NULL,
-    zip_code INT,
+    zip_code TEXT,
     gender TEXT
 );

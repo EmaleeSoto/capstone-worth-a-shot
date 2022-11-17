@@ -1,4 +1,4 @@
-const db = require("../DB/dbConfig.js");
+const db = require("../db/dbConfig.js");
 
 const getAllUsers = async () => {
   try {
@@ -20,13 +20,16 @@ const getUser = async (id) => {
 
 const getUserInformation = async (name) => {
   try {
-    const loggedUser = await db.one("SELECT * FROM users WHERE name=$1, password=$2", name)
+    const loggedUser = await db.one(
+      "SELECT * FROM users WHERE name=$1, password=$2",
+      name
+    );
     return loggedUser;
   } catch (error) {
     console.log(error.message || error);
-    return null
+    return null;
   }
-}
+};
 
 const deleteUser = async (id) => {
   try {
@@ -41,13 +44,7 @@ const deleteUser = async (id) => {
   }
 };
 
-const createUser = async ({
-  name,
-  password,
-  age,
-  zip_code,
-  gender
-}) => {
+const createUser = async ({ name, password, age, zip_code, gender }) => {
   try {
     const newUser = await db.one(
       "INSERT INTO users (name, password, age, zip_code, gender) VALUES($1, $2, $3, $4, $5) RETURNING *",
@@ -59,10 +56,7 @@ const createUser = async ({
   }
 };
 
-const updateUser = async (
-  id,
-  { name, password, age, zip_code, gender }
-) => {
+const updateUser = async (id, { name, password, age, zip_code, gender }) => {
   try {
     const updateUser = await db.one(
       "UPDATE users SET name=$1, password=$2, age=$3, zip_code=$4, gender=$5 where id=$4 RETURNING *",

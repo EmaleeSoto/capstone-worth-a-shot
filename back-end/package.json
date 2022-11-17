@@ -4,7 +4,8 @@
   "description": "Capstone Worth a Shot api server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql"
   },
   "author": "Emalee Soto",
   "license": "ISC",
