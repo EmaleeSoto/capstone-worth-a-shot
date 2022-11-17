@@ -3,30 +3,36 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Establishments = () => {
-const [ preference, setPreference ] = useState("")
-const [ search, setSearch ] = useState("")
+  const [preferences, setPreferences] = useState([]);
+  const [search, setSearch] = useState("");
 
-const handlePreference = (event) => {
+  const apiURL = process.env.REACT_APP_API_URL
+
+  useEffect(() => {
+    // const API = `https://api.yelp.com/v3/businesses/search?categories=nightlife&location=NYC`;
+    axios
+      .get(`${apiURL}/users`)
+      .then((response) => {
+        setPreferences(response.data.payload);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    }, []);
+    
+    console.log(preferences)
+
+  const handleSearch = (event) => {
     let input = event.target.value
+    setSearch(input)
+    return search
+  };
 
-    setPreference(input)
-}
+  return (
+    <div>
+      <h1> Hi! </h1>
+    </div>
+  );
+};
 
-useEffect(() => {
-    const API = `[https://api.yelp.com/v3/businesses/search?categories=${preference}&location=NYC]`
-    
-}, [])
-
-
-const handleSearch = () => {
-    
-}
-
-    return (
-        <div>
-            <h1> Hi! </h1>
-        </div>
-    )
-}
-
-export default Establishments
+export default Establishments;
