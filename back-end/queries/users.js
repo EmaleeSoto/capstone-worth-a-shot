@@ -31,11 +31,19 @@ const deleteUser = async (id) => {
   }
 };
 
-const createUser = async ({ name, age, zip_code, gender }) => {
+const createUser = async ({
+  name,
+  age,
+  zip_code,
+  gender,
+  personality,
+  flavor,
+  atmosphere,
+}) => {
   try {
     const newUser = await db.one(
-      "INSERT INTO users (name, age, zip_code, gender) VALUES($1, $2, $3, $4) RETURNING *",
-      [name, age, zip_code, gender]
+      "INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [name, age, gender, zip_code, personality, flavor, atmosphere]
     );
     return newUser;
   } catch (error) {
@@ -43,11 +51,14 @@ const createUser = async ({ name, age, zip_code, gender }) => {
   }
 };
 
-const updateUser = async (id, { name, age, zip_code, gender }) => {
+const updateUser = async (
+  id,
+  { name, age, gender, zip_code, personality, flavor, atmosphere }
+) => {
   try {
     const updateUser = await db.one(
-      "UPDATE users SET name=$1, age=$2, zip_code=$3, gender=$4 where id=$5 RETURNING *",
-      [name, age, zip_code, gender, id]
+      "UPDATE users SET name=$1, age=$2, gender=$3, zip_code=$4, personality=$5, flavor=$6, atmosphere=$7 where id=$8 RETURNING *",
+      [name, age, gender, zip_code, personality, flavor, atmosphere, id]
     );
     return updateUser;
   } catch (error) {
