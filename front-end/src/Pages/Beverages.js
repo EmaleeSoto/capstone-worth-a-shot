@@ -6,7 +6,9 @@ const Beverages = () => {
         <div>
             <h1>Fermented...</h1>
             <p>Lorem Ipsum etc etc</p>
-            
+
         </div>
     )
 }
+
+export default Beverages

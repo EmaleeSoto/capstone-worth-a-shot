@@ -1,11 +1,16 @@
-import Home from "./Components/Home";
-import {BroswerRouter as Router, Routes, Route} from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
 import "./App.css";
 import Establishments from "./Components/Establishments";
-import Nav from "./Components/NavBar";
+import NavBar from "./Components/NavBar";
+import Beverages from "./Pages/Beverages"
+import LandingPageSignedIn from "./Pages/LandingSignedIn";
 
 const App = () => {
   return (
@@ -14,10 +19,11 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/landing" element={<LandingPage />}/>
+          <Route path="/user/landing" element={<LandingPageSignedIn />}/>
           <Route path="/splash" element={<SplashPage />}/>
-          <Route path="/home" element={<Home />}/>
+          <Route path="/" element={<Home />}/>
           <Route path="/places" element={<Establishments />}/>
-          <Route path="/beverages" element={<Beverage />}/>
+          <Route path="/beverages" element={<Beverages />}/>
         </Routes>
       </Router>
       
