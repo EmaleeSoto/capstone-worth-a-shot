@@ -18,19 +18,6 @@ const getUser = async (id) => {
   }
 };
 
-const getUserInformation = async (name) => {
-  try {
-    const loggedUser = await db.one(
-      "SELECT * FROM users WHERE name=$1, password=$2",
-      name
-    );
-    return loggedUser;
-  } catch (error) {
-    console.log(error.message || error);
-    return null;
-  }
-};
-
 const deleteUser = async (id) => {
   try {
     const oneUser = await db.one(
@@ -44,11 +31,19 @@ const deleteUser = async (id) => {
   }
 };
 
-const createUser = async ({ name, password, age, zip_code, gender }) => {
+const createUser = async ({
+  name,
+  age,
+  zip_code,
+  gender,
+  personality,
+  flavor,
+  atmosphere,
+}) => {
   try {
     const newUser = await db.one(
-      "INSERT INTO users (name, password, age, zip_code, gender) VALUES($1, $2, $3, $4, $5) RETURNING *",
-      [name, password, age, zip_code, gender]
+      "INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [name, age, gender, zip_code, personality, flavor, atmosphere]
     );
     return newUser;
   } catch (error) {
@@ -56,11 +51,14 @@ const createUser = async ({ name, password, age, zip_code, gender }) => {
   }
 };
 
-const updateUser = async (id, { name, password, age, zip_code, gender }) => {
+const updateUser = async (
+  id,
+  { name, age, gender, zip_code, personality, flavor, atmosphere }
+) => {
   try {
     const updateUser = await db.one(
-      "UPDATE users SET name=$1, password=$2, age=$3, zip_code=$4, gender=$5 where id=$4 RETURNING *",
-      [name, password, age, zip_code, gender, id]
+      "UPDATE users SET name=$1, age=$2, gender=$3, zip_code=$4, personality=$5, flavor=$6, atmosphere=$7 where id=$8 RETURNING *",
+      [name, age, gender, zip_code, personality, flavor, atmosphere, id]
     );
     return updateUser;
   } catch (error) {
@@ -75,5 +73,4 @@ module.exports = {
   deleteUser,
   createUser,
   updateUser,
-  getUserInformation,
 };
