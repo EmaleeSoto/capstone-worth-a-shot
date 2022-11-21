@@ -23,8 +23,8 @@ export default function SignUp({ setLogin }) {
           alert(
             "Welcome to Worth a Shot! You're now signed into your new account."
           );
-          // Navigates to "Establishments" page after successful sign-in
-          navigate("/places");
+          // Navigates to "Onboarding" page after successful sign-up. This should prompt the user to fill out a form
+          navigate("/onboarding");
         }
         // ...
       })
