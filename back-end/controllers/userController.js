@@ -7,6 +7,7 @@ const {
   createUser,
   updateUser,
 } = require("../queries/users");
+//TODO: I think we're missing the getAllAlcohols functions for the index
 
 //INDEX
 user.get("/", async (req, res) => {

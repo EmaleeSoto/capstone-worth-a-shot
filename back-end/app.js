@@ -3,6 +3,7 @@
 const express = require("express");
 const cors = require("cors");
 const userController = require("./controllers/userController");
+const alcoholController = require("./controllers/alcoholController");
 
 // CONFIGURATION
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/users", userController);
+app.use("/alcohols", alcoholController);
 
 // ROUTES
 app.get("/", (req, res) => {
