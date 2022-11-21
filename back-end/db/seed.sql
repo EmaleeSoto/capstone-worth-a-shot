@@ -2,8 +2,8 @@
 
 INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES
 ('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues'),
-('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktail, dance'),
-('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'dance, adult, cocktail, lounge');
+('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktailbars, danceclubs'),
+('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'danceclubs, adultentertainment, cocktailbars, lounges');
 
 INSERT INTO alcohols (name, ingredients, proof, description, category, flavor) VALUES
 ('Stella Artois', 'Water, Malted Barley, Maize, Saaz Hops', 10, 'This beer is great for its herbal and malty sweetness, with a smooth yet bitter aftertaste.', 'Beer', 'bitter'),
