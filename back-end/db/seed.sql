@@ -1,6 +1,21 @@
-\c worth_a_shot_user
+\c worth_a_shot
 
 INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES
-('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounge, jazz, music'),
-('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktail, dance'),
-('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'dance, adult, cocktail, lounge');
+('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues'),
+('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktailbars, danceclubs'),
+('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'danceclubs, adultentertainment, cocktailbars, lounges');
+
+INSERT INTO alcohols (name, ingredients, proof, description, category, flavor) VALUES
+('Stella Artois', 'Water, Malted Barley, Maize, Saaz Hops', 10, 'This beer is great for its herbal and malty sweetness, with a smooth yet bitter aftertaste.', 'Beer', 'Bitter'),
+('Heineken Beer', 'Water, Malted Barley, Hop Extract, Yeast', 10, 'A sweet and sour beer that often has a hint of green apple and sweet corn.', 'Beer', 'Bitter'),
+('Sam Adams', 'Water, Malted Barley, Oats, Wheat, Hops, Yeast', 10, 'We recommend this beer for those who want that toasty, earthy bitter kick for their palette.', 'Beer', 'bBitter'),
+('Sangria', 'Red Wine, Brandy, Oranges, Lemons, Limes, Sugar', 20, 'Sweet, mildly spicy and very fruity iced drink. Great for those looking for a delicious but hard-hitting drink.', 'Wine', 'Bitter, Sweet'),
+('Mimosa', 'White Wine, Orange Juice, Orange Slice', 20, 'A crisp, bubbly and sweet-citrus wine that will make you feel fancy.', 'Wine', 'Bitter, Sweet'),
+('Mulled Wine', 'Red Wine, Brandy, Orang Juice, Cinnamon, Nutmeg, Sugar', 7.5, 'Fruity, tarty, and smokey all in one.', 'Wine', 'Bitter, Sweet'),
+('Samuel Smith''s Organic Cider', 'Water, Organic Apple Concentrate, Organic Cane Sugar, Malic Acid, Yeast', 10, 'A taste similar to sweet apples, but is generally watered down for those looking to have a subtle drink.', 'Cider', 'Sweet, Bland'),
+('Ace Joker Cider', 'Fermented Juice, Carbonated Water, Apple Concentrate, Malic Acid, Sulfite (Preservative)', 14, 'A dry cider made primarily with apple juice, and is allegedly popular with beer and wine enthusiasts.', 'Cider', 'Tangy, Dry'),
+('Gin Martini', 'Gin, Dry Vermouth', 0, 'A classic Gin beverage, this drink tastes very storng and bitter, with a slight hint of sweetness. If ordered ''neat'', you''re asking for your aclhocol to be poured straight from the bottle (sans chilling).', 'Gin', 'Bitter'),
+('Tom Collins', 'Gin, Lemon Juice, Sugar, Carbonated Water, Lemon Slice Garnish, Maraschino Cherry', 0, 'With Lemon as its primary fruit ingredient, this drink tastes a lot like an alcholic lemonade. Citrusy, fizzy, and refreshing.', 'Gin', 'Sour'),
+('Negroni', 'Gin, Vermouth Russo, Campari, Orange Peel Garnish', 0, 'Mostly bitter, but has sweet, fruity, and herbal notes due. Said to open up the appetite, which makes this good pre-dinner beverage.', 'Gin', 'Bitter'),
+('Brandy Old Fashioned', 'Brandy, Angostura Bitter, Orange Slices, Maraschino Cherries, Sugar Cube, Sprite or Club Soda, Orange Slice Garnish', 0, 'Can be made sweet or sour depending on the soda.', 'Brandy', 'Sweet, Sour'),
+('Old Fashioned', 'Whiskey, Bitters, Water, Ice, Simple Syrup, Orange Slice Garnish', 0, 'A sweet whiskey cocktail with slight bitterness and spiciness. A whiskey classic', 'Whiskey', 'Sweet, Spicy')
