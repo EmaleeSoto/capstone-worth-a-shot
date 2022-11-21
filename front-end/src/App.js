@@ -11,6 +11,7 @@ import Establishments from "./Components/Establishments";
 import NavBar from "./Components/NavBar";
 import Drinks from "./Components/Drinks"
 import LandingPageSignedIn from "./Pages/LandingSignedIn";
+import IndividualDrink from './Components/IndividualDrink'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<Home />}/>
           <Route path="/places" element={<Establishments />}/>
           <Route path="/alcohols" element={<Drinks />}/>
+          <Route path="/alcohols/:id" element={<IndividualDrink />}/>
         </Routes>
       </Router>
       
