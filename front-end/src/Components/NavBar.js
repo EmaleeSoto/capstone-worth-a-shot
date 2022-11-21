@@ -8,6 +8,11 @@ const Nav = () => {
         <h2>Home</h2>
       </Link>
       <br></br>
+      <Link className="nav-link" to ="/about">About</Link>
+      <br></br>
+      <Link className='nav-link' to="/user/favorties">Favorites</Link>
+      <br></br>
+      <button>Log Out</button>
     </nav>
   );
 };

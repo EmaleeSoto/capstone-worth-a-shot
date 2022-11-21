@@ -18,4 +18,4 @@ const prodConnection = {
   
   const db = pgp(process.env.DATABASE_URL ? prodConnection : connection);
   
-  module.exports = db;
+  module.exports = db, pgp;
