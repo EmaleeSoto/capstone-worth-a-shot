@@ -1,7 +1,11 @@
 const express = require("express");
 const db = require("../db/dbConfig");
 const alcohol = express.Router();
-const { getAllAlcohols, getAlcohol } = require("../queries/alcohols");
+const {
+  getAllAlcohols,
+  getAlcohol,
+  //   getAlcoholByName,
+} = require("../queries/alcohols");
 
 //INDEX
 alcohol.get("/", async (req, res) => {
@@ -19,5 +23,16 @@ alcohol.get("/:id", async (req, res) => {
     res.status(404).json({ success: false, payload: "not found" });
   }
 });
+
+//SHOW by name
+// alcohol.get("/:name", async (req, res) => {
+//   const { name } = req.params;
+//   const alcohol = await getAlcoholByName(name);
+//   if (alcohol.name) {
+//     res.json({ success: true, payload: alcohol });
+//   } else {
+//     res.status(404).json({ success: false, payload: "not found" });
+//   }
+// });
 
 module.exports = alcohol;

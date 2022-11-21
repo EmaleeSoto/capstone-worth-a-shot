@@ -19,7 +19,21 @@ const getAlcohol = async (id) => {
   }
 };
 
+//EXPERIMENTAL, MAY NOT NEED
+// const getAlcoholByName = async (name) => {
+//   try {
+//     const oneAlcohol = await db.one(
+//       "SELECT * FROM alcohols WHERE name LIKE '%name%'",
+//       name
+//     );
+//     return oneAlcohol;
+//   } catch (error) {
+//     return error;
+//   }
+// };
+
 module.exports = {
   getAllAlcohols,
   getAlcohol,
+  //   getAlcoholByName,
 };

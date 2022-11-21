@@ -1,4 +1,4 @@
-\c worth_a_shot_user
+\c worth_a_shot
 
 INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES
 ('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounge, jazz, music'),
