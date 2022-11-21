@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS worth_a_shot_user;
-CREATE DATABASE worth_a_shot_user; 
+DROP DATABASE IF EXISTS worth_a_shot;
+CREATE DATABASE worth_a_shot; 
 
-\c worth_a_shot_user; 
+\c worth_a_shot; 
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -20,5 +20,8 @@ CREATE TABLE alcohols (
     ingredients TEXT NOT NULL,
     proof INT,
     description TEXT NOT NULL,
-    category TEXT NOT NULL
+    category TEXT NOT NULL,
+    flavor TEXT NOT NULL
 );
+
+-- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor

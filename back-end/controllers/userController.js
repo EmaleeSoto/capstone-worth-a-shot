@@ -1,16 +1,19 @@
 const express = require("express");
 const db = require("../db/dbConfig");
 const user = express.Router();
+const axios = require("axios");
 const {
   getUser,
   deleteUser,
   createUser,
   updateUser,
+  getAllUsers,
 } = require("../queries/users");
+//TODO: I think we're missing the getAllAlcohols functions for the index
 
 //INDEX
 user.get("/", async (req, res) => {
-  const allUsers = await db.any("SELECT * FROM users");
+  const allUsers = await getAllUsers();
   res.json({ payload: allUsers });
 });
 
@@ -23,6 +26,30 @@ user.get("/:id", async (req, res) => {
   } else {
     res.status(404).json({ success: false, payload: "not found" });
   }
+});
+
+//SHOW BARS BY PREFS
+user.get("/:id/preferences", async (req, res) => {
+  let myUser = await getUser(req.params.id);
+  let myUserPrefs = [];
+  let categories = myUser.atmosphere.split(", ");
+  for (const category of categories) {
+    let tempArray = await axios
+      .get(
+        `https://api.yelp.com/v3/businesses/search?location=NYC&categories=${category}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+          },
+        }
+      )
+      .then((response) => {
+        return response.data.businesses;
+      });
+    myUserPrefs = [...myUserPrefs, ...tempArray];
+  }
+
+  res.send(myUserPrefs);
 });
 
 //CREATE
