@@ -13,3 +13,12 @@ CREATE TABLE users (
     flavor TEXT,
     atmosphere TEXT NOT NULL
 );
+
+CREATE TABLE alcohols (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    ingredients TEXT NOT NULL,
+    proof INT,
+    description TEXT NOT NULL,
+    category TEXT NOT NULL
+);
