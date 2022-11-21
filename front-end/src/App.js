@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 import "./App.css";
 import Establishments from "./Components/Establishments";
 import NavBar from "./Components/NavBar";
-import Beverages from "./Pages/Beverages"
+import Drinks from "./Components/Drinks"
 import LandingPageSignedIn from "./Pages/LandingSignedIn";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/splash" element={<SplashPage />}/>
           <Route path="/" element={<Home />}/>
           <Route path="/places" element={<Establishments />}/>
-          <Route path="/beverages" element={<Beverages />}/>
+          <Route path="/alcohols" element={<Drinks />}/>
         </Routes>
       </Router>
       
