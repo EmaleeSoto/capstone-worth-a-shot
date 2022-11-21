@@ -9,7 +9,7 @@ const {
 
 //INDEX
 alcohol.get("/", async (req, res) => {
-  const allAlcohols = await db.any("SELECT * FROM alcohols"); //TODO: shouldn't this be getAllAlcohols?
+  const allAlcohols = await getAllAlcohols();
   res.json({ payload: allAlcohols });
 });
 

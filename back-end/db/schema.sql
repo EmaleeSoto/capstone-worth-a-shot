@@ -20,5 +20,8 @@ CREATE TABLE alcohols (
     ingredients TEXT NOT NULL,
     proof INT,
     description TEXT NOT NULL,
-    category TEXT NOT NULL
+    category TEXT NOT NULL,
+    flavor TEXT NOT NULL
 );
+
+-- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor
