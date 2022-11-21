@@ -1,18 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
-const Nav = () => {
+const Nav = ({ signOutOfAccount, loggedIn }) => {
+  const navigate = useNavigate();
   return (
     <nav>
       <Link className="nav-link" to="/">
         <h2>Home</h2>
       </Link>
       <br></br>
-      <Link className="nav-link" to ="/about">About</Link>
+      <Link className="nav-link" to="/about">
+        About
+      </Link>
       <br></br>
-      <Link className='nav-link' to="/user/favorties">Favorites</Link>
+      <Link className="nav-link" to="/user/favorties">
+        Favorites
+      </Link>
       <br></br>
-      <button>Log Out</button>
+      {loggedIn ? (
+        <div id="login-wrapper">
+          <button
+            className="tab"
+            id="logout"
+            onClick={() => {
+              signOutOfAccount();
+              navigate("/");
+            }}
+          >
+            Log Out
+          </button>
+        </div>
+      ) : (
+        <div className="tab" id="login-wrapper">
+          <Link to="/sign-in" id="sign-in">
+            <button>
+              <span>Login</span>
+            </button>
+          </Link>
+          <Link to="/sign-up" id="sign-up">
+            <button>
+              <span>Sign Up!</span>
+            </button>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

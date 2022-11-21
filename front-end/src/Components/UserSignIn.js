@@ -23,8 +23,8 @@ export default function UserSignIn({ setLogin }) {
         const user = userCredential.user;
         if (user) {
           alert("Welcome back! You're now logged in!");
-          // Navigates to "Establishments" page after successful sign-in
-          navigate("/places");
+          // Navigates to a USER Splash Page (this should be personal to each user)
+          navigate("/myhome");
         }
         // ...
       })
