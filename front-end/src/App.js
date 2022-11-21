@@ -7,10 +7,11 @@ import Home from "./Pages/Home";
 import "./App.css";
 import Establishments from "./Components/Establishments";
 import NavBar from "./Components/NavBar";
-import Beverages from "./Pages/Beverages";
+import Drinks from "./Components/Drinks";
 import LandingPageSignedIn from "./Pages/LandingSignedIn";
 import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
+import IndividualDrink from "./Components/IndividualDrink";
 
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
@@ -48,7 +49,8 @@ const App = () => {
           <Route path="/sign-up" element={<UserSignUp />} />
           <Route path="/splash" element={<SplashPage />} />
           <Route path="/places" element={<Establishments />} />
-          <Route path="/beverages" element={<Beverages />} />
+          <Route path="/alcohols" element={<Drinks />} />
+          <Route path="/alcohols/:id" element={<IndividualDrink />} />
         </Routes>
       </Router>
     </div>

@@ -7,7 +7,7 @@ const LandingPageSignedIn = () => {
             <break></break>
             <Link to="/places">Find Clubs</Link>
             <br></br>
-            <Link to="/beverages">Find Drinks</Link>
+            <Link to="/alcohols">Find Drinks</Link>
         </div>
     )
 }
