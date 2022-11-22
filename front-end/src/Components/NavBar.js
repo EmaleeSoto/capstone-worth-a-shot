@@ -11,7 +11,6 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
       <Link className="nav-link" to="/about">
         About
       </Link>
-
       {loggedIn ? (
         <div id="login-wrapper">
           <Link className="nav-link" to="/user/favorties">
