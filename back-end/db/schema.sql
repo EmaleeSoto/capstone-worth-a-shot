@@ -10,7 +10,7 @@ CREATE TABLE users (
     gender TEXT,
     zip_code TEXT,
     personality TEXT,
-    flavor TEXT,
+    flavors TEXT,
     atmosphere TEXT NOT NULL
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE alcohols (
     proof INT,
     description TEXT NOT NULL,
     category TEXT NOT NULL,
-    flavor TEXT NOT NULL
+    flavors TEXT NOT NULL
 );
 
 -- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor

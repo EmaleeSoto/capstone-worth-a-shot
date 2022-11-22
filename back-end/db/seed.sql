@@ -1,11 +1,11 @@
 \c worth_a_shot
 
-INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES
+INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere) VALUES
 ('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues'),
 ('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktailbars, danceclubs'),
 ('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'danceclubs, adultentertainment, cocktailbars, lounges');
 
-INSERT INTO alcohols (name, ingredients, proof, description, category, flavor) VALUES
+INSERT INTO alcohols (name, ingredients, proof, description, category, flavors) VALUES
 ('Stella Artois', 'Water, Malted Barley, Maize, Saaz Hops', 10, 'This beer is great for its herbal and malty sweetness, with a smooth yet bitter aftertaste.', 'Beer', 'Bitter'),
 ('Heineken Beer', 'Water, Malted Barley, Hop Extract, Yeast', 10, 'A sweet and sour beer that often has a hint of green apple and sweet corn.', 'Beer', 'Bitter'),
 ('Sam Adams', 'Water, Malted Barley, Oats, Wheat, Hops, Yeast', 10, 'We recommend this beer for those who want that toasty, earthy bitter kick for their palette.', 'Beer', 'Bitter'),
