@@ -3,11 +3,11 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <h1>This is Worth A Shot!</h1>
+      <h1>This is Worth a Shot!</h1>
       <section></section>
       <h5>
-        Welcome to "Worth A Shot!", an app designed to help the user interact
-        with their peers through one of the World's favorite passtimes.
+        Welcome to Worth a Shot, an app designed to help the user interact with
+        their peers through one of the world's favorite pastimes.
       </h5>
       <section></section>
       <h4>
