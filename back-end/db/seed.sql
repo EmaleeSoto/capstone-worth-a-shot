@@ -1,9 +1,9 @@
 \c worth_a_shot
 
-INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere) VALUES
-('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues'),
-('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktailbars, danceclubs'),
-('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'danceclubs, adultentertainment, cocktailbars, lounges');
+INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere, firebaseId) VALUES
+('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues', 100),
+('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktailbars, danceclubs', 101),
+('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'danceclubs, adultentertainment, cocktailbars, lounges', 102);
 
 INSERT INTO alcohols (name, ingredients, proof, description, category, flavors) VALUES
 ('Stella Artois', 'Water, Malted Barley, Maize, Saaz Hops', 10, 'This beer is great for its herbal and malty sweetness, with a smooth yet bitter aftertaste.', 'Beer', 'Bitter'),

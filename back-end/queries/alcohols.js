@@ -19,6 +19,15 @@ const getAlcohol = async (id) => {
   }
 };
 
+// const getAlcoholbyCategory = async (categoryName) => {
+//   try {
+//     const oneAlcohol = await db.one("SELECT * FROM alcohols WHERE category LIKE categoryName%" categoryName);
+//     return oneAlcohol;
+//   } catch (error) {
+//     return error;
+//   }
+// };
+
 //EXPERIMENTAL, MAY NOT NEED
 // const getAlcoholByName = async (name) => {
 //   try {

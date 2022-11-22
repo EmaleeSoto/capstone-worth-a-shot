@@ -4,6 +4,7 @@ const user = express.Router();
 const axios = require("axios");
 const {
   getUser,
+  getUserbyFirebase,
   deleteUser,
   createUser,
   updateUser,
@@ -21,6 +22,17 @@ user.get("/", async (req, res) => {
 user.get("/:id", async (req, res) => {
   const { id } = req.params;
   const user = await getUser(id);
+  if (user.id) {
+    res.json({ success: true, payload: user });
+  } else {
+    res.status(404).json({ success: false, payload: "not found" });
+  }
+});
+
+//SHOW BY FIREBASE
+user.get("/firebase/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await getUserbyFirebase(id);
   if (user.id) {
     res.json({ success: true, payload: user });
   } else {

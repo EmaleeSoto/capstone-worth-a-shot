@@ -18,6 +18,18 @@ const getUser = async (id) => {
   }
 };
 
+const getUserbyFirebase = async (firebaseId) => {
+  try {
+    const oneUser = await db.one(
+      "SELECT * FROM users WHERE firebaseId=$1",
+      firebaseId
+    );
+    return oneUser;
+  } catch (error) {
+    return error;
+  }
+};
+
 const deleteUser = async (id) => {
   try {
     const oneUser = await db.one(
@@ -70,6 +82,7 @@ const updateUser = async (
 module.exports = {
   getAllUsers,
   getUser,
+  getUserbyFirebase,
   deleteUser,
   createUser,
   updateUser,
