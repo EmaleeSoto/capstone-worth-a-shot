@@ -12,6 +12,7 @@ import LandingPageSignedIn from "./Pages/LandingSignedIn";
 import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
+import DrinksByPref from "./Components/DrinksByPref"
 
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/places" element={<Establishments />} />
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
+          <Route path="/alcohols/category" element={<DrinksByPref />}/>
         </Routes>
       </Router>
     </div>

@@ -27,7 +27,7 @@ const Drinks = () => {
       <h1>Boozer's Index</h1>
       {booze.map((booze, index) => {
         return (
-          <div>
+          <div key={index}>
             <h1>{booze.name}</h1>
             <h3>{booze.proof}</h3>
             <h5>{booze.description}</h5>
