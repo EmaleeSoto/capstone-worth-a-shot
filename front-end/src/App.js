@@ -14,9 +14,9 @@ import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
+import UserPreferences from "./Components/UserPreferences";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
-import UserPreferences from "./Components/UserPreferences";
 
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
@@ -92,8 +92,8 @@ const App = () => {
           <Route path="/places" element={<Establishments user={user} />} />
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
-          <Route path="/alcohols/category" element={<DrinksByPref />}/>
-          <Route path="/user/:id/preferences" element={<UserPreferences/>}/>
+          <Route path="/alcohols/category" element={<DrinksByPref />} />
+          <Route path="/user/:id/preferences" element={<UserPreferences />} />
         </Routes>
       </Router>
     </div>

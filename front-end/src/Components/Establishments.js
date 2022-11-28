@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Establishments = () => {
-  // const [preferences, setPreferences] = useState([]);
-  // const [search, setSearch] = useState("");
+  const [preferences, setPreferences] = useState([]);
+  const [search, setSearch] = useState("");
 
   return (
     <div>
