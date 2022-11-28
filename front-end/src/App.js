@@ -4,6 +4,7 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import LandingPage from "./Pages/LandingPage";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
+import About from "./Pages/About";
 import "./App.css";
 import Establishments from "./Components/Establishments";
 import Onboarding from "./Components/Onboarding";
@@ -36,14 +37,18 @@ const App = () => {
   });
 
   useEffect(() => {
-    axios
-      .get(`${API}/users/firebase/${firebaseId}`)
-      .then((response) => {
-        setUser(response.data.payload);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (loggedIn) {
+      axios
+        .get(`${API}/users/firebase/${firebaseId}`)
+        .then((response) => {
+          setUser(response.data.payload);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      setUser({});
+    }
   }, [loggedIn]);
 
   const signOutOfAccount = () => {
@@ -88,8 +93,9 @@ const App = () => {
           <Route path="/places" element={<Establishments user={user} />} />
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
-          <Route path="/alcohols/category" element={<DrinksByPref />}/>
           <Route path="/user/:id/preferences" element={<UserPreferences user={user}/>}/>
+          <Route path="/alcohols/category" element={<DrinksByPref />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </div>

@@ -26,14 +26,11 @@ export default function Onboarding({ userFirebaseId }) {
     setUser({ firebase_id: userFirebaseId });
   }, []);
 
-  //console.log("NEWUSER: ", newUser);
-  console.log(user.firebase_id);
-
   const addUser = async (user) => {
     await axios
       .post(`${API}/users`, user)
       .then((response) => {
-        navigate("/myhome");
+        navigate("/user/landing");
       })
       .catch((error) => {
         console.log(error);
