@@ -4,6 +4,7 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import LandingPage from "./Pages/LandingPage";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
+import About from "./Pages/About";
 import "./App.css";
 import Establishments from "./Components/Establishments";
 import Onboarding from "./Components/Onboarding";
@@ -88,6 +89,7 @@ const App = () => {
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route path="/alcohols/category" element={<DrinksByPref />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </div>
