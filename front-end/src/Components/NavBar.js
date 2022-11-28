@@ -1,12 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
+import "./NavBar.css";
 
 const Nav = ({ signOutOfAccount, loggedIn }) => {
   const navigate = useNavigate();
   return (
-    <nav>
+    <nav className="nav header">
       <Link className="nav-link" to="/">
-        <h2>Home</h2>
+        <div>
+          <img
+            className="nav-logo"
+            alt="Worth a Shot logo"
+            src={require("../images/navlogo.png")}
+          />
+        </div>
       </Link>
 
       <br></br>
@@ -26,19 +33,19 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
               navigate("/");
             }}
           >
-            Log Out
+            Log out
           </button>
         </div>
       ) : (
         <div className="tab" id="login-wrapper">
           <Link to="/sign-in" id="sign-in">
             <button>
-              <span>Login</span>
+              <span>Log in</span>
             </button>
           </Link>
           <Link to="/sign-up" id="sign-up">
             <button>
-              <span>Sign Up!</span>
+              <span>Sign up</span>
             </button>
           </Link>
         </div>
