@@ -10,7 +10,7 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
       </Link>
 
       <br></br>
-      <Link className="nav-link" to="/About">
+      <Link className="nav-link" to="/about">
         About
       </Link>
       {loggedIn ? (
