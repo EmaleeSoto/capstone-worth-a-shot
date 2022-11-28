@@ -17,6 +17,7 @@ import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
+import UserPreferences from "./Components/UserPreferences";
 
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
@@ -36,14 +37,18 @@ const App = () => {
   });
 
   useEffect(() => {
-    axios
-      .get(`${API}/users/firebase/${firebaseId}`)
-      .then((response) => {
-        setUser(response.data.payload);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (loggedIn) {
+      axios
+        .get(`${API}/users/firebase/${firebaseId}`)
+        .then((response) => {
+          setUser(response.data.payload);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      setUser({});
+    }
   }, [loggedIn]);
 
   const signOutOfAccount = () => {
