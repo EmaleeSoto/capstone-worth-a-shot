@@ -35,14 +35,18 @@ const App = () => {
   });
 
   useEffect(() => {
-    axios
-      .get(`${API}/users/firebase/${firebaseId}`)
-      .then((response) => {
-        setUser(response.data.payload);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (loggedIn) {
+      axios
+        .get(`${API}/users/firebase/${firebaseId}`)
+        .then((response) => {
+          setUser(response.data.payload);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      setUser({});
+    }
   }, [loggedIn]);
 
   const signOutOfAccount = () => {
