@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <section className="aboutSection">
-      <h1 className="AboutMessage">About-Worth-A-Shot</h1>
+    <section className="about-section">
+      <h1 className="about-header">
+        Revolutionize your nightlife experience with Worth a Shot
+      </h1>
       <br></br>
-      <p>
+      <p className="about-text">
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -30,29 +32,29 @@ const About = () => {
         quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
         voluptas nulla pariatur?"
       </p>
-      <section className="biosSection">
-        <h3 className="biosHeader">Bios</h3>
-        <p className="biosNames">
+      <section className="bios-section">
+        <h3 className="bios-header">Bios</h3>
+        <p className="bio-names">
           <strong>Cesar</strong>
           <br />
           My name is Cesar Ortiz. I'm a full stack software engineer currently
           enrolled in the pursuit fellowship. Pursuit is a 12 month training
           program with a 9% acceptance rate.
         </p>
-        <p className="biosNames">
+        <p className="bio-names">
           <strong>Emalee</strong>
           <br />
           Pursuit 8.3 Fellow | Software Engineer Studying full stack web
           development under Pursuit.
         </p>
-        <p className="biosNames">
+        <p className="bio-names">
           <strong>Matt</strong>
           <br />
           Hey, I'm Matt, 8.3 Pursuit Fellow and a Creative from the jungles of
           NYC. I possess a deep love for Drawing, Writing, and producing
           Hip-Hop/Trap.
         </p>
-        <p className="biosNames">
+        <p className="bio-names">
           <strong>Jonathan</strong>
           <br />
           I'm a full-stack web developer and fellow at Pursuit. 🌱 I’m currently
