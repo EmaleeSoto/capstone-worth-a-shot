@@ -8,17 +8,16 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
       <Link className="nav-link" to="/">
         <h2>Home</h2>
       </Link>
+
       <br></br>
-      <Link className="nav-link" to="/about">
+      <Link className="nav-link" to="/About">
         About
       </Link>
-      <br></br>
-      <Link className="nav-link" to="/user/favorties">
-        Favorites
-      </Link>
-      <br></br>
       {loggedIn ? (
         <div id="login-wrapper">
+          <Link className="nav-link" to="/user/favorties">
+            Favorites
+          </Link>
           <button
             className="tab"
             id="logout"
