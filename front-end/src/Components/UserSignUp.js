@@ -3,7 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import app from "../firebase";
 
-export default function SignUp({ setLogin }) {
+export default function SignUp({ userCreation }) {
   const [profile, setProfile] = useState({
     email: "",
     password: "",
@@ -23,6 +23,7 @@ export default function SignUp({ setLogin }) {
           alert(
             "Welcome to Worth a Shot! You're now signed into your new account."
           );
+          userCreation(user.uid); //user.uid = adwqdqdf21
           // Navigates to "Onboarding" page after successful sign-up. This should prompt the user to fill out a form
           navigate("/onboarding");
         }

@@ -16,6 +16,7 @@ import IndividualDrink from "./Components/IndividualDrink";
 
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
+  const [user, setUser] = useState({});
   const auth = getAuth();
 
   onAuthStateChanged(auth, (user) => {
@@ -38,6 +39,10 @@ const App = () => {
         // An error happened.
       });
   };
+
+  const userCreation = (newUser) => {
+    setUser(newUser);
+  };
   return (
     <div className="worth-a-shot">
       <Router>
@@ -46,9 +51,12 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/user/landing" element={<LandingPageSignedIn />} />
-          <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/onboarding" element={<Onboarding newUser={user} />} />
           <Route path="/sign-in" element={<UserSignIn />} />
-          <Route path="/sign-up" element={<UserSignUp />} />
+          <Route
+            path="/sign-up"
+            element={<UserSignUp userCreation={userCreation} />}
+          />
           <Route path="/splash" element={<SplashPage />} />
           <Route path="/places" element={<Establishments />} />
           <Route path="/alcohols" element={<Drinks />} />
