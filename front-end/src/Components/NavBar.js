@@ -8,7 +8,9 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
       <Link className="nav-link" to="/">
         <h2>Home</h2>
       </Link>
-      <Link className="nav-link" to="/about">
+
+      <br></br>
+      <Link className="nav-link" to="/About">
         About
       </Link>
       {loggedIn ? (
