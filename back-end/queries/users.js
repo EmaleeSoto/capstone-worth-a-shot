@@ -18,11 +18,11 @@ const getUser = async (id) => {
   }
 };
 
-const getUserbyFirebase = async (firebaseId) => {
+const getUserbyFirebase = async (firebase_id) => {
   try {
     const oneUser = await db.one(
-      "SELECT * FROM users WHERE firebaseId=$1",
-      firebaseId
+      "SELECT * FROM users WHERE firebase_id=$1",
+      firebase_id
     );
     return oneUser;
   } catch (error) {
@@ -51,11 +51,21 @@ const createUser = async ({
   personality,
   flavors,
   atmosphere,
+  firebase_id,
 }) => {
   try {
     const newUser = await db.one(
-      "INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [name, age, gender, zip_code, personality, flavors, atmosphere]
+      "INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere, firebase_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+      [
+        name,
+        age,
+        gender,
+        zip_code,
+        personality,
+        flavors,
+        atmosphere,
+        firebase_id,
+      ]
     );
     return newUser;
   } catch (error) {
@@ -65,12 +75,22 @@ const createUser = async ({
 
 const updateUser = async (
   id,
-  { name, age, gender, zip_code, personality, flavors, atmosphere }
+  { name, age, gender, zip_code, personality, flavors, atmosphere, firebase_id }
 ) => {
   try {
     const updateUser = await db.one(
-      "UPDATE users SET name=$1, age=$2, gender=$3, zip_code=$4, personality=$5, flavors=$6, atmosphere=$7 where id=$8 RETURNING *",
-      [name, age, gender, zip_code, personality, flavors, atmosphere, id]
+      "UPDATE users SET name=$1, age=$2, gender=$3, zip_code=$4, personality=$5, flavors=$6, atmosphere=$7, firebase_id=$8 where id=$9 RETURNING *",
+      [
+        name,
+        age,
+        gender,
+        zip_code,
+        personality,
+        flavors,
+        atmosphere,
+        firebase_id,
+        id,
+      ]
     );
     return updateUser;
   } catch (error) {

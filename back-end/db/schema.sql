@@ -12,7 +12,7 @@ CREATE TABLE users (
     personality TEXT,
     flavors TEXT,
     atmosphere TEXT NOT NULL,
-    firebaseId TEXT
+    firebase_id TEXT
 );
 
 CREATE TABLE alcohols (
