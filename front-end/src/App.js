@@ -16,8 +16,8 @@ import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
 import axios from "axios";
-const API = process.env.REACT_APP_API_URL;
 import UserPreferences from "./Components/UserPreferences";
+const API = process.env.REACT_APP_API_URL;
 
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
