@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Onboarding.css";
@@ -7,7 +7,7 @@ const API = process.env.REACT_APP_API_URL;
 
 //TODO: LET FLAVORS HAVE MULTIPLE INPUTS
 
-export default function Onboarding({ newUser }) {
+export default function Onboarding({ userFirebaseId }) {
   let [displayNextForm, setDisplayNextForm] = useState(false);
   let [user, setUser] = useState({
     name: "",
@@ -17,13 +17,19 @@ export default function Onboarding({ newUser }) {
     personality: "",
     flavors: "",
     atmosphere: "",
-    firebaseId: "",
+    firebase_id: "",
   });
   let [atmospheres, setAtmospheres] = useState([]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setUser({ firebase_id: userFirebaseId });
+  }, []);
+
+  //console.log("NEWUSER: ", newUser);
+  console.log(user.firebase_id);
+
   const addUser = async (user) => {
-    setUser({ firebaseId: newUser.uid });
     await axios
       .post(`${API}/users`, user)
       .then((response) => {
