@@ -11,7 +11,8 @@ CREATE TABLE users (
     zip_code TEXT,
     personality TEXT,
     flavors TEXT,
-    atmosphere TEXT NOT NULL
+    atmosphere TEXT NOT NULL,
+    firebase_id TEXT
 );
 
 CREATE TABLE alcohols (

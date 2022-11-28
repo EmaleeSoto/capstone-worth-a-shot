@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Onboarding.css";
@@ -7,7 +7,7 @@ const API = process.env.REACT_APP_API_URL;
 
 //TODO: LET FLAVORS HAVE MULTIPLE INPUTS
 
-export default function Onboarding() {
+export default function Onboarding({ userFirebaseId }) {
   let [displayNextForm, setDisplayNextForm] = useState(false);
   let [user, setUser] = useState({
     name: "",
@@ -17,15 +17,22 @@ export default function Onboarding() {
     personality: "",
     flavors: "",
     atmosphere: "",
+    firebase_id: "",
   });
   let [atmospheres, setAtmospheres] = useState([]);
   const navigate = useNavigate();
 
-  const addUser = (user) => {
-    console.log(API);
-    axios
+  useEffect(() => {
+    setUser({ firebase_id: userFirebaseId });
+  }, []);
+
+  //console.log("NEWUSER: ", newUser);
+  console.log(user.firebase_id);
+
+  const addUser = async (user) => {
+    await axios
       .post(`${API}/users`, user)
-      .then(() => {
+      .then((response) => {
         navigate("/myhome");
       })
       .catch((error) => {
@@ -34,7 +41,6 @@ export default function Onboarding() {
   };
 
   const handleTextChange = (event) => {
-    console.log(event.target.value);
     setUser({ ...user, [event.target.id]: event.target.value });
   };
 
@@ -69,6 +75,8 @@ export default function Onboarding() {
     event.preventDefault();
     user.atmosphere = atmospheres.join(", ");
     addUser(user);
+    //get request to the backend for user, and send it back up to app
+    //axios.get().then().catch()
     console.log(user);
   };
 

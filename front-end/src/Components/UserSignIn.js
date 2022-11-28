@@ -2,8 +2,10 @@ import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import app from "../firebase";
+import axios from "axios";
+const API = process.env.REACT_APP_API_URL;
 
-export default function UserSignIn({ setLogin }) {
+export default function UserSignIn() {
   const [profile, setProfile] = useState({
     email: "",
     password: "",
@@ -22,6 +24,7 @@ export default function UserSignIn({ setLogin }) {
         // Action when user is signed in
         const user = userCredential.user;
         if (user) {
+          //get firebase id
           alert("Welcome back! You're now logged in!");
           // Navigates to a USER Splash Page (this should be personal to each user)
           navigate("/myhome");
