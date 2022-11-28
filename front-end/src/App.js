@@ -89,6 +89,7 @@ const App = () => {
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route path="/alcohols/category" element={<DrinksByPref />}/>
+          <Route path="/user/:id/preferences" element={<UserPreferences/>}/>
         </Routes>
       </Router>
     </div>
