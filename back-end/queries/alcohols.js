@@ -4,6 +4,7 @@ const db = require("../db/dbConfig.js");
 const getAllAlcohols = async () => {
   try {
     const allAlcohols = await db.any("SELECT * FROM alcohols");
+    console.log(allAlcohols, db)
     return allAlcohols;
   } catch (error) {
     return error;
