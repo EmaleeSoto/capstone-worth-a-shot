@@ -6,6 +6,7 @@ import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
 import "./App.css";
 import Establishments from "./Components/Establishments";
+import Onboarding from "./Components/Onboarding";
 import NavBar from "./Components/NavBar";
 import Drinks from "./Components/Drinks";
 import LandingPageSignedIn from "./Pages/LandingSignedIn";
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/user/landing" element={<LandingPageSignedIn />} />
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/sign-in" element={<UserSignIn />} />
           <Route path="/sign-up" element={<UserSignUp />} />
           <Route path="/splash" element={<SplashPage />} />

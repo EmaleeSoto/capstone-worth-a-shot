@@ -37,13 +37,13 @@ const createUser = async ({
   zip_code,
   gender,
   personality,
-  flavor,
+  flavors,
   atmosphere,
 }) => {
   try {
     const newUser = await db.one(
-      "INSERT INTO users (name, age, gender, zip_code, personality, flavor, atmosphere) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [name, age, gender, zip_code, personality, flavor, atmosphere]
+      "INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [name, age, gender, zip_code, personality, flavors, atmosphere]
     );
     return newUser;
   } catch (error) {
@@ -53,12 +53,12 @@ const createUser = async ({
 
 const updateUser = async (
   id,
-  { name, age, gender, zip_code, personality, flavor, atmosphere }
+  { name, age, gender, zip_code, personality, flavors, atmosphere }
 ) => {
   try {
     const updateUser = await db.one(
-      "UPDATE users SET name=$1, age=$2, gender=$3, zip_code=$4, personality=$5, flavor=$6, atmosphere=$7 where id=$8 RETURNING *",
-      [name, age, gender, zip_code, personality, flavor, atmosphere, id]
+      "UPDATE users SET name=$1, age=$2, gender=$3, zip_code=$4, personality=$5, flavors=$6, atmosphere=$7 where id=$8 RETURNING *",
+      [name, age, gender, zip_code, personality, flavors, atmosphere, id]
     );
     return updateUser;
   } catch (error) {
