@@ -15,8 +15,8 @@ import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
-import axios from "axios";
 import UserPreferences from "./Components/UserPreferences";
+import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 const App = () => {
@@ -61,17 +61,7 @@ const App = () => {
         // An error happened.
       });
   };
-  const getSignedInUser = () => {
-    axios
-      .get(`${API}/users/firebase/${firebaseId}`)
-      .then((response) => {
-        setUser(response.data.payload);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  console.log(user);
+  console.log("THIS IS USER: ", user);
   return (
     <div className="worth-a-shot">
       <Router>
@@ -79,7 +69,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<LandingPage />} />
-          <Route path="/user/landing" element={<LandingPageSignedIn />} />
+          <Route
+            path="/user/landing"
+            element={<LandingPageSignedIn user={user} />}
+          />
+          <Route
+            path="/user/preferences"
+            element={<UserPreferences user={user} />}
+          />
           <Route
             path="/onboarding"
             element={<Onboarding userFirebaseId={firebaseId} />}

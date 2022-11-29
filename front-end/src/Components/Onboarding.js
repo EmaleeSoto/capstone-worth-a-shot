@@ -23,6 +23,7 @@ export default function Onboarding({ userFirebaseId }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("FIREBASE UID: ", userFirebaseId);
     setUser({ firebase_id: userFirebaseId });
   }, []);
 
@@ -48,11 +49,11 @@ export default function Onboarding({ userFirebaseId }) {
   //TODO: REFACTOR CODE, THIS IS VERY BAD BUT I AM TIRED
   const handleAtmosphere = (event) => {
     event.preventDefault();
-    let string = atmospheres.join(", ");
-    if (string.includes(event.target.value)) {
+    if (atmospheres.indexOf(event.target.value) > 0) {
       atmospheres.splice(atmospheres.indexOf(event.target.value), 1);
+      setAtmospheres(atmospheres);
     } else {
-      atmospheres.push(event.target.value);
+      setAtmospheres((atmospheres) => [...atmospheres, event.target.value]);
     }
   };
 
@@ -71,6 +72,7 @@ export default function Onboarding({ userFirebaseId }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     user.atmosphere = atmospheres.join(", ");
+    console.log(user.atmosphere);
     addUser(user);
     //get request to the backend for user, and send it back up to app
     //axios.get().then().catch()
