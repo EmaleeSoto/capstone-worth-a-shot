@@ -1,0 +1,11 @@
+.home-header {
+  text-align: center;
+  font-size: 50px;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
+}
+
+.home-text {
+  margin-left: 50px;
+  margin-right: 50px;
+}

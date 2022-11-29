@@ -1,0 +1,79 @@
+.header {
+  background-color: #001b46;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 10px;
+  font-weight: unset;
+}
+
+.nav a:link {
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-logo {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-logo:hover {
+  filter: drop-shadow(0px 0px 15px #fdc500);
+}
+
+.nav-link {
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+#login-wrapper {
+  text-align: right;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    font-size: 18px;
+  }
+  .nav-link {
+    padding-top: 0px;
+    padding-bottom: 5px;
+  }
+  .nav-logo {
+    height: 35px;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .nav {
+    font-size: 18px;
+  }
+  .nav-link {
+    padding-bottom: 15px;
+  }
+  .nav {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3);
+  }
+  #login-wrapper {
+    text-align: center;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+  }
+  .nav-logo {
+    margin-left: 0px;
+    padding-bottom: 0px;
+  }
+}

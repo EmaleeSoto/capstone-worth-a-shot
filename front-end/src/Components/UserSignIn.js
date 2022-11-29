@@ -60,7 +60,7 @@ export default function UserSignIn() {
       />
       <br></br>
       <button id="login" onClick={signIn}>
-        Login
+        Log in
       </button>
     </div>
   );
