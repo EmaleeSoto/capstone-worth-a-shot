@@ -6,19 +6,19 @@ const API = process.env.REACT_APP_API_URL;
 //specifically the users preferences
 //firebase/id
 //string.split 
-const UserPreferences = (user) => {
+const UserPreferences = ({ user }) => {
     const [ preferenceList, setPreferenceList ] = useState([])
     
     useEffect(() => {
         axios
-          .get(`${API}/user/{user.id}/preferences`)
+          .get(`${API}/${user.firebase_id}/preferences`)
           .then((response) => {
-            setPreferenceList(response.data.payload);
+            setPreferenceList(response.data);
           })
           .catch((error) => {
             console.log(error);
           });
-      }, []);
+      }, [user]);
 
       console.log("This is a logged in user's preferences :", preferenceList)
     
