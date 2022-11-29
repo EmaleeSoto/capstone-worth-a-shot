@@ -2,13 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Establishments = () => {
-  const [preferences, setPreferences] = useState([]);
-  const [search, setSearch] = useState("");
+const Establishments = ({ user }) => {
+  // const [preferences, setPreferences] = useState([]);
+  // const [search, setSearch] = useState("");
 
   return (
     <div>
-      <h1> Hi! </h1>
+      <h1>{user.name}</h1>
     </div>
   );
 };

@@ -61,16 +61,6 @@ const App = () => {
         // An error happened.
       });
   };
-  const getSignedInUser = () => {
-    axios
-      .get(`${API}/users/firebase/${firebaseId}`)
-      .then((response) => {
-        setUser(response.data.payload);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   console.log(user);
   return (
     <div className="worth-a-shot">
@@ -79,7 +69,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/landing" element={<LandingPage />} />
-          <Route path="/user/landing" element={<LandingPageSignedIn />} />
+          <Route
+            path="/user/landing"
+            element={<LandingPageSignedIn user={user} />}
+          />
           <Route
             path="/onboarding"
             element={<Onboarding userFirebaseId={firebaseId} />}
