@@ -15,8 +15,6 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
           />
         </div>
       </Link>
-
-      <br></br>
       <Link className="nav-link" to="/about">
         About
       </Link>

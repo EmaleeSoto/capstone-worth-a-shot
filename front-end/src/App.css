@@ -12,6 +12,12 @@ a:hover {
   color: #fdc500;
 }
 
+@media screen and (max-width: 690px) {
+  body {
+    padding-top: 175px;
+  }
+}
+
 /* Button colors */
 
 button {
