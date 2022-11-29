@@ -10,8 +10,9 @@ const UserPreferences = ({ user }) => {
     const [ preferenceList, setPreferenceList ] = useState([])
     
     useEffect(() => {
+        console.log(user)
         axios
-          .get(`${API}/${user.firebase_id}/preferences`)
+          .get(`${API}/users/${user.id}/preferences`)
           .then((response) => {
             setPreferenceList(response.data);
           })
