@@ -61,7 +61,7 @@ const App = () => {
         // An error happened.
       });
   };
-  console.log(user);
+  console.log("THIS IS USER: ", user);
   return (
     <div className="worth-a-shot">
       <Router>
@@ -72,6 +72,10 @@ const App = () => {
           <Route
             path="/user/landing"
             element={<LandingPageSignedIn user={user} />}
+          />
+          <Route
+            path="/user/preferences"
+            element={<UserPreferences user={user} />}
           />
           <Route
             path="/onboarding"
