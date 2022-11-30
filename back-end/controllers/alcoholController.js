@@ -24,15 +24,15 @@ alcohol.get("/:id", async (req, res) => {
   }
 });
 
-//SHOW by name
-// alcohol.get("/:name", async (req, res) => {
-//   const { name } = req.params;
-//   const alcohol = await getAlcoholByName(name);
-//   if (alcohol.name) {
-//     res.json({ success: true, payload: alcohol });
-//   } else {
-//     res.status(404).json({ success: false, payload: "not found" });
-//   }
-// });
+// SHOW BY CATEGORY
+alcohol.get("/:name", async (req, res) => {
+  const { name } = req.params;
+  const alcohol = await getAlcoholByName(name);
+  if (alcohol.name) {
+    res.json({ success: true, payload: alcohol });
+  } else {
+    res.status(404).json({ success: false, payload: "not found" });
+  }
+});
 
 module.exports = alcohol;

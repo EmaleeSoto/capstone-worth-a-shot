@@ -20,7 +20,7 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
       </Link>
       {loggedIn ? (
         <div id="login-wrapper">
-          <Link className="nav-link" to="/user/favorties">
+          <Link className="nav-link" to="/myfavorites">
             Favorites
           </Link>
           <button

@@ -58,7 +58,7 @@ export default function Onboarding({ userFirebaseId }) {
 
   //Check validity of Zip Code
   const zipCodeCheck = (zipCode) => {
-    if (zipCode.length !== 6) {
+    if (zipCode.length !== 5) {
       return false;
     }
     for (const num of zipCode) {
