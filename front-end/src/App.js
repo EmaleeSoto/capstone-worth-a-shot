@@ -28,6 +28,7 @@ const App = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in.
+      //console.log("State Changed");
       setLogin(true);
       setFirebaseId(user.uid);
     } else {
@@ -37,18 +38,21 @@ const App = () => {
   });
 
   useEffect(() => {
-    if (loggedIn) {
-      axios
-        .get(`${API}/users/firebase/${firebaseId}`)
-        .then((response) => {
-          setUser(response.data.payload);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      setUser({});
+    async function fetchUser() {
+      if (loggedIn) {
+        await axios
+          .get(`${API}/users/firebase/${firebaseId}`)
+          .then((response) => {
+            setUser(response.data.payload);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        setUser({});
+      }
     }
+    fetchUser();
   }, [loggedIn, firebaseId]);
 
   const signOutOfAccount = () => {
@@ -88,7 +92,10 @@ const App = () => {
           />
           <Route path="/splash" element={<SplashPage />} />
           <Route path="/places" element={<Establishments user={user} />} />
-          <Route path="/user/preferences" element={<UserPreferences user={user}/>}/>
+          <Route
+            path="/user/preferences"
+            element={<UserPreferences user={user} />}
+          />
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route path="/alcohols/category" element={<DrinksByPref />} />
