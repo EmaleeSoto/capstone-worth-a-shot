@@ -46,7 +46,6 @@ export default function Onboarding({ userFirebaseId }) {
     setUser({ ...user, [event.target.id]: Number(event.target.value) });
   };
 
-  //TODO: REFACTOR CODE, THIS IS VERY BAD BUT I AM TIRED
   const handleAtmosphere = (event) => {
     event.preventDefault();
     if (atmospheres.indexOf(event.target.value) > 0) {
@@ -58,7 +57,17 @@ export default function Onboarding({ userFirebaseId }) {
   };
 
   //Check validity of Zip Code
-  const zipCodeCheck = (zipCode) => {};
+  const zipCodeCheck = (zipCode) => {
+    if (zipCode.length !== 6) {
+      return false;
+    }
+    for (const num of zipCode) {
+      if (!Number(num)) {
+        return false;
+      }
+    }
+    return true;
+  };
 
   const goToNextForm = (event) => {
     event.preventDefault();
@@ -72,11 +81,15 @@ export default function Onboarding({ userFirebaseId }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     user.atmosphere = atmospheres.join(", ");
-    console.log(user.atmosphere);
-    addUser(user);
-    //get request to the backend for user, and send it back up to app
-    //axios.get().then().catch()
-    console.log(user);
+    if (!zipCodeCheck(user.zip_code)) {
+      alert("Please enter a valid Zip Code!");
+    } else {
+      console.log(user.atmosphere);
+      addUser(user);
+      //get request to the backend for user, and send it back up to app
+      //axios.get().then().catch()
+      console.log(user);
+    }
   };
 
   return (
