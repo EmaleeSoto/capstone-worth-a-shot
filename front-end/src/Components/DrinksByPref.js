@@ -13,7 +13,7 @@ const DrinksByPref = () => {
       .get(`${API}/alcohols`)
       .then((response) => {
         setAllDrinks(response.data.payload);
-        setDisplayDrinks(response.data.payload)
+        setDisplayDrinks(response.data.payload);
       })
       .catch((error) => {
         console.log(error);
@@ -25,7 +25,7 @@ const DrinksByPref = () => {
     let newArray = allDrinks.filter((drink) => {
       return drink.category === "Beer";
     });
-    setDisplayDrinks([...newArray]); //don't need spread ??
+    setDisplayDrinks(newArray);
   };
 
   const filterForCider = (event) => {
@@ -39,44 +39,41 @@ const DrinksByPref = () => {
   const filterForWine = (event) => {
     event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Wine'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Wine";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const filterforGin = (event) => {
     event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Gin'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Gin";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const filterForWhiskey = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Whiskey'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Whiskey";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const filterForBrandy = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Brandy'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Brandy";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const showAllDrinks = (event) => {
-    event.preventDefault()
-    setDisplayDrinks(allDrinks)
-  }
+    event.preventDefault();
+    setDisplayDrinks(allDrinks);
+  };
 
-  console.log(
-    "This is a list of the beer:",
-    displayDrinks
-  );
+  console.log("This is a list of the beer:", displayDrinks);
 
   return (
     <div>

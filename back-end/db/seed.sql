@@ -1,7 +1,7 @@
 \c worth_a_shot
 
-INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere, firebase_id) VALUES
-('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues', '100'),
+INSERT INTO users (name, age, gender, zip_code, personality, flavors, atmosphere, firebase_id, establishments) VALUES
+('John Wick', 42, 'male', '10003', 'introvert', 'bitter', 'lounges, jazzandblues, musicvenues', '100', ''),
 ('Anne Hathaway', 40, 'female', '10002', 'extrovert', 'sweet, sour', 'cocktailbars, danceclubs', '101'),
 ('Leonardo DiCaprio', 48, 'male', '10038', 'ambivert', 'sour, bitter', 'danceclubs, adultentertainment, cocktailbars, lounges', '102');
 
@@ -18,4 +18,6 @@ INSERT INTO alcohols (name, ingredients, proof, description, category, flavors) 
 ('Tom Collins', 'Gin, Lemon Juice, Sugar, Carbonated Water, Lemon Slice Garnish, Maraschino Cherry', 0, 'With lemon as its primary fruit ingredient, this drink tastes a lot like an alcoholic lemonade. Citrusy, fizzy, and refreshing.', 'Gin', 'Sour'),
 ('Negroni', 'Gin, Vermouth Russo, Campari, Orange Peel Garnish', 0, 'Mostly bitter, but has sweet, fruity, and herbal notes. This drink is said to ''open up'' the appetite, which makes it a great pre-dinner beverage.', 'Gin', 'Bitter'),
 ('Brandy Old Fashioned', 'Brandy, Angostura Bitter, Orange Slices, Maraschino Cherries, Sugar Cube, Sprite or Club Soda, Orange Slice Garnish', 0, 'This drink can be made sweet or sour depending on the soda.', 'Brandy', 'Sweet, Sour'),
-('Old Fashioned', 'Whiskey, Bitters, Water, Ice, Simple Syrup, Orange Slice Garnish', 0, 'A sweet whiskey cocktail with slight bitterness and spiciness. A whiskey classic.', 'Whiskey', 'Sweet, Spicy')
+('Old Fashioned', 'Whiskey, Bitters, Water, Ice, Simple Syrup, Orange Slice Garnish', 0, 'A sweet whiskey cocktail with slight bitterness and spiciness. A whiskey classic.', 'Whiskey', 'Sweet, Spicy');
+
+INSERT INTO establishments (name, address, user_uid, yelp_id) VALUES ('Le Bernardin', '155 W 51st St', '1, 2, 3', 'LegwUwIxpkeRVtQ');

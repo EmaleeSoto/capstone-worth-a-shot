@@ -86,8 +86,6 @@ export default function Onboarding({ userFirebaseId }) {
     } else {
       console.log(user.atmosphere);
       addUser(user);
-      //get request to the backend for user, and send it back up to app
-      //axios.get().then().catch()
       console.log(user);
     }
   };
