@@ -9,25 +9,24 @@ const API = process.env.REACT_APP_API_URL;
 const UserPreferences = ({ user }) => {
     const [ preferenceList, setPreferenceList ] = useState([])
     
-    useEffect(() => {
-        console.log(user)
-        axios
-          .get(`${API}/users/${user.id}/preferences`)
-          .then((response) => {
-            setPreferenceList(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }, [user]);
+  useEffect(() => {
+    axios
+      .get(`${API}/users/${user.id}/preferences`)
+      .then((response) => {
+        setPreferenceList(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [user]);
 
-      console.log("This is a logged in user's preferences :", preferenceList)
-    
-      return (
-        <div>
-    <h1>Hello!!</h1>
-        </div>
-    )
+  console.log("This is a logged in user's preferences :", preferenceList);
+
+  return (
+    <div>
+      <h1>Hello!!</h1>
+    </div>
+  );
 };
 
 export default UserPreferences;

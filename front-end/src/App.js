@@ -15,7 +15,9 @@ import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
+import axios from "axios";
 import UserPreferences from "./Components/UserPreferences";
+import axios from "axios";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -61,7 +63,7 @@ const App = () => {
         // An error happened.
       });
   };
-  console.log(user);
+  console.log("THIS IS USER: ", user);
   return (
     <div className="worth-a-shot">
       <Router>
@@ -72,6 +74,10 @@ const App = () => {
           <Route
             path="/user/landing"
             element={<LandingPageSignedIn user={user} />}
+          />
+          <Route
+            path="/user/preferences"
+            element={<UserPreferences user={user} />}
           />
           <Route
             path="/onboarding"
