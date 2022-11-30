@@ -15,9 +15,7 @@ import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
-import axios from "axios";
 import UserPreferences from "./Components/UserPreferences";
-import axios from "axios";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -51,7 +49,7 @@ const App = () => {
     } else {
       setUser({});
     }
-  }, [loggedIn]);
+  }, [loggedIn, firebaseId]);
 
   const signOutOfAccount = () => {
     signOut(auth)
