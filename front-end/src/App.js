@@ -49,7 +49,7 @@ const App = () => {
     } else {
       setUser({});
     }
-  }, [loggedIn]);
+  }, [loggedIn, firebaseId]);
 
   const signOutOfAccount = () => {
     signOut(auth)
@@ -88,6 +88,7 @@ const App = () => {
           <Route path="/myfavorites" elemement={<Favorites />} />
           <Route path="/splash" element={<SplashPage />} />
           <Route path="/places" element={<Establishments user={user} />} />
+          <Route path="/user/preferences" element={<UserPreferences user={user}/>}/>
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route path="/alcohols/category" element={<DrinksByPref />} />
