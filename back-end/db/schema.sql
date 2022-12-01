@@ -10,7 +10,7 @@ CREATE TABLE users (
     gender TEXT,
     zip_code TEXT,
     personality TEXT,
-    flavors TEXT,
+    flavors TEXT NOT NULL,
     atmosphere TEXT NOT NULL,
     firebase_id TEXT
 );
@@ -24,5 +24,11 @@ CREATE TABLE alcohols (
     category TEXT NOT NULL,
     flavors TEXT NOT NULL
 );
+
+CREATE TABLE user_establishments (
+    id SERIAL PRIMARY KEY,
+    user_uid TEXT NOT NULL,
+    yelp_id TEXT NOT NULL
+)
 
 -- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor

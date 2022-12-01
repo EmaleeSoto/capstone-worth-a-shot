@@ -31,7 +31,7 @@ export default function Onboarding({ userFirebaseId }) {
     await axios
       .post(`${API}/users`, user)
       .then((response) => {
-        navigate("/user/landing");
+        navigate("/myhome");
       })
       .catch((error) => {
         console.log(error);
@@ -58,7 +58,7 @@ export default function Onboarding({ userFirebaseId }) {
 
   //Check validity of Zip Code
   const zipCodeCheck = (zipCode) => {
-    if (zipCode.length !== 6) {
+    if (zipCode.length !== 5) {
       return false;
     }
     for (const num of zipCode) {
@@ -86,8 +86,6 @@ export default function Onboarding({ userFirebaseId }) {
     } else {
       console.log(user.atmosphere);
       addUser(user);
-      //get request to the backend for user, and send it back up to app
-      //axios.get().then().catch()
       console.log(user);
     }
   };

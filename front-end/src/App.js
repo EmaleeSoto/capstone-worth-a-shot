@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import LandingPage from "./Pages/LandingPage";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import "./App.css";
-import Establishments from "./Components/Establishments";
 import Onboarding from "./Components/Onboarding";
 import NavBar from "./Components/NavBar";
 import Drinks from "./Components/Drinks";
@@ -15,8 +13,10 @@ import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
-import UserPreferences from "./Components/UserPreferences";
+import Establishments from "./Components/Establishments";
 import axios from "axios";
+import Favorites from "./Components/Favorites";
+import ShowEstablishment from "./Components/ShowEstablishment";
 const API = process.env.REACT_APP_API_URL;
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
     if (user) {
       // User is signed in.
       setLogin(true);
-      setFirebaseId(user.uid);
+      setFirebaseId(user.uid); //firebase
     } else {
       // No user is signed in.
       setLogin(false);
@@ -68,15 +68,12 @@ const App = () => {
         <NavBar signOutOfAccount={signOutOfAccount} loggedIn={loggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/myhome" element={<LandingPageSignedIn user={user} />} />
           <Route
-            path="/user/landing"
-            element={<LandingPageSignedIn user={user} />}
+            path="/establishments"
+            element={<Establishments user={user} />}
           />
-          <Route
-            path="/user/preferences"
-            element={<UserPreferences user={user} />}
-          />
+          <Route path="/establishment/:id" element={<ShowEstablishment />} />
           <Route
             path="/onboarding"
             element={<Onboarding userFirebaseId={firebaseId} />}
@@ -86,9 +83,10 @@ const App = () => {
             path="/sign-up"
             element={<UserSignUp userFirebaseId={firebaseId} />}
           />
+          <Route path="/myfavorites" elemement={<Favorites />} />
           <Route path="/splash" element={<SplashPage />} />
-          <Route path="/places" element={<Establishments user={user} />} />
-          <Route path="/user/preferences" element={<UserPreferences user={user}/>}/>
+          {/* <Route path="/places" element={<Establishments user={user} />} /> */}
+
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route path="/alcohols/category" element={<DrinksByPref />} />

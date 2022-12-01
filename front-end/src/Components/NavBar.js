@@ -6,7 +6,7 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
   const navigate = useNavigate();
   return (
     <nav className="nav header">
-      <Link className="nav-link" to="/">
+      <Link className="nav-link" to={loggedIn ? "/myhome" : "/"}>
         <div>
           <img
             className="nav-logo"
@@ -20,7 +20,7 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
       </Link>
       {loggedIn ? (
         <div id="login-wrapper">
-          <Link className="nav-link" to="/user/favorties">
+          <Link className="nav-link" to="/myfavorites">
             Favorites
           </Link>
           <button
