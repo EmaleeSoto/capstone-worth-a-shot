@@ -26,27 +26,9 @@ const DrinksByPref = ({ user }) => {
       });
   }, [loggedInUser]);
 
-  // useEffect(() => {
-  //   axios.get(`${API}/users/${user.id}`)
-  //   .then((response) => {
-  //     setDisplayDrinks(response.data.payload.flavor)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }, [])
   
   return (
     <div>
-      {/* {displayDrinks.map((drink, index) => {
-        return (
-          <div key={index}>
-            <h1>{drink.name}</h1>
-            <h3>Proof: {drink.proof}</h3>
-            <h5>{drink.description}</h5>
-          </div>
-        );
-      })} */}
      <Link to="/alcohols/category/beer"><button value="beer">Beer!</button></Link>
       <br/>
       <Link to="/alcohols/category/cider"><button value="cider">Cider!</button></Link>
