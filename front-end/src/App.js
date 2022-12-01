@@ -14,7 +14,7 @@ import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
-import UserPreferences from "./Components/UserPreferences";
+import UserPreferences from "./Components/Establishments";
 import axios from "axios";
 import Favorites from "./Components/Favorites";
 const API = process.env.REACT_APP_API_URL;
@@ -68,10 +68,7 @@ const App = () => {
         <NavBar signOutOfAccount={signOutOfAccount} loggedIn={loggedIn} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/user/landing"
-            element={<LandingPageSignedIn user={user} />}
-          />
+          <Route path="/myhome" element={<LandingPageSignedIn user={user} />} />
           <Route
             path="/user/preferences"
             element={<UserPreferences user={user} />}
@@ -88,7 +85,6 @@ const App = () => {
           <Route path="/myfavorites" elemement={<Favorites />} />
           <Route path="/splash" element={<SplashPage />} />
           <Route path="/places" element={<Establishments user={user} />} />
-          <Route path="/user/preferences" element={<UserPreferences user={user}/>}/>
           <Route path="/alcohols" element={<Drinks />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route path="/alcohols/category" element={<DrinksByPref />} />

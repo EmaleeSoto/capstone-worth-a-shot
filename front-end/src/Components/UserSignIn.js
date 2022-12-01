@@ -27,7 +27,7 @@ export default function UserSignIn() {
           //get firebase id
           alert("Welcome back! You're now logged in!");
           // Navigates to a USER Splash Page (this should be personal to each user)
-          navigate("/user/landing");
+          navigate("/myhome");
         }
         // ...
       })

@@ -6,7 +6,7 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
   const navigate = useNavigate();
   return (
     <nav className="nav header">
-      <Link className="nav-link" to="/">
+      <Link className="nav-link" to={loggedIn ? "/myhome" : "/"}>
         <div>
           <img
             className="nav-logo"
