@@ -7,13 +7,12 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     age INT NOT NULL,
-    gender TEXT NOT NULL,
-    zip_code TEXT NOT NULL,
+    gender TEXT,
+    zip_code TEXT,
     personality TEXT,
-    flavors TEXT,
+    flavors TEXT NOT NULL,
     atmosphere TEXT NOT NULL,
-    firebase_id TEXT NOT NULL,
-    establishments TEXT
+    firebase_id TEXT
 );
 
 CREATE TABLE alcohols (
@@ -26,10 +25,8 @@ CREATE TABLE alcohols (
     flavors TEXT NOT NULL
 );
 
-CREATE TABLE establishments (
+CREATE TABLE user_establishments (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    address TEXT NOT NULL,
     user_uid TEXT NOT NULL,
     yelp_id TEXT NOT NULL
 )

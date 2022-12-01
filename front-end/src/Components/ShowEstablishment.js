@@ -53,7 +53,9 @@ export default function ShowEstablishment() {
       />
       {/* <h3>
         Address:{" "}
-        {establishment.location.address1 ? establishment.location.address1 : ""}
+        {establishment.location.display_address
+          ? establishment.location.display_address
+          : ""}
         , {establishment.location.city}, {establishment.location.zip_code}
       </h3> */}
       {/* <h3>

@@ -4,12 +4,13 @@ const alcohol = express.Router();
 const {
   getAllAlcohols,
   getAlcohol,
-  //   getAlcoholByName,
+  getAlcoholByCategory,
 } = require("../queries/alcohols");
 
 //INDEX
 alcohol.get("/", async (req, res) => {
   const allAlcohols = await getAllAlcohols();
+  console.log("Yay");
   res.json({ payload: allAlcohols });
 });
 
@@ -25,11 +26,14 @@ alcohol.get("/:id", async (req, res) => {
 });
 
 // SHOW BY CATEGORY
-alcohol.get("/:name", async (req, res) => {
-  const { name } = req.params;
-  const alcohol = await getAlcoholByName(name);
-  if (alcohol.name) {
-    res.json({ success: true, payload: alcohol });
+alcohol.get("/category/:category", async (req, res) => {
+  console.log("yay");
+  const { category } = req.params;
+  console.log(category);
+  const alcohols = await getAlcoholByCategory(category);
+  console.log(alcohols);
+  if (alcohols) {
+    res.json({ success: true, payload: alcohols });
   } else {
     res.status(404).json({ success: false, payload: "not found" });
   }
