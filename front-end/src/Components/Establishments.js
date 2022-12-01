@@ -1,12 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import OneEstablishment from "./OneEstablishment";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
-//specifically the users preferences
-//firebase/id
-//string.split
-const UserPreferences = ({ user }) => {
+
+const Establishments = ({ user }) => {
   const [preferenceList, setPreferenceList] = useState([]);
   const [likes, setLikes] = useState([]);
 
@@ -22,7 +21,7 @@ const UserPreferences = ({ user }) => {
       });
   }, [user]);
 
-  const handleLikes = (likes) => {
+  const handleLikes = () => {
     const likedSpot = setLikes([`${preferenceList.name}`]);
     console.log(likedSpot);
     return setLikes(likedSpot);
@@ -33,22 +32,16 @@ const UserPreferences = ({ user }) => {
   return (
     <div>
       <h1>Hello!!</h1>
-      {preferenceList.map((preference, index) => {
+      {preferenceList.map((preference) => {
+        {
+          console.log(preference);
+        }
         return (
-          <div key={index}>
-            <h1>{preference.name}</h1>
-            <h3>{preference.location.display_address}</h3>
-            <h5>Budget: {preference.price}</h5>
-            <h5>Contact: {preference.display_phone}</h5>
-            <label htmlFor="favorite">Favorite this Spot?</label>
-            <button onClick={handleLikes} value={likes}>
-              ⭐️
-            </button>
-          </div>
+          <OneEstablishment preference={preference} handleLikes={handleLikes} />
         );
       })}
     </div>
   );
 };
 
-export default UserPreferences;
+export default Establishments;
