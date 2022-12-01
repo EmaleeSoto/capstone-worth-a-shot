@@ -14,9 +14,10 @@ import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
 import DrinksByPref from "./Components/DrinksByPref";
 import Establishments from "./Components/Establishments";
-import axios from "axios";
 import Favorites from "./Components/Favorites";
+import EditProfile from "./Components/EditProfile";
 import ShowEstablishment from "./Components/ShowEstablishment";
+import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 const App = () => {
@@ -84,6 +85,7 @@ const App = () => {
             element={<UserSignUp userFirebaseId={firebaseId} />}
           />
           <Route path="/myfavorites" elemement={<Favorites />} />
+          <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/splash" element={<SplashPage />} />
           {/* <Route path="/places" element={<Establishments user={user} />} /> */}
 
