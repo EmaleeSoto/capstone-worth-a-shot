@@ -10,7 +10,7 @@ const LandingPageSignedIn = ({ user }) => {
     <div>
       <h1>Hi {loggedInUser.name}, what are your plans tonight?</h1>
       <break></break>
-      <Link to={`/user/preferences`}>Find Clubs</Link>
+      <Link to={`/establishments`}>Find Clubs</Link>
       <br></br>
       <Link to="/alcohols">Find Drinks</Link>
     </div>

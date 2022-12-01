@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 const DrinksByPref = ({ user }) => {
@@ -19,6 +19,7 @@ const DrinksByPref = ({ user }) => {
       .get(`${API}/alcohols`)
       .then((response) => {
         setAllDrinks(response.data.payload);
+        setDisplayDrinks(response.data.payload);
         setDisplayDrinks(response.data.payload)
         setUserTastes(response.data.payload)
       })
@@ -43,7 +44,7 @@ const DrinksByPref = ({ user }) => {
     let newArray = allDrinks.filter((drink) => {
       return drink.category === "Beer";
     });
-    setDisplayDrinks([...newArray]); //don't need spread ??
+    setDisplayDrinks(newArray);
   };
 
   const filterForCider = (event) => {
@@ -57,39 +58,39 @@ const DrinksByPref = ({ user }) => {
   const filterForWine = (event) => {
     event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Wine'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Wine";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const filterforGin = (event) => {
     event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Gin'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Gin";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const filterForWhiskey = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Whiskey'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Whiskey";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const filterForBrandy = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let newArray = allDrinks.filter((drink) => {
-        return drink.category === 'Brandy'
-    })
-    setDisplayDrinks([...newArray])
-  }
+      return drink.category === "Brandy";
+    });
+    setDisplayDrinks([...newArray]);
+  };
 
   const showAllDrinks = (event) => {
-    event.preventDefault()
-    setDisplayDrinks(allDrinks)
-  }
+    event.preventDefault();
+    setDisplayDrinks(allDrinks);
+  };
 
   const filterByTaste = (event) => {
     event.preventDefault()
@@ -116,7 +117,7 @@ const DrinksByPref = ({ user }) => {
 
   return (
     <div>
-      {displayDrinks.map((drink, index) => {
+      {/* {displayDrinks.map((drink, index) => {
         return (
           <div key={index}>
             <h1>{drink.name}</h1>
@@ -124,10 +125,10 @@ const DrinksByPref = ({ user }) => {
             <h5>{drink.description}</h5>
           </div>
         );
-      })}
-      <button onClick={filterForBeer} value="beer">Beer!</button>
+      })} */}
+     <Link to="/alcohols/category/beer"><button value="beer">Beer!</button></Link>
       <section></section>
-      <button onClick={filterForCider} value="cider">Cider!</button>
+      <Link to="/alcohols/category/cider"><button value="cider">Cider!</button></Link>
       <section></section>
       <button onClick={filterForBrandy} value="brandy">Brandy!</button>
       <section></section>

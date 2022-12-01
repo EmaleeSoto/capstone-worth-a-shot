@@ -4,7 +4,7 @@ const db = require("../db/dbConfig.js");
 const getAllAlcohols = async () => {
   try {
     const allAlcohols = await db.any("SELECT * FROM alcohols");
-    console.log(allAlcohols, db)
+    console.log(allAlcohols, db);
     return allAlcohols;
   } catch (error) {
     return error;
@@ -30,20 +30,20 @@ const getAlcohol = async (id) => {
 // };
 
 //EXPERIMENTAL, MAY NOT NEED
-// const getAlcoholByName = async (name) => {
-//   try {
-//     const oneAlcohol = await db.one(
-//       "SELECT * FROM alcohols WHERE name LIKE '%name%'",
-//       name
-//     );
-//     return oneAlcohol;
-//   } catch (error) {
-//     return error;
-//   }
-// };
+const getAlcoholByCategory = async (category) => {
+  try {
+    const alcohols = await db.any(
+      "SELECT * FROM alcohols WHERE category=$1",
+      category
+    );
+    return alcohols;
+  } catch (error) {
+    return error;
+  }
+};
 
 module.exports = {
   getAllAlcohols,
   getAlcohol,
-  //   getAlcoholByName,
+  getAlcoholByCategory,
 };

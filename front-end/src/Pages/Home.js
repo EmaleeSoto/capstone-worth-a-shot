@@ -16,6 +16,9 @@ const Home = () => {
         presented to the User as well, allowing them more control over the
         direction of their night {"(or Day, should that be your energy!)"}.
       </p>
+      <h3>Your ultimate nightlife guide!</h3>
+      <break></break>
+      <button>Let's Get Started!</button>
     </div>
   );
 };
