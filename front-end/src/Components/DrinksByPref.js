@@ -4,9 +4,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
-const DrinksByPref = () => {
+const DrinksByPref = ({ user }) => {
   const [allDrinks, setAllDrinks] = useState([]);
   const [displayDrinks, setDisplayDrinks] = useState([]);
+  const [userTastes, setUserTastes] = useState([])
+
+  const [loggedInUser, setLoggedInUser] = useState({});
+  useEffect(() => {
+    setLoggedInUser(user);
+  }, [user]);
 
   useEffect(() => {
     axios
@@ -14,11 +20,23 @@ const DrinksByPref = () => {
       .then((response) => {
         setAllDrinks(response.data.payload);
         setDisplayDrinks(response.data.payload)
+        setUserTastes(response.data.payload)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [loggedInUser]);
+
+  // useEffect(() => {
+  //   axios.get(`${API}/users/${user.id}`)
+  //   .then((response) => {
+  //     setDisplayDrinks(response.data.payload.flavor)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }, [])
+
 
   const filterForBeer = (event) => {
     event.preventDefault();
@@ -73,9 +91,27 @@ const DrinksByPref = () => {
     setDisplayDrinks(allDrinks)
   }
 
+  const filterByTaste = (event) => {
+    event.preventDefault()
+    setDisplayDrinks(allDrinks)
+    let newArray = allDrinks.filter((drink) => {
+        return drink.flavors === drink.flavors.indexOf(loggedInUser.flavors.split(", "))
+    })
+    // if (newArray.length >= 0) {
+    //   return "You haven't set a taste preference!"
+    // } else if (newArray > 1) {
+    //   newArray.split(", ")
+    // }
+    setUserTastes(newArray)
+    //drinkflavors into an array
+    //split (", ")
+    //array.indexof(loggedinUseretc) if indexOf >= 0
+    //event.targte.value passed in
+  }
+
   console.log(
     "This is a list of the beer:",
-    displayDrinks
+    displayDrinks, "This is a User's preferred Drink Flavor:", userTastes
   );
 
   return (
@@ -89,19 +125,20 @@ const DrinksByPref = () => {
           </div>
         );
       })}
-      <button onClick={filterForBeer}>Beer!</button>
+      <button onClick={filterForBeer} value="beer">Beer!</button>
       <section></section>
-      <button onClick={filterForCider}>Cider!</button>
+      <button onClick={filterForCider} value="cider">Cider!</button>
       <section></section>
-      <button onClick={filterForBrandy}>Brandy!</button>
+      <button onClick={filterForBrandy} value="brandy">Brandy!</button>
       <section></section>
-      <button onClick={filterforGin}>Gin!</button>
+      <button onClick={filterforGin} value="gin">Gin!</button>
       <section></section>
-      <button onClick={filterForWhiskey}>Whiskey!</button>
+      <button onClick={filterForWhiskey} value="whiskey">Whiskey!</button>
       <section></section>
-      <button onClick={filterForWine}>Wine!</button>
+      <button onClick={filterForWine} value="wine">Wine!</button>
       <section></section>
       <button onClick={showAllDrinks}>All Drinks!</button>
+      <button onClick={filterByTaste}>Get by Flavor!</button>
     </div>
   );
 };
