@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import React from "react";
 import "./NavBar.css";
 
 const Nav = ({ signOutOfAccount, loggedIn }) => {
@@ -22,6 +21,9 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
         <div id="login-wrapper">
           <Link className="nav-link" to="/myfavorites">
             Favorites
+          </Link>
+          <Link className="nav-link" to="/editprofile">
+            My Profile
           </Link>
           <button
             className="tab"
