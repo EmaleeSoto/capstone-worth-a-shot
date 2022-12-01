@@ -20,8 +20,6 @@ const DrinksByPref = ({ user }) => {
       .then((response) => {
         setAllDrinks(response.data.payload);
         setDisplayDrinks(response.data.payload);
-        setDisplayDrinks(response.data.payload)
-        setUserTastes(response.data.payload)
       })
       .catch((error) => {
         console.log(error);
@@ -37,84 +35,7 @@ const DrinksByPref = ({ user }) => {
   //     console.log(error)
   //   })
   // }, [])
-
-
-  const filterForBeer = (event) => {
-    event.preventDefault();
-    let newArray = allDrinks.filter((drink) => {
-      return drink.category === "Beer";
-    });
-    setDisplayDrinks(newArray);
-  };
-
-  const filterForCider = (event) => {
-    event.preventDefault();
-    let newArray = allDrinks.filter((drink) => {
-      return drink.category === "Cider";
-    });
-    setDisplayDrinks([...newArray]);
-  };
-
-  const filterForWine = (event) => {
-    event.preventDefault();
-    let newArray = allDrinks.filter((drink) => {
-      return drink.category === "Wine";
-    });
-    setDisplayDrinks([...newArray]);
-  };
-
-  const filterforGin = (event) => {
-    event.preventDefault();
-    let newArray = allDrinks.filter((drink) => {
-      return drink.category === "Gin";
-    });
-    setDisplayDrinks([...newArray]);
-  };
-
-  const filterForWhiskey = (event) => {
-    event.preventDefault();
-    let newArray = allDrinks.filter((drink) => {
-      return drink.category === "Whiskey";
-    });
-    setDisplayDrinks([...newArray]);
-  };
-
-  const filterForBrandy = (event) => {
-    event.preventDefault();
-    let newArray = allDrinks.filter((drink) => {
-      return drink.category === "Brandy";
-    });
-    setDisplayDrinks([...newArray]);
-  };
-
-  const showAllDrinks = (event) => {
-    event.preventDefault();
-    setDisplayDrinks(allDrinks);
-  };
-
-  const filterByTaste = (event) => {
-    event.preventDefault()
-    setDisplayDrinks(allDrinks)
-    let newArray = allDrinks.filter((drink) => {
-        return drink.flavors === drink.flavors.indexOf(loggedInUser.flavors.split(", "))
-    })
-    // if (newArray.length >= 0) {
-    //   return "You haven't set a taste preference!"
-    // } else if (newArray > 1) {
-    //   newArray.split(", ")
-    // }
-    setUserTastes(newArray)
-    //drinkflavors into an array
-    //split (", ")
-    //array.indexof(loggedinUseretc) if indexOf >= 0
-    //event.targte.value passed in
-  }
-
-  console.log(
-    "This is a list of the beer:",
-    displayDrinks, "This is a User's preferred Drink Flavor:", userTastes
-  );
-
+  
   return (
     <div>
       {/* {displayDrinks.map((drink, index) => {
@@ -127,19 +48,17 @@ const DrinksByPref = ({ user }) => {
         );
       })} */}
      <Link to="/alcohols/category/beer"><button value="beer">Beer!</button></Link>
-      <section></section>
+      <br/>
       <Link to="/alcohols/category/cider"><button value="cider">Cider!</button></Link>
-      <section></section>
-      <button onClick={filterForBrandy} value="brandy">Brandy!</button>
-      <section></section>
-      <button onClick={filterforGin} value="gin">Gin!</button>
-      <section></section>
-      <button onClick={filterForWhiskey} value="whiskey">Whiskey!</button>
-      <section></section>
-      <button onClick={filterForWine} value="wine">Wine!</button>
-      <section></section>
-      <button onClick={showAllDrinks}>All Drinks!</button>
-      <button onClick={filterByTaste}>Get by Flavor!</button>
+      <br/>
+      <Link to="/alcohols/category/wine"><button value="wine">Wine!</button></Link>
+      <br/>
+      <Link to="/alcohols/category/whiskey"><button value="whiskey">Whiskey!</button></Link>
+      <br/>
+      <Link to="/alcohols/category/gin"><button value="gin">Gin!</button></Link>
+      <br/>
+      <Link to="/alcohols/category/brandy"><button value="brandy">Brandy!</button></Link>
+      <br/>
     </div>
   );
 };
