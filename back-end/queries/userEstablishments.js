@@ -11,6 +11,18 @@ const getAllUserEstablishments = async () => {
   }
 };
 
+const getEstablishmentByUserId = async (id) => {
+  try {
+    const oneUserEstablishment = await db.any(
+      "SELECT * FROM user_establishments WHERE user_uid=$1",
+      id
+    );
+    return oneUserEstablishment;
+  } catch (error) {
+    return error;
+  }
+};
+
 const createUserEstablishment = async ({ user_uid, yelp_id }) => {
   try {
     const newUserEstablishment = await db.one(
@@ -25,5 +37,6 @@ const createUserEstablishment = async ({ user_uid, yelp_id }) => {
 
 module.exports = {
   getAllUserEstablishments,
+  getEstablishmentByUserId,
   createUserEstablishment,
 };

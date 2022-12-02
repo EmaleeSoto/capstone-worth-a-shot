@@ -6,7 +6,7 @@ const YELP_API = process.env.REACT_APP_YELP_API_URL;
 
 //TODO: SHOW PAGE WORKS, FIX ADDRES1 ERROR (BEING UNDEFINED)
 //SOMETIMES ADDRESS1 IS UNDEFINED AND CRASHES APP DESPITE CONDITIONAL
-export default function ShowEstablishment() {
+export default function ShowEstablishment({ user }) {
   const [establishment, setEstablishment] = useState({});
   const [like, setLike] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ export default function ShowEstablishment() {
       .get(`${YELP_API}/${id}`)
       .then((res) => {
         setEstablishment(res.data);
-        //navigate(`/establishment/${id}`);
       })
       .catch(() => {
         navigate("/not found");
@@ -34,7 +33,14 @@ export default function ShowEstablishment() {
   const handleLike = (event) => {
     event.preventDefault();
     setLike(true);
-    axios.post(`${API}/userestablishments/addfavorite`).then().catch();
+    axios
+      .post(`${API}/userestablishments/addfavorite`, {
+        user_uid: user.id,
+        yelp_id: establishment.id,
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

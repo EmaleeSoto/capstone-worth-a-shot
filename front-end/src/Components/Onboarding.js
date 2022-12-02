@@ -84,12 +84,11 @@ export default function Onboarding({ userFirebaseId }) {
     if (!zipCodeCheck(user.zip_code)) {
       alert("Please enter a valid Zip Code!");
     } else {
-      console.log(user.atmosphere);
       addUser(user);
-      console.log(user);
     }
   };
 
+  //TODO: Add age validity check
   return (
     <div className="onboarding">
       <form onSubmit={handleSubmit}>

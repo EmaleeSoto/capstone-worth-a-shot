@@ -4,6 +4,7 @@ const userEstablishments = express.Router();
 const axios = require("axios");
 const {
   getAllUserEstablishments,
+  getEstablishmentByUserId,
   createUserEstablishment,
 } = require("../queries/userestablishments");
 
@@ -11,6 +12,13 @@ const {
 userEstablishments.get("/", async (req, res) => {
   const allUserEstablishments = await getAllUserEstablishments();
   res.json({ payload: allUserEstablishments });
+});
+
+//GET BY USER ID
+userEstablishments.get("/:userid", async (req, res) => {
+  const { userid } = req.params;
+  const userLikedEstablishments = await getEstablishmentByUserId(userid);
+  res.json({ success: true, payload: userLikedEstablishments });
 });
 
 //GET YELP ESTABLISHMENT
