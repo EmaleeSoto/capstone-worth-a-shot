@@ -91,10 +91,11 @@ export default function Onboarding({ userFirebaseId }) {
   };
 
   return (
-    <div>
+    <div className="onboarding">
       <form onSubmit={handleSubmit}>
         <div id={!displayNextForm ? "show" : "hidden"}>
-          <label htmlFor="name">Hi! What's your name?</label>
+          <h1 className="onboarding-header">Let's get to know you better.</h1>
+          <label htmlFor="name">What's your name? </label>
           <input
             id="name"
             type="text"
@@ -102,58 +103,65 @@ export default function Onboarding({ userFirebaseId }) {
             autoComplete="off"
             required
           />
-          <br></br>
-          <label htmlFor="age">Age?</label>
+          <br />
+          <label htmlFor="age">Age? </label>
           <input
             id="age"
+            min="21"
+            max="99"
             type="number" //TODO: Change to calendar and calculate age later
             onChange={handleAgeChange}
             autoComplete="off"
             required
           />
-          <br></br>
-          <br></br>
+          <br />
+          <br />
           <label>What is your gender identity?</label>
-          <br></br>
+          <br />
           <label htmlFor="male">Male</label>
           <input
-            id="gender"
+            id="male"
             type="radio"
+            name="gender"
             onChange={handleTextChange}
             value="Male"
           />
-          <br></br>
+          <br />
           <label htmlFor="female">Female</label>
           <input
-            id="gender"
+            id="female"
             type="radio"
+            name="gender"
             onChange={handleTextChange}
             value="Female"
           />
-          <br></br>
+          <br />
           <label htmlFor="other">Other</label>
           <input
-            id="gender"
+            id="other"
             type="radio"
+            name="gender"
             onChange={handleTextChange}
-            s
             value="Other"
           />
-          <br></br>
-          <br></br>
-
+          <br />
+          <br />
           <label htmlFor="zip_code">Zip Code: </label>
           <input
             id="zip_code"
             type="text"
+            size="5"
+            maxLength="5"
             onChange={handleTextChange}
             autoComplete="off"
             required
           />
-          <br></br>
+          <br />
+          <br />
           <button onClick={goToNextForm}>Next</button>
         </div>
         <div id={displayNextForm ? "show" : "hidden"}>
+          <h1 className="onboarding-header">Great! Let's keep going.</h1>
           <label htmlFor="personality">How would you describe yourself?</label>
           <select id="personality" onChange={handleTextChange}>
             <option hidden disabled selected value>
