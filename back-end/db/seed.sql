@@ -21,3 +21,4 @@ INSERT INTO alcohols (name, ingredients, proof, description, category, flavors) 
 ('Old Fashioned', 'Whiskey, Bitters, Water, Ice, Simple Syrup, Orange Slice Garnish', 0, 'A sweet whiskey cocktail with slight bitterness and spiciness. A whiskey classic.', 'whiskey', 'Sweet, Spicy');
 
 INSERT INTO user_establishments (user_uid, yelp_id) VALUES ('1', 'LegwUwIxpkeRVtQ');
+-- try storing attributes instead? (name, image, etc.)

@@ -62,7 +62,7 @@ export default function Onboarding({ userFirebaseId }) {
       return false;
     }
     for (const num of zipCode) {
-      if (!Number(num)) {
+      if (typeof Number(num) !== "number") {
         return false;
       }
     }
@@ -84,12 +84,11 @@ export default function Onboarding({ userFirebaseId }) {
     if (!zipCodeCheck(user.zip_code)) {
       alert("Please enter a valid Zip Code!");
     } else {
-      console.log(user.atmosphere);
       addUser(user);
-      console.log(user);
     }
   };
 
+  //TODO: Add age validity check
   return (
     <div className="onboarding">
       <form onSubmit={handleSubmit}>
@@ -107,8 +106,7 @@ export default function Onboarding({ userFirebaseId }) {
           <label htmlFor="age">Age? </label>
           <input
             id="age"
-            min="21"
-            max="99"
+            name="age"
             type="number" //TODO: Change to calendar and calculate age later
             onChange={handleAgeChange}
             autoComplete="off"
@@ -158,7 +156,9 @@ export default function Onboarding({ userFirebaseId }) {
           />
           <br />
           <br />
-          <button onClick={goToNextForm}>Next</button>
+          <button type="button" onClick={goToNextForm}>
+            Next
+          </button>
         </div>
         <div id={displayNextForm ? "show" : "hidden"}>
           <h1 className="onboarding-header">Great! Let's keep going.</h1>
