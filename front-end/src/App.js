@@ -84,7 +84,7 @@ const App = () => {
             path="/sign-up"
             element={<UserSignUp userFirebaseId={firebaseId} />}
           />
-          <Route path="/myfavorites" elemement={<Favorites />} />
+          <Route path="/myfavorites" element={<Favorites user={user}/>} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/splash" element={<SplashPage />} />
           {/* <Route path="/places" element={<Establishments user={user} />} /> */}
