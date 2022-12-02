@@ -28,7 +28,9 @@ CREATE TABLE alcohols (
 CREATE TABLE user_establishments (
     id SERIAL PRIMARY KEY,
     user_uid TEXT NOT NULL,
-    yelp_id TEXT NOT NULL
+    yelp_id TEXT NOT NULL,
+    name TEXT,
+    image TEXT
 )
 
 -- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor

@@ -37,6 +37,8 @@ export default function ShowEstablishment({ user }) {
       .post(`${API}/userestablishments/addfavorite`, {
         user_uid: user.id,
         yelp_id: establishment.id,
+        name: establishment.name,
+        image: establishment.image_url,
       })
       .catch((error) => {
         console.log(error);
