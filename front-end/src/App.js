@@ -80,7 +80,7 @@ const App = () => {
           />
           <Route
             path="/onboarding"
-            element={<Onboarding userFirebaseId={firebaseId} />}
+            element={<Onboarding userFirebaseId={firebaseId} callback={setUser} />}
           />
           <Route path="/sign-in" element={<UserSignIn />} />
           <Route
