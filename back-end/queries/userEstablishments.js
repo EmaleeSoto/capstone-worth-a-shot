@@ -23,11 +23,11 @@ const getEstablishmentByUserId = async (id) => {
   }
 };
 
-const createUserEstablishment = async ({ user_uid, yelp_id }) => {
+const createUserEstablishment = async ({ user_uid, yelp_id, name, image }) => {
   try {
     const newUserEstablishment = await db.one(
-      "INSERT INTO user_establishments (user_uid, yelp_id) VALUES ($1, $2) RETURNING *",
-      [user_uid, yelp_id]
+      "INSERT INTO user_establishments (user_uid, yelp_id, name, image) VALUES ($1, $2, $3, $4) RETURNING *",
+      [user_uid, yelp_id, name, image]
     );
     return newUserEstablishment;
   } catch (error) {

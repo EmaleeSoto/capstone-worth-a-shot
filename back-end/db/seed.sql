@@ -20,5 +20,5 @@ INSERT INTO alcohols (name, ingredients, proof, description, category, flavors) 
 ('Brandy Old Fashioned', 'Brandy, Angostura Bitter, Orange Slices, Maraschino Cherries, Sugar Cube, Sprite or Club Soda, Orange Slice Garnish', 0, 'This drink can be made sweet or sour depending on the soda.', 'brandy', 'Sweet, Sour'),
 ('Old Fashioned', 'Whiskey, Bitters, Water, Ice, Simple Syrup, Orange Slice Garnish', 0, 'A sweet whiskey cocktail with slight bitterness and spiciness. A whiskey classic.', 'whiskey', 'Sweet, Spicy');
 
-INSERT INTO user_establishments (user_uid, yelp_id) VALUES ('1', 'LegwUwIxpkeRVtQ');
+INSERT INTO user_establishments (user_uid, yelp_id, name, image) VALUES ('1', 'QArou0r7CmLNPWYRA9ecog', 'McSorleys Old Ale House', 'https://s3-media2.fl.yelpcdn.com/bphoto/1l87JYUuhb--3pKszJ5WsQ/o.jpg');
 -- try storing attributes instead? (name, image, etc.)
