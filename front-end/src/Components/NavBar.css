@@ -22,7 +22,7 @@
 
 .nav-logo {
   padding-left: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 .nav-logo:hover {
@@ -31,21 +31,28 @@
 
 .nav-link {
   padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-weight: bold;
+}
+
+.about-link {
+  padding-top: 15px;
+  text-align: right;
 }
 
 #login-wrapper {
   text-align: right;
   padding-right: 25px;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 @media screen and (max-width: 1024px) {
   .nav {
-    font-size: 18px;
+    font-size: 20px;
   }
   .nav-link {
-    padding-top: 0px;
+    padding-top: 5px;
     padding-bottom: 5px;
   }
   .nav-logo {
@@ -76,4 +83,8 @@
     margin-left: 0px;
     padding-bottom: 0px;
   }
+  .about-link {
+  padding-top: 0px;
+  text-align: center;
+}
 }
