@@ -15,7 +15,7 @@ const LandingPageSignedIn = ({ user }) => {
         <button className="large-button">Find Clubs</button>
       </Link>
       <br />
-      <Link to="/alcohols">
+      <Link to="/alcohols/category">
         <button className="large-button">Find Drinks</button>
       </Link>
     </div>
