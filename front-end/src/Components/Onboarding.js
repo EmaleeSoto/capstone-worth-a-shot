@@ -7,7 +7,7 @@ const API = process.env.REACT_APP_API_URL;
 
 //TODO: LET FLAVORS HAVE MULTIPLE INPUTS
 
-export default function Onboarding({ userFirebaseId }) {
+export default function Onboarding({ userFirebaseId, callback }) {
   let [displayNextForm, setDisplayNextForm] = useState(false);
   let [user, setUser] = useState({
     name: "",
@@ -31,6 +31,7 @@ export default function Onboarding({ userFirebaseId }) {
     await axios
       .post(`${API}/users`, user)
       .then((response) => {
+        callback(response.data.payload);
         navigate("/myhome");
       })
       .catch((error) => {
