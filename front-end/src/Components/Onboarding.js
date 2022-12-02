@@ -31,7 +31,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
     await axios
       .post(`${API}/users`, user)
       .then((response) => {
-	setUser(response.data.payload);
+        callback(response.data.payload);
         navigate("/myhome");
       })
       .catch((error) => {
