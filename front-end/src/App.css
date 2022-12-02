@@ -12,15 +12,20 @@ a:hover {
   color: #fdc500;
 }
 
+h1 {
+  color: #fdc500;
+}
+
 @media screen and (max-width: 690px) {
   body {
     padding-top: 175px;
   }
 }
 
-/* Button colors */
+/* Button colors and sizes */
 
-button {
+button,
+input[type="submit"] {
   background-color: #fdc500;
   border: none;
   color: #00296b;
@@ -35,7 +40,58 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
+input[type="submit"] {
+  background-color: #00e11a;
+}
+
+button:hover,
+input[type="submit"]:hover {
   background-color: #e7e7e7;
   color: black;
+}
+
+.large-button {
+  font-size: 20px;
+}
+
+
+/* Text Inputs */
+
+label {
+  padding: 10px;
+}
+
+input,
+textarea {
+  color: #ffffff;
+  background-color: #001b46;
+  font-size: 16px;
+}
+
+textarea {
+  vertical-align: top;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+textarea {
+  padding: 12px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.checkmark {
+  height: 20px;
+  width: 20px;
+  accent-color: #001b46;
 }

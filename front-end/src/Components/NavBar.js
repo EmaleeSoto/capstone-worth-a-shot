@@ -14,9 +14,11 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
           />
         </div>
       </Link>
-      <Link className="nav-link" to="/about">
-        About
-      </Link>
+      <div className="about-link">
+        <Link className="nav-link" to="/about">
+          About
+        </Link>
+      </div>
       {loggedIn ? (
         <div id="login-wrapper">
           <Link className="nav-link" to="/myfavorites">

@@ -1,11 +1,15 @@
-.home-header {
+.home-container {
   text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.home-header {
   font-size: 50px;
   margin-block-start: 20px;
   margin-block-end: 20px;
 }
 
-.home-text {
-  margin-left: 50px;
-  margin-right: 50px;
+.home-tagline {
+  font-size: 35px;
 }
