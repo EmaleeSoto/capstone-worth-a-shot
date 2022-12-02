@@ -64,6 +64,30 @@ user.get("/:id/preferences", async (req, res) => {
   res.send(myUserPrefs);
 });
 
+user.get("/:id/:yelp_id", async (req, res) => {
+  let { id, yelp_id } = req.params;
+  let myUser = await getUser(req.params.id);
+  let myUserPrefs = [];
+  let categories = myUser.atmosphere.split(", ");
+  for (const category of categories) {
+    let tempArray = await axios
+      .get(
+        `https://api.yelp.com/v3/businesses/search?location=NYC&categories=${category}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+          },
+        }
+      )
+      .then((response) => {
+        return response.data.businesses;
+      });
+    myUserPrefs = [...myUserPrefs, ...tempArray];
+  }
+
+  res.send(myUserPrefs);
+});
+
 //CREATE
 user.post("/", async (req, res) => {
   try {

@@ -23,19 +23,13 @@ const Establishments = ({ user }) => {
 
   const handleLikes = () => {
     const likedSpot = setLikes([`${preferenceList.name}`]);
-    console.log(likedSpot);
     return setLikes(likedSpot);
   };
-
-  console.log("This is a logged in user's preferences :", preferenceList);
 
   return (
     <div>
       <h1>Hello!!</h1>
       {preferenceList.map((preference) => {
-        {
-          console.log(preference);
-        }
         return (
           <OneEstablishment preference={preference} handleLikes={handleLikes} />
         );

@@ -74,7 +74,10 @@ const App = () => {
             path="/establishments"
             element={<Establishments user={user} />}
           />
-          <Route path="/establishment/:id" element={<ShowEstablishment />} />
+          <Route
+            path="/establishment/:id"
+            element={<ShowEstablishment user={user} />}
+          />
           <Route
             path="/onboarding"
             element={<Onboarding userFirebaseId={firebaseId} />}
@@ -91,9 +94,12 @@ const App = () => {
 
           {/* <Route path="/alcohols" element={<Drinks />} /> */}
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
-          <Route path="/alcohols/category" element={<DrinksByPref user={user}/>} />
+          <Route
+            path="/alcohols/category"
+            element={<DrinksByPref user={user} />}
+          />
           <Route path="/about" element={<About />} />
-          <Route path="/alcohols/category/:type" element={<Drinks />}/>
+          <Route path="/alcohols/category/:type" element={<Drinks />} />
         </Routes>
       </Router>
     </div>
