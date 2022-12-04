@@ -55,7 +55,7 @@ export default function ShowEstablishment({ user }) {
         <button onClick={handleLike}>⭐️</button>
       </span>
       <br></br>
-      <img
+      <img alt=''
         src={
           establishment.image_url !== ""
             ? establishment.image_url

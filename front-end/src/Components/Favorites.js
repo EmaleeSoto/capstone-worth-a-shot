@@ -19,5 +19,7 @@ export default function Favorites({ user }) {
     console.log("LIKED PLACES: ", likedEstablishments);
   }, [user]);
 
+  //display yelp.id
+
   return <div>Favorites</div>;
 }
