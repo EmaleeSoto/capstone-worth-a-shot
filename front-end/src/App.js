@@ -1,6 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  signOut,
+  onAuthStateChanged,
+  sendEmailVerification,
+} from "firebase/auth";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -23,6 +28,7 @@ const API = process.env.REACT_APP_API_URL;
 const App = () => {
   const [loggedIn, setLogin] = useState(false);
   const [user, setUser] = useState({});
+  const [userVerified, setUserVerified] = useState(false);
   const [firebaseId, setFirebaseId] = useState("");
   const auth = getAuth();
 
@@ -37,6 +43,19 @@ const App = () => {
     }
   });
 
+  const checkUserVerification = () => {
+    const loggedInUser = auth.currentUser;
+    if (loggedInUser !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      setUserVerified(loggedInUser.emailVerified);
+    }
+  };
+  const sendVerification = () => {
+    sendEmailVerification(auth.currentUser).then(() => {
+      alert("A verification email has been sent to you!");
+    });
+  };
+
   useEffect(() => {
     if (loggedIn) {
       axios
@@ -47,6 +66,7 @@ const App = () => {
         .catch((error) => {
           console.log(error);
         });
+      checkUserVerification();
     } else {
       setUser({});
     }
@@ -80,7 +100,9 @@ const App = () => {
           />
           <Route
             path="/onboarding"
-            element={<Onboarding userFirebaseId={firebaseId} callback={setUser} />}
+            element={
+              <Onboarding userFirebaseId={firebaseId} callback={setUser} />
+            }
           />
           <Route path="/sign-in" element={<UserSignIn />} />
           <Route
@@ -88,7 +110,18 @@ const App = () => {
             element={<UserSignUp userFirebaseId={firebaseId} />}
           />
           <Route path="/myfavorites" element={<Favorites user={user} />} />
-          <Route path="/editprofile" element={<EditProfile />} />
+          <Route
+            path="/editprofile"
+            element={
+              <EditProfile
+                user={user}
+                setUser={setUser}
+                signOutOfAccount={signOutOfAccount}
+                sendEmailVerification={sendVerification}
+                userVerified={userVerified}
+              />
+            }
+          />
           <Route path="/splash" element={<SplashPage />} />
           {/* <Route path="/places" element={<Establishments user={user} />} /> */}
 
