@@ -22,6 +22,7 @@ import Establishments from "./Components/Establishments";
 import Favorites from "./Components/Favorites";
 import EditProfile from "./Components/EditProfile";
 import ShowEstablishment from "./Components/ShowEstablishment";
+import FourOFour from "./Pages/FourOFour"
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -133,6 +134,7 @@ const App = () => {
           />
           <Route path="/about" element={<About />} />
           <Route path="/alcohols/category/:type" element={<Drinks />} />
+          <Route path="*" element={<FourOFour />} />
         </Routes>
       </Router>
     </div>
