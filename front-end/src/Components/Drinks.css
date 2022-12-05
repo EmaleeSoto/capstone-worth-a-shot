@@ -1,0 +1,10 @@
+.drink-header {
+  text-align: center;
+}
+
+.alcohol-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  margin: 2em 2em;
+}
