@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import "./ShowEstablishment.css"
 const API = process.env.REACT_APP_API_URL;
 const YELP_API = process.env.REACT_APP_YELP_API_URL;
 
@@ -46,7 +47,7 @@ export default function ShowEstablishment({ user }) {
   };
 
   return (
-    <div>
+    <div className="establishment-show">
       <Link to="/establishments">
         <button>Go back to Establishments</button>
       </Link>
