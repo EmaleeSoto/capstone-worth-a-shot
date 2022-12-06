@@ -1,3 +1,15 @@
+/* #index-image {
+  height: 200px;
+  width: auto;
+  max-width: 250px;
+}
+
+.one-establishment {
+  width: 300px;
+  text-align: center;
+  border: dotted;
+} */
+
 .establishment-header {
   text-align: center;
 }
