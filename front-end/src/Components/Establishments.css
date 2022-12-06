@@ -1,14 +1,16 @@
-/* #index-image {
+#index-image {
   height: 200px;
   width: auto;
   max-width: 250px;
 }
 
 .one-establishment {
-  width: 300px;
+  width: 325px;
   text-align: center;
   border: dotted;
-} */
+  border-radius: 15px;
+  padding: 5px;
+}
 
 .establishment-header {
   text-align: center;
@@ -27,6 +29,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
   margin: 2em 2em;
+  justify-content: center;
 }
 
 .establishment-grid a {

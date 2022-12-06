@@ -20,16 +20,6 @@ const getAlcohol = async (id) => {
   }
 };
 
-// const getAlcoholbyCategory = async (categoryName) => {
-//   try {
-//     const oneAlcohol = await db.one("SELECT * FROM alcohols WHERE category LIKE categoryName%" categoryName);
-//     return oneAlcohol;
-//   } catch (error) {
-//     return error;
-//   }
-// };
-
-//EXPERIMENTAL, MAY NOT NEED
 const getAlcoholByCategory = async (category) => {
   try {
     const alcohols = await db.any(
@@ -42,8 +32,18 @@ const getAlcoholByCategory = async (category) => {
   }
 };
 
+const getAlcoholByType = async (type) => {
+  try {
+    const alcohols = await db.any("SELECT * FROM alcohols WHERE type=$1", type);
+    return alcohols;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllAlcohols,
   getAlcohol,
   getAlcoholByCategory,
+  getAlcoholByType,
 };
