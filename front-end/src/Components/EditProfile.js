@@ -7,7 +7,6 @@ const API = process.env.REACT_APP_API_URL;
 function EditProfile({
   user,
   setUser,
-  signOutOfAccount,
   sendEmailVerification,
   userVerified,
   deleteFirebaseAccount,
