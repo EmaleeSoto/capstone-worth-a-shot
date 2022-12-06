@@ -1,16 +1,39 @@
+#type-info {
+  display: flex;
+  width: 300px;
+  margin: 5%;
+  padding: 10px;
+  border: solid;
+  border-radius: 15px;
+  background-color: #061A43;
+}
+
+#type-info button {
+  height: 50px;
+  padding: 5px;
+  border-radius: 15px;
+  display: block;
+}
+
+#alcohol-display-wrapper {
+  display: flex;
+}
+
 .drink-header {
   text-align: center;
 }
 
-.drink-category-grid {
+#type-button-wrapper {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
   margin: 2em 2em;
 }
 
 .drink-category-button {
   font-size: 25px;
+  margin-top: 50px;
+  width: 150px;
+  border-radius: 50px;
 }

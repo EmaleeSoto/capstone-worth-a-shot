@@ -91,9 +91,7 @@ function EditProfile({
     <div className="edit-profile">
       <h1>Let's make sure we've got everything right.</h1>
       {!userVerified ? (
-        <h5 onClick={() => sendEmailVerification}>
-          Verify your email address!
-        </h5>
+        <h5 onClick={sendEmailVerification}>Verify your email address!</h5>
       ) : null}
       <form className="user-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>

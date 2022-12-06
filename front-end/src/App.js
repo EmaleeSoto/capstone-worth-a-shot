@@ -22,7 +22,7 @@ import Establishments from "./Components/Establishments";
 import Favorites from "./Components/Favorites";
 import EditProfile from "./Components/EditProfile";
 import ShowEstablishment from "./Components/ShowEstablishment";
-import FourOFour from "./Pages/FourOFour"
+import FourOFour from "./Pages/FourOFour";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -87,7 +87,11 @@ const App = () => {
   return (
     <div className="worth-a-shot">
       <Router>
-        <NavBar signOutOfAccount={signOutOfAccount} loggedIn={loggedIn} />
+        <NavBar
+          signOutOfAccount={signOutOfAccount}
+          loggedIn={loggedIn}
+          userVerified={userVerified}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/myhome" element={<LandingPageSignedIn user={user} />} />
@@ -124,16 +128,13 @@ const App = () => {
             }
           />
           <Route path="/splash" element={<SplashPage />} />
-          {/* <Route path="/places" element={<Establishments user={user} />} /> */}
-
-          {/* <Route path="/alcohols" element={<Drinks />} /> */}
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route
             path="/alcohols/category"
             element={<DrinksByPref user={user} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/alcohols/category/:type" element={<Drinks />} />
+          <Route path="/alcohols/category/:category" element={<Drinks />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </Router>

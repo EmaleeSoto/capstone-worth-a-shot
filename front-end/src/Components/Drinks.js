@@ -9,21 +9,18 @@ const API = process.env.REACT_APP_API_URL;
 
 const Drinks = () => {
   const [booze, setBooze] = useState([]);
-  let { type } = useParams();
-  console.log(type);
+  let { category } = useParams();
 
   useEffect(() => {
     axios
-      .get(`${API}/alcohols/category/${type}`)
+      .get(`${API}/alcohols/category/${category}`)
       .then((response) => {
         setBooze(response.data.payload);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [type]);
-
-  console.log("This is a list of the booze:", booze);
+  }, [category]);
 
   return (
     <div>
