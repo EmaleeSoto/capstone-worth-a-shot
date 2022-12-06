@@ -21,7 +21,7 @@ export default function ShowEstablishment({ user }) {
       .catch(() => {
         navigate("/not found");
       });
-  }, [id]);
+  }, [id, navigate]);
 
   const militaryToUSD = (time) => {
     let hrs = String(time).substring(0, 2);
