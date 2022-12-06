@@ -41,6 +41,7 @@ const App = () => {
       // User is signed in.
       setLogin(true);
       setFirebaseId(user.uid); //firebase
+      setUserEmail("");
     } else {
       // No user is signed in.
       setLogin(false);
