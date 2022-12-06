@@ -7,7 +7,7 @@ const {
   getEstablishmentByUserId,
   createUserEstablishment,
   deleteUserEstablishment,
-} = require("../queries/userestablishments");
+} = require("../queries/userEstablishments");
 
 //INDEX
 userEstablishments.get("/", async (req, res) => {
