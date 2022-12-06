@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./EditProfile.css"
 const API = process.env.REACT_APP_API_URL;
 
 function EditProfile({
@@ -87,7 +88,8 @@ function EditProfile({
     }
   };
   return (
-    <div>
+    <div className="edit-profile">
+      <h1>Let's make sure we've got everything right.</h1>
       {!userVerified ? (
         <h5 onClick={() => sendEmailVerification}>
           Verify your email address!
