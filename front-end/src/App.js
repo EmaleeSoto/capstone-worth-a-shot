@@ -5,6 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
+  deleteUser,
 } from "firebase/auth";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
@@ -44,6 +45,19 @@ const App = () => {
     }
   });
 
+  const deleteFirebaseAccount = () => {
+    const user = auth.currentUser;
+
+    deleteUser(user)
+      .then(() => {
+        // User deleted.
+        alert("Your account has been deleted. Hasta la vista baby!");
+      })
+      .catch((error) => {
+        // An error ocurred
+        // ...
+      });
+  };
   const checkUserVerification = () => {
     const loggedInUser = auth.currentUser;
     if (loggedInUser !== null) {
@@ -124,6 +138,7 @@ const App = () => {
                 signOutOfAccount={signOutOfAccount}
                 sendEmailVerification={sendVerification}
                 userVerified={userVerified}
+                deleteFirebaseAccount={deleteFirebaseAccount}
               />
             }
           />

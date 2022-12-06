@@ -10,6 +10,7 @@ function EditProfile({
   signOutOfAccount,
   sendEmailVerification,
   userVerified,
+  deleteFirebaseAccount,
 }) {
   //const { id } = useParams();
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function EditProfile({
     setUserEdit(user);
     let userAtmospheres = user.atmosphere.split(", ");
     setAtmospheres([...atmospheres, ...userAtmospheres]);
-  }, [user]);
+  }, [user, userVerified]);
   console.log(userEdit);
 
   const handleTextChange = (event) => {
@@ -67,8 +68,8 @@ function EditProfile({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUserEdit([...userEdit.atmosphere, ...atmospheres]);
-    console.log(userEdit.atmosphere);
+    console.log(atmospheres.join(", "));
+    setUserEdit({ atmosphere: atmospheres.join(", ") });
     updateUserInfo(userEdit);
   };
   console.log("Atmospheres: ", atmospheres);
@@ -77,13 +78,13 @@ function EditProfile({
     axios.delete(`${API}/users/${user.id}`).catch((error) => {
       console.warn(error);
     });
+    deleteFirebaseAccount();
   };
 
   const handleDelete = (event) => {
     event.preventDefault();
     if (window.confirm("Are you sure you want to delete your profile?")) {
       deleteUser();
-      signOutOfAccount();
       navigate("/");
     }
   };
@@ -91,8 +92,12 @@ function EditProfile({
     <div className="edit-profile">
       <h1>Let's make sure we've got everything right.</h1>
       {!userVerified ? (
-        <h5 onClick={sendEmailVerification}>Verify your email address!</h5>
-      ) : null}
+        <h4 id="not-verified" onClick={sendEmailVerification}>
+          Verify your email address!
+        </h4>
+      ) : (
+        <h4 id="verified">Your email address is verified ✅</h4>
+      )}
       <form className="user-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
