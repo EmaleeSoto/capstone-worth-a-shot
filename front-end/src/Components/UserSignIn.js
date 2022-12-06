@@ -6,7 +6,7 @@ import axios from "axios";
 import "./UserSignIn.css";
 const API = process.env.REACT_APP_API_URL;
 
-export default function UserSignIn() {
+export default function UserSignIn({ resetPassword }) {
   const [profile, setProfile] = useState({
     email: "",
     password: "",
@@ -64,6 +64,9 @@ export default function UserSignIn() {
       <button id="login" onClick={signIn}>
         Log in
       </button>
+      <h4 id="forgot-password" onClick={resetPassword}>
+        Forgot Password?
+      </h4>
     </div>
   );
 }

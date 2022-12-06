@@ -5,6 +5,8 @@ import {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
+  sendPasswordResetEmail,
+  deleteUser,
 } from "firebase/auth";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
@@ -22,7 +24,7 @@ import Establishments from "./Components/Establishments";
 import Favorites from "./Components/Favorites";
 import EditProfile from "./Components/EditProfile";
 import ShowEstablishment from "./Components/ShowEstablishment";
-import FourOFour from "./Pages/FourOFour"
+import FourOFour from "./Pages/FourOFour";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -31,6 +33,7 @@ const App = () => {
   const [user, setUser] = useState({});
   const [userVerified, setUserVerified] = useState(false);
   const [firebaseId, setFirebaseId] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const auth = getAuth();
 
   onAuthStateChanged(auth, (user) => {
@@ -44,11 +47,25 @@ const App = () => {
     }
   });
 
+  const deleteFirebaseAccount = () => {
+    const user = auth.currentUser;
+
+    deleteUser(user)
+      .then(() => {
+        // User deleted.
+        alert("Closing time! Your account has been deleted.");
+      })
+      .catch((error) => {
+        // An error ocurred
+        // ...
+      });
+  };
   const checkUserVerification = () => {
     const loggedInUser = auth.currentUser;
     if (loggedInUser !== null) {
       // The user object has basic properties such as display name, email, etc.
       setUserVerified(loggedInUser.emailVerified);
+      setUserEmail(loggedInUser.email);
     }
   };
   const sendVerification = () => {
@@ -57,6 +74,23 @@ const App = () => {
     });
   };
 
+  const resetPassword = () => {
+    if (userEmail === "") {
+      alert("Please enter your email.");
+    } else {
+      if (window.confirm("Are you sure you want to reset your passqord?")) {
+        sendPasswordResetEmail(auth, userEmail)
+          .then(() => {
+            alert("An email has been sent for your password reset.");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+          });
+      }
+    }
+  };
   useEffect(() => {
     if (loggedIn) {
       axios
@@ -87,7 +121,11 @@ const App = () => {
   return (
     <div className="worth-a-shot">
       <Router>
-        <NavBar signOutOfAccount={signOutOfAccount} loggedIn={loggedIn} />
+        <NavBar
+          signOutOfAccount={signOutOfAccount}
+          loggedIn={loggedIn}
+          userVerified={userVerified}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/myhome" element={<LandingPageSignedIn user={user} />} />
@@ -105,7 +143,10 @@ const App = () => {
               <Onboarding userFirebaseId={firebaseId} callback={setUser} />
             }
           />
-          <Route path="/sign-in" element={<UserSignIn />} />
+          <Route
+            path="/sign-in"
+            element={<UserSignIn resetPassword={resetPassword} />}
+          />
           <Route
             path="/sign-up"
             element={<UserSignUp userFirebaseId={firebaseId} />}
@@ -120,20 +161,18 @@ const App = () => {
                 signOutOfAccount={signOutOfAccount}
                 sendEmailVerification={sendVerification}
                 userVerified={userVerified}
+                deleteFirebaseAccount={deleteFirebaseAccount}
               />
             }
           />
           <Route path="/splash" element={<SplashPage />} />
-          {/* <Route path="/places" element={<Establishments user={user} />} /> */}
-
-          {/* <Route path="/alcohols" element={<Drinks />} /> */}
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route
             path="/alcohols/category"
             element={<DrinksByPref user={user} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/alcohols/category/:type" element={<Drinks />} />
+          <Route path="/alcohols/category/:category" element={<Drinks />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </Router>
