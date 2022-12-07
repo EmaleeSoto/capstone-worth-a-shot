@@ -19,6 +19,11 @@ const Nav = ({ signOutOfAccount, loggedIn, userVerified }) => {
           About
         </Link>
       </div>
+      <div className="trending-link">
+        <Link className="trending-link" to="/trending">
+          Trending
+        </Link>
+      </div>
       {loggedIn ? (
         <div id="login-wrapper">
           <Link className="nav-link" to="/myfavorites">

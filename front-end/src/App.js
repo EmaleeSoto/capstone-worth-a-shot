@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
+import Trending from "./Pages/Trending";
 import About from "./Pages/About";
 import "./App.css";
 import Onboarding from "./Components/Onboarding";
@@ -173,6 +174,8 @@ const App = () => {
             element={<DrinksByPref user={user} />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/trending" element={<Trending />} />
+          <Route path="/alcohols/category/:type" element={<Drinks />} />
           <Route path="/alcohols/category/:category" element={<Drinks />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
