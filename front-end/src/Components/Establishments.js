@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import OneEstablishment from "./OneEstablishment";
 import axios from "axios";
 import "./Establishments.css";
@@ -29,7 +29,12 @@ const Establishments = ({ user }) => {
 
   return (
     <div>
-      <h1 className="establishment-header">Here's some great places to try.</h1>
+      <Link to="/alcohols/category">
+        <button id="index-button">Find Alcohol</button>
+      </Link>
+      <h1 className="establishment-header">
+        Here are some great places to try.
+      </h1>
       <section className="establishment-grid">
         {preferenceList.map((preference) => {
           return (
