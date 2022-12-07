@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import OneEstablishment from "./OneEstablishment";
 import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "./Establishments.css";
 const API = process.env.REACT_APP_API_URL;
 
@@ -12,6 +14,7 @@ const Establishments = ({ user }) => {
 
   useEffect(() => {
     console.log(user);
+    Aos.init({ duration: 3000 });
     axios
       .get(`${API}/users/${user.id}/preferences`)
       .then((response) => {
@@ -35,7 +38,7 @@ const Establishments = ({ user }) => {
       <h1 className="establishment-header">
         Here are some great places to try.
       </h1>
-      <section className="establishment-grid">
+      <section className="establishment-grid" data-aos="fade-up">
         {preferenceList.map((preference) => {
           return (
             <OneEstablishment

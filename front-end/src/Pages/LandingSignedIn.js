@@ -14,7 +14,7 @@ const LandingPageSignedIn = ({ user }) => {
           />
           <br></br>
           <Link to={`/establishments`}>
-            <button className="large-button">Find Clubs</button>
+            <button className="large-button">Find Bars and Clubs</button>
           </Link>
         </div>
         <div>

@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "./About.css";
 
 const About = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
-    <section className="about-section">
+    <section className="about-section" data-aos="fade-up">
       <h1 className="about-header">
         Revolutionize your nightlife experience with Worth a Shot
       </h1>
@@ -40,7 +45,11 @@ const About = () => {
             alt="Headshot of Matt Munroe"
           />
           <h3 className="bio-name">Matt Munroe</h3>
-          <a href="https://github.com/MattNMunroe">
+          <a
+            href="https://github.com/MattNMunroe"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -48,7 +57,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/matthew-munroe-720b8b199/">
+          <a
+            href="https://www.linkedin.com/in/matthew-munroe-720b8b199/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -69,7 +82,11 @@ const About = () => {
             alt="Headshot of Cesar Ortiz"
           />
           <h3 className="bio-name">Cesar Ortiz</h3>
-          <a href="https://github.com/CeazTheMoment">
+          <a
+            href="https://github.com/CeazTheMoment"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -77,7 +94,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/">
+          <a
+            href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -98,7 +119,11 @@ const About = () => {
             alt="Headshot of Jonathan Scheiber"
           />
           <h3 className="bio-name">Jonathan Scheiber</h3>
-          <a href="https://github.com/Scheiber">
+          <a
+            href="https://github.com/Scheiber"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -106,7 +131,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/jonscheiber/">
+          <a
+            href="https://www.linkedin.com/in/jonscheiber/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -128,7 +157,11 @@ const About = () => {
             alt="Headshot of Emalee Soto"
           />
           <h3 className="bio-name">Emalee Soto</h3>
-          <a href="https://github.com/EmaleeSoto">
+          <a
+            href="https://github.com/EmaleeSoto"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -136,7 +169,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/emalee-soto/">
+          <a
+            href="https://www.linkedin.com/in/emalee-soto/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -145,14 +182,20 @@ const About = () => {
             />
           </a>
           <p className="bio-text">
-            Pursuit 8.3 Fellow | Software Engineer Studying full stack web
-            development under Pursuit.
+            I'm a full-stack Junior Web Developer at the Pursuit Fellowship. I
+            have studied Computer Science at Hunter College, and plan to finish
+            my Bachelor's within the next two years. I love coding, gaming, and
+            music!
           </p>
         </article>
       </section>
       <div className="source-text">
         <p>
-          <a href="https://github.com/EmaleeSoto/capstone-worth-a-shot">
+          <a
+            href="https://github.com/EmaleeSoto/capstone-worth-a-shot"
+            target="_blank"
+            rel="noreferrer"
+          >
             Technical information and source code
           </a>{" "}
           available on GitHub.
