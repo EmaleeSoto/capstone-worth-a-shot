@@ -39,10 +39,8 @@ const App = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in.
-      //console.log("State Changed");
       setLogin(true);
       setFirebaseId(user.uid); //firebase
-      setUserEmail("");
     } else {
       // No user is signed in.
       setLogin(false);
@@ -107,7 +105,6 @@ const App = () => {
     } else {
       setUser({});
     }
-    fetchUser();
   }, [loggedIn, firebaseId]);
 
   const signOutOfAccount = () => {
@@ -154,6 +151,8 @@ const App = () => {
             path="/sign-up"
             element={<UserSignUp userFirebaseId={firebaseId} />}
           />
+          <Route path="/myfavorites" element={<Favorites user={user} />} />
+          <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/myfavorites" element={<Favorites user={user} />} />
           <Route
             path="/editprofile"

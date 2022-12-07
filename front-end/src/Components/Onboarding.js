@@ -86,10 +86,6 @@ export default function Onboarding({ userFirebaseId, callback }) {
       alert("Please enter a valid Zip Code!");
     } else {
       addUser(user);
-<<<<<<< HEAD
-      console.log(user);
-=======
->>>>>>> 8ae6d0b74c859e873cc0b4544ab232711b81be80
     }
   };
 
