@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* .trending-section{
     background-color: #00296b;
 }
@@ -11,6 +12,42 @@
     background-color: #00296b;
     padding-right: 100px;
 
+=======
+.trending-section{
+    /* background-image: url("https://i.ibb.co/RSTzT1J/party-drink-nightlife.webp");
+    background-size: contain;
+    background-repeat: no-repeat; */
+    /* display: block; */
+    /* opacity: 0.3; */
+    /* height:1000px; */
+    /* background-size: auto; */
+    /* background: radial-gradient(80% 40%, white , black ); */
+    background-color: #00296b;
+    padding-top: px;
+    padding-bottom: 100px;
+}
+
+/* .trending-section{
+
+} */
+
+.trending-bg{
+    /* background-image: url("https://i.ibb.co/RSTzT1J/party-drink-nightlife.webp");("https://i.ibb.co/PGVqWdY/cityPic.jpg"); */
+    background-image: url("https://i.ibb.co/q9N1Y9k/nyc-Skyline.webp");
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position:  top;
+    /* width: 100px; */
+    /* display: block; */
+    /* opacity: 0.3; */
+    /* height:1000px; */
+    background-size: 2000px 400px;
+    /* background: radial-gradient(80% 40%, white , black ); */
+    background-color: #00296b;
+    padding-top: 400px;
+    padding-right: 100px;
+    /* padding-bottom: 300px; */
+>>>>>>> 4e2aa007184c87264b4f50b758aee534be51d73b
 }
 
 .trending-text{
@@ -59,6 +96,10 @@
     font-weight: bold;
     padding-left: 100px;
     font-family: fantasy;
+<<<<<<< HEAD
+=======
+    /* padding-bottom: 700px; */
+>>>>>>> 4e2aa007184c87264b4f50b758aee534be51d73b
 }
 
 .trending-subtext {
@@ -84,4 +125,8 @@
 
 .venue-section{
     padding-bottom: 1000 px;
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> 4e2aa007184c87264b4f50b758aee534be51d73b
