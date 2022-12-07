@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
+import Trending from "./Pages/Trending";
 import About from "./Pages/About";
 import "./App.css";
 import Onboarding from "./Components/Onboarding";
@@ -80,7 +81,9 @@ const App = () => {
           />
           <Route
             path="/onboarding"
-            element={<Onboarding userFirebaseId={firebaseId} callback={setUser} />}
+            element={
+              <Onboarding userFirebaseId={firebaseId} callback={setUser} />
+            }
           />
           <Route path="/sign-in" element={<UserSignIn />} />
           <Route
@@ -99,6 +102,7 @@ const App = () => {
             element={<DrinksByPref user={user} />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/trending" element={<Trending />} />
           <Route path="/alcohols/category/:type" element={<Drinks />} />
         </Routes>
       </Router>
