@@ -107,6 +107,9 @@ const DrinksByPref = ({ user }) => {
 
   return (
     <div>
+      <Link to="/establishments">
+        <button id="index-button">Find Bars</button>
+      </Link>
       <h1 className="drink-header">What kind of drink are you looking for?</h1>
       <div id="alcohol-display-wrapper">
         <section id="type-info">

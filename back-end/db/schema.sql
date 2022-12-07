@@ -32,6 +32,6 @@ CREATE TABLE user_establishments (
     yelp_id TEXT NOT NULL,
     name TEXT,
     image TEXT
-)
+);
 
 -- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor

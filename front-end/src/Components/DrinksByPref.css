@@ -1,6 +1,7 @@
 #type-info {
   display: flex;
-  width: 300px;
+  width: 40%;
+  height: auto;
   margin: 5%;
   padding: 10px;
   border: solid;
@@ -9,10 +10,11 @@
 }
 
 #type-info button {
+  width: 150px;
   height: 50px;
   padding: 5px;
   border-radius: 15px;
-  display: block;
+  /* display: block; */
 }
 
 #alcohol-display-wrapper {

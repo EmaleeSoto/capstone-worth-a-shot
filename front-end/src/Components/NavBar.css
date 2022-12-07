@@ -13,6 +13,7 @@
   font-weight: bold;
   padding-top: 10px;
   font-weight: unset;
+  z-index: 101;
 }
 
 .nav a:link {
