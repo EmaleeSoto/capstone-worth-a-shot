@@ -22,7 +22,8 @@ CREATE TABLE alcohols (
     proof INT,
     description TEXT NOT NULL,
     category TEXT NOT NULL,
-    flavors TEXT NOT NULL
+    flavors TEXT NOT NULL,
+    type TEXT
 );
 
 CREATE TABLE user_establishments (
@@ -31,6 +32,6 @@ CREATE TABLE user_establishments (
     yelp_id TEXT NOT NULL,
     name TEXT,
     image TEXT
-)
+);
 
 -- SELECT * FROM alcohols JOIN users ON users.flavor = alcohols.flavor

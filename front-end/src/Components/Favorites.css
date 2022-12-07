@@ -1,0 +1,26 @@
+.favorite-page {
+    text-align: center;
+    justify-content: center;
+}
+
+.favorites-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin: 2em 2em;
+    justify-content: center;
+}
+
+.favorites-cell {
+    width: 325px;
+    text-align: center;
+    border: dotted;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.favorites-container img {
+    height: 200px;
+    width: auto;
+    max-width: 250px;
+}

@@ -2,3 +2,14 @@
   text-align: center;
   padding-top: 300px;
 }
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.image-container img {
+  width: 70%;
+  height: 80%;
+}

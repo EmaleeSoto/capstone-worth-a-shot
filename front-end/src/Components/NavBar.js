@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
-const Nav = ({ signOutOfAccount, loggedIn }) => {
+const Nav = ({ signOutOfAccount, loggedIn, userVerified }) => {
   const navigate = useNavigate();
   return (
     <nav className="nav header">
@@ -31,6 +31,7 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
           </Link>
           <Link className="nav-link" to="/editprofile">
             My Profile
+            {loggedIn && !userVerified ? "❗" : null}
           </Link>
           <button
             className="tab"
