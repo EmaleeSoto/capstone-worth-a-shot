@@ -6,7 +6,8 @@ const {
   getAllUserEstablishments,
   getEstablishmentByUserId,
   createUserEstablishment,
-} = require("../queries/userestablishments");
+  deleteUserEstablishment,
+} = require("../queries/userEstablishments");
 
 //INDEX
 userEstablishments.get("/", async (req, res) => {
@@ -40,27 +41,24 @@ userEstablishments.post("/addfavorite", async (req, res) => {
   }
 });
 
-// user.get("/:id/preferences", async (req, res) => {
-//   let myUser = await getUser(req.params.id);
-//   let myUserPrefs = [];
-//   let categories = myUser.atmosphere.split(", ");
-//   for (const category of categories) {
-//     let tempArray = await axios
-//       .get(
-//         `https://api.yelp.com/v3/businesses/search?location=NYC&categories=${category}`,
-//         {
-//           headers: {
-//             Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
-//           },
-//         }
-//       )
-//       .then((response) => {
-//         return response.data.businesses;
-//       });
-//     myUserPrefs = [...myUserPrefs, ...tempArray];
-//   }
-
-//   res.send(myUserPrefs);
-// });
+//DELETE
+userEstablishments.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedUserEstablishment = await deleteUserEstablishment(id);
+  if (deletedUserEstablishment) {
+    if (deletedUserEstablishment.id) {
+      res
+        .status(200)
+        .json({ success: true, payload: deletedUserEstablishment });
+    } else {
+      res
+        .status(404)
+        .json({ success: false, payload: "User Eatablishment not found" });
+    }
+  } else {
+    console.error(deletedUserEstablishment);
+    res.status(500).json({ success: false, payload: "server error" });
+  }
+});
 
 module.exports = userEstablishments;

@@ -1,0 +1,23 @@
+.edit-profile {
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.edit-profile h4 {
+ margin: auto;
+  width: 300px;
+}
+
+#not-verified {
+  color: red;
+}
+
+#not-verified:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#verified {
+  color: green;
+}

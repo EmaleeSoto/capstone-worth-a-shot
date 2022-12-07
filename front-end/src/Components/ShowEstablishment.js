@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import "./ShowEstablishment.css";
 const API = process.env.REACT_APP_API_URL;
 const YELP_API = process.env.REACT_APP_YELP_API_URL;
 
@@ -46,39 +47,37 @@ export default function ShowEstablishment({ user }) {
   };
 
   return (
-    <div>
+    <div className="establishment-show">
       <Link to="/establishments">
         <button>Go back to Establishments</button>
       </Link>
-      <span>
-        <h1>{establishment.name}</h1>
-        <button onClick={handleLike}>⭐️</button>
-      </span>
-      <br></br>
-      <img alt=''
-        src={
-          establishment.image_url !== ""
-            ? establishment.image_url
-            : "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png"
-        }
-      />
-      {/* <h3>
-        Address:{" "}
-        {establishment.location.display_address
-          ? establishment.location.display_address
-          : ""}
-        , {establishment.location.city}, {establishment.location.zip_code}
-      </h3> */}
-      {/* <h3>
+      <section className="establishment-info-grid">
+        <img
+          alt="Establishment"
+          className="establishment-info-image"
+          src={
+            establishment.image_url !== ""
+              ? establishment.image_url
+              : "./images/no-image.png"
+          }
+        />
+        <div>
+          <h1 className="establishment-show-name">{establishment.name}</h1>
+          {/* <h3>Address: {establishment.location.display_address}</h3> */}
+          <h4>Contact: {establishment.display_phone}</h4>
+          <h4>Rating: {establishment.rating} / 5</h4>
+          <button onClick={handleLike}>⭐️</button>
+        </div>
+        {/* <h3>
         Hours:{" "}
         {militaryToUSD(establishment.hours[0].open[0].start) -
           militaryToUSD(establishment.hours[0].open[0].end)}
       </h3> */}
-      <h4>Contact: {establishment.display_phone}</h4>
-      <h4>Rating: {establishment.rating} / 5</h4>
-      {/* {establishment.photos.map((photo) => {
+
+        {/* {establishment.photos.map((photo) => {
         return <img src={photo} alt="photo" />;
       })} */}
+      </section>
     </div>
   );
 }

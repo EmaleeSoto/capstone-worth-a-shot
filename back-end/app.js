@@ -27,19 +27,5 @@ app.get("*", (req, res) => {
   res.status(404).send("Not found!");
 });
 
-// app.get("/bars", (req, res) => {
-//   // let myUser = db.finderUserById(req.params.userId);
-//   let response = axios.get(
-//     `https://api.yelp.com/v3/businesses/search?location=NYC&category=nightlife`,
-//     {
-//       headers: {
-//         Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
-//         // Origin: "localhost",
-//         // withCredentials: true,
-//       },
-//     }
-//   );
-// });
-
 // EXPORT
 module.exports = app;

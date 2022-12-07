@@ -6,8 +6,15 @@
 }
 
 .about-text {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 20px;
+  text-indent: 50px;
+}
+
+.about-text,
+.bio-text {
+  line-height: 1.4;
 }
 
 .bios-header {
@@ -26,6 +33,16 @@
   margin-right: 50px;
 }
 
+.source-text a {
+  text-decoration: none;
+  color: #fdc500;
+}
+
+.source-text a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .headshot {
   border-radius: 100%;
 }
@@ -40,7 +57,7 @@
   padding-right: 5%;
 }
 
-.bio {
+.bio-text {
   padding-left: 10%;
   padding-right: 10%;
 }

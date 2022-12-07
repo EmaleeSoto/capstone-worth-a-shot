@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import OneEstablishment from "./OneEstablishment";
 import axios from "axios";
+import "./Establishments.css";
 const API = process.env.REACT_APP_API_URL;
 
 const Establishments = ({ user }) => {
@@ -28,12 +29,17 @@ const Establishments = ({ user }) => {
 
   return (
     <div>
-      <h1>Hello!!</h1>
-      {preferenceList.map((preference) => {
-        return (
-          <OneEstablishment preference={preference} handleLikes={handleLikes} />
-        );
-      })}
+      <h1 className="establishment-header">Here's some great places to try.</h1>
+      <section className="establishment-grid">
+        {preferenceList.map((preference) => {
+          return (
+            <OneEstablishment
+              preference={preference}
+              handleLikes={handleLikes}
+            />
+          );
+        })}
+      </section>
     </div>
   );
 };

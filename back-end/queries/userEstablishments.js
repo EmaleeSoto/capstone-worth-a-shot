@@ -35,8 +35,22 @@ const createUserEstablishment = async ({ user_uid, yelp_id, name, image }) => {
   }
 };
 
+const deleteUserEstablishment = async (id) => {
+  try {
+    const oneUserEstablishment = await db.one(
+      "DELETE FROM user_establishments WHERE id=$1 RETURNING *",
+      id
+    );
+    return oneUserEstablishment;
+  } catch (error) {
+    console.log(error.message || error);
+    return error;
+  }
+};
+
 module.exports = {
   getAllUserEstablishments,
   getEstablishmentByUserId,
   createUserEstablishment,
+  deleteUserEstablishment,
 };

@@ -22,7 +22,8 @@ CREATE TABLE alcohols (
     proof INT,
     description TEXT NOT NULL,
     category TEXT NOT NULL,
-    flavors TEXT NOT NULL
+    flavors TEXT NOT NULL,
+    type TEXT
 );
 
 CREATE TABLE user_establishments (

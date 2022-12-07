@@ -5,6 +5,7 @@ const {
   getAllAlcohols,
   getAlcohol,
   getAlcoholByCategory,
+  getAlcoholByType,
 } = require("../queries/alcohols");
 
 //INDEX
@@ -27,11 +28,19 @@ alcohol.get("/:id", async (req, res) => {
 
 // SHOW BY CATEGORY
 alcohol.get("/category/:category", async (req, res) => {
-  console.log("yay");
   const { category } = req.params;
-  console.log(category);
   const alcohols = await getAlcoholByCategory(category);
-  console.log(alcohols);
+  if (alcohols) {
+    res.json({ success: true, payload: alcohols });
+  } else {
+    res.status(404).json({ success: false, payload: "not found" });
+  }
+});
+
+// SHOW BY TYPE
+alcohol.get("/type/:type", async (req, res) => {
+  const { type } = req.params;
+  const alcohols = await getAlcoholByType(type);
   if (alcohols) {
     res.json({ success: true, payload: alcohols });
   } else {
