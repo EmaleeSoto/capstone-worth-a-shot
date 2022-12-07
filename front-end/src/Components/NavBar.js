@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import React from "react";
 import "./NavBar.css";
 
-const Nav = ({ signOutOfAccount, loggedIn }) => {
+const Nav = ({ signOutOfAccount, loggedIn, userVerified }) => {
   const navigate = useNavigate();
   return (
     <nav className="nav header">
-      <Link className="nav-link" to="/">
+      <Link className="nav-link" to={loggedIn ? "/myhome" : "/"}>
         <div>
           <img
             className="nav-logo"
@@ -15,13 +14,19 @@ const Nav = ({ signOutOfAccount, loggedIn }) => {
           />
         </div>
       </Link>
-      <Link className="nav-link" to="/about">
-        About
-      </Link>
+      <div className="about-link">
+        <Link className="nav-link" to="/about">
+          About
+        </Link>
+      </div>
       {loggedIn ? (
         <div id="login-wrapper">
-          <Link className="nav-link" to="/user/favorties">
+          <Link className="nav-link" to="/myfavorites">
             Favorites
+          </Link>
+          <Link className="nav-link" to="/editprofile">
+            My Profile
+            {loggedIn && !userVerified ? "❗" : null}
           </Link>
           <button
             className="tab"

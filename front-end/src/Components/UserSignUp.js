@@ -2,6 +2,7 @@ import { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import app from "../firebase";
+import "./UserSignUp.css";
 
 export default function SignUp() {
   const [profile, setProfile] = useState({
@@ -41,6 +42,7 @@ export default function SignUp() {
 
   return (
     <div className="sign-up-section">
+      <h1 className="signup-header">Let's get you signed up.</h1>
       <label htmlFor="email">Email: </label>
       <input
         id="email"

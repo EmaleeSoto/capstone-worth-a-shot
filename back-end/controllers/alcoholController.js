@@ -4,12 +4,14 @@ const alcohol = express.Router();
 const {
   getAllAlcohols,
   getAlcohol,
-  //   getAlcoholByName,
+  getAlcoholByCategory,
+  getAlcoholByType,
 } = require("../queries/alcohols");
 
 //INDEX
 alcohol.get("/", async (req, res) => {
   const allAlcohols = await getAllAlcohols();
+  console.log("Yay");
   res.json({ payload: allAlcohols });
 });
 
@@ -24,15 +26,26 @@ alcohol.get("/:id", async (req, res) => {
   }
 });
 
-//SHOW by name
-// alcohol.get("/:name", async (req, res) => {
-//   const { name } = req.params;
-//   const alcohol = await getAlcoholByName(name);
-//   if (alcohol.name) {
-//     res.json({ success: true, payload: alcohol });
-//   } else {
-//     res.status(404).json({ success: false, payload: "not found" });
-//   }
-// });
+// SHOW BY CATEGORY
+alcohol.get("/category/:category", async (req, res) => {
+  const { category } = req.params;
+  const alcohols = await getAlcoholByCategory(category);
+  if (alcohols) {
+    res.json({ success: true, payload: alcohols });
+  } else {
+    res.status(404).json({ success: false, payload: "not found" });
+  }
+});
+
+// SHOW BY TYPE
+alcohol.get("/type/:type", async (req, res) => {
+  const { type } = req.params;
+  const alcohols = await getAlcoholByType(type);
+  if (alcohols) {
+    res.json({ success: true, payload: alcohols });
+  } else {
+    res.status(404).json({ success: false, payload: "not found" });
+  }
+});
 
 module.exports = alcohol;

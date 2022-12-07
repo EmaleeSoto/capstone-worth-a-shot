@@ -1,0 +1,35 @@
+.establishment-show {
+  text-align: center;
+}
+
+.establishment-show-name {
+  font-size: 45px;
+}
+
+.establishment-info-grid {
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.establishment-info-image {
+  height: 500px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .establishment-info-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 767px) {
+  .establishment-info-image {
+    height: 200px;
+  }
+  .establishment-info-grid {
+    display: block;
+  }
+}

@@ -1,37 +1,41 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "./About.css";
 
 const About = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
-    <section className="about-section">
+    <section className="about-section" data-aos="fade-up">
       <h1 className="about-header">
         Revolutionize your nightlife experience with Worth a Shot
       </h1>
-      <br></br>
-      <p className="about-text">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
-      </p>
-      <p className="about-text">
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-        oluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-        quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-        corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-        voluptas nulla pariatur?"
-      </p>
+      <div className="about-text">
+        <p>
+          Looking to get back into the nightlife scene? Whether you're a
+          seasoned bar-hopper or just looking to mix things up, Worth a Shot is
+          your new best friend for finding the best nightlife options your city
+          has to offer. With our sleek and user-friendly interface, which works
+          great on both desktop and mobile platforms, our app allows you to
+          search for bars based on your location and type of atmosphere they're
+          looking for. If you ever felt bored or overwhelmed with the nightlife
+          options in your city, we can help you explore the vibrant world of
+          bars and nightclubs. We learn about your preferences and tastes, so we
+          can find the perfect spot for a night out, and let you discover new
+          and exciting drinks to try.
+        </p>
+        <p>
+          In addition to helping you find the best bars and nightclubs, Worth a
+          Shot also offers a feature that allows you to discover new drinks and
+          cocktails. You can browse our curated list to search for a specific
+          type of drink. Each drink comes with a description and a list of
+          ingredients, making it easy for you to try out something new at the
+          bar. No matter if you're looking for a laid-back sports bar or a
+          trendy nightclub, Worth a Shot has you covered.
+        </p>
+      </div>
       <h1 className="bios-header">Our Team</h1>
       <section className="bios-section">
         <article>
@@ -41,7 +45,11 @@ const About = () => {
             alt="Headshot of Matt Munroe"
           />
           <h3 className="bio-name">Matt Munroe</h3>
-          <a href="https://github.com/MattNMunroe">
+          <a
+            href="https://github.com/MattNMunroe"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -49,7 +57,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/matthew-munroe-720b8b199/">
+          <a
+            href="https://www.linkedin.com/in/matthew-munroe-720b8b199/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -57,7 +69,7 @@ const About = () => {
               src="./icons/linkedin.png"
             />
           </a>
-          <p className="bio">
+          <p className="bio-text">
             Hey, I'm Matt, 8.3 Pursuit Fellow and a Creative from the jungles of
             NYC. I possess a deep love for Drawing, Writing, and producing
             Hip-Hop/Trap.
@@ -70,7 +82,11 @@ const About = () => {
             alt="Headshot of Cesar Ortiz"
           />
           <h3 className="bio-name">Cesar Ortiz</h3>
-          <a href="https://github.com/CeazTheMoment">
+          <a
+            href="https://github.com/CeazTheMoment"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -78,7 +94,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/">
+          <a
+            href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -86,7 +106,7 @@ const About = () => {
               src="./icons/linkedin.png"
             />
           </a>
-          <p className="bio">
+          <p className="bio-text">
             My name is Cesar Ortiz. I'm a full stack software engineer currently
             enrolled in the pursuit fellowship. Pursuit is a 12 month training
             program with a 9% acceptance rate.
@@ -99,7 +119,11 @@ const About = () => {
             alt="Headshot of Jonathan Scheiber"
           />
           <h3 className="bio-name">Jonathan Scheiber</h3>
-          <a href="https://github.com/Scheiber">
+          <a
+            href="https://github.com/Scheiber"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -107,7 +131,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/jonscheiber/">
+          <a
+            href="https://www.linkedin.com/in/jonscheiber/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -115,7 +143,7 @@ const About = () => {
               src="./icons/linkedin.png"
             />
           </a>
-          <p className="bio">
+          <p className="bio-text">
             I am a full-stack web developer with a background in IT and customer
             service from New York, NY. I am currently learning JavaScript and
             React. My interests include user experience (UX) design,
@@ -129,7 +157,11 @@ const About = () => {
             alt="Headshot of Emalee Soto"
           />
           <h3 className="bio-name">Emalee Soto</h3>
-          <a href="https://github.com/EmaleeSoto">
+          <a
+            href="https://github.com/EmaleeSoto"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="GitHub"
@@ -137,7 +169,11 @@ const About = () => {
               src="./icons/github.png"
             />
           </a>
-          <a href="https://www.linkedin.com/in/emalee-soto/">
+          <a
+            href="https://www.linkedin.com/in/emalee-soto/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="icon"
               alt="LinkedIn"
@@ -145,20 +181,42 @@ const About = () => {
               src="./icons/linkedin.png"
             />
           </a>
-          <p className="bio">
-            Pursuit 8.3 Fellow | Software Engineer Studying full stack web
-            development under Pursuit.
+          <p className="bio-text">
+            I'm a full-stack Junior Web Developer at the Pursuit Fellowship. I
+            have studied Computer Science at Hunter College, and plan to finish
+            my Bachelor's within the next two years. I love coding, gaming, and
+            music!
           </p>
         </article>
       </section>
-      <p className="source-text">
-        <a href="https://github.com/EmaleeSoto/capstone-worth-a-shot">
-          Technical information and source code
-        </a>{" "}
-        available on GitHub.
-      </p>
+      <div className="source-text">
+        <p>
+          <a
+            href="https://github.com/EmaleeSoto/capstone-worth-a-shot"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Technical information and source code
+          </a>{" "}
+          available on GitHub.
+        </p>
+        <p className="source-text">
+          Made with love in New York City. The greatest city in the world.
+        </p>
+      </div>
     </section>
   );
 };
 
 export default About;
+
+/*
+
+I shot an arrow into the air,
+It fell to earth, I knew not where;
+For, so swiftly it flew, the sight
+Could not follow it in its flight.
+
+― Henry Wadsworth Longfellow
+
+*/
