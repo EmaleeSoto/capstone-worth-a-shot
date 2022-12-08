@@ -19,6 +19,12 @@ export default function UserSignIn({ resetPassword }) {
     setProfile({ ...profile, [event.target.id]: event.target.value });
   };
 
+  const handlePress = (e) => {
+    if (e.key === "Enter") {
+      signIn();
+    }
+  };
+
   const signIn = () => {
     signInWithEmailAndPassword(auth, profile.email, profile.password)
       .then((userCredential) => {
@@ -35,7 +41,16 @@ export default function UserSignIn({ resetPassword }) {
       .catch((error) => {
         const errorCode = error.code;
         console.log(errorCode);
-        alert(errorCode);
+
+        if (error.code === "auth/user-not-found") {
+          alert(
+            "User not found! Please enter a valid email address and password or sign up if you don't have an account."
+          );
+        } else {
+          alert(
+            `${errorCode} - Please enter a valid email address and password.`
+          );
+        }
       });
   };
   return (
@@ -51,6 +66,7 @@ export default function UserSignIn({ resetPassword }) {
             onChange={handleTextChange}
             autoComplete="off"
             required
+            onKeyDown={handlePress}
           />
         </div>
         <br></br>
@@ -63,6 +79,7 @@ export default function UserSignIn({ resetPassword }) {
             onChange={handleTextChange}
             autoComplete="off"
             required
+            onKeyDown={handlePress}
           />
         </div>
         <br></br>
