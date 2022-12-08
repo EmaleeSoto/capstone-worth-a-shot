@@ -8,20 +8,18 @@ const LandingPageSignedIn = ({ user }) => {
       <h1>Hi {user.name}, what are your plans tonight?</h1>
       <div className="image-container">
         <div>
-          <img
-            src="https://i.pinimg.com/originals/d3/00/bf/d300bfa12c36a34ac511c27e44541b88.png"
-            alt="clubs and bars"
-          />
+          <Link to={`/establishments`}>
+            <img src="./images/find-bars.png" alt="Find Bars and Clubs" />
+          </Link>
           <br></br>
           <Link to={`/establishments`}>
             <button className="large-button">Find Bars and Clubs</button>
           </Link>
         </div>
         <div>
-          <img
-            src="https://www.highsnobiety.com/static-assets/thumbor/sVG5ts9WDJHTXFwcHlXpOjMhgsY=/1600x1067/www.highsnobiety.com/static-assets/wp-content/uploads/2017/07/18125519/guide-to-daydrinking-3.jpg"
-            alt="alcohols"
-          />
+          <Link to="/alcohols/category">
+            <img src="./images/find-drinks.png" alt="Find Drinks" />
+          </Link>
           <br></br>
           {user.age < 21 ? (
             <h2>

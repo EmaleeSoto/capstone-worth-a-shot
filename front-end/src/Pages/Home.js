@@ -25,7 +25,7 @@ const Home = () => {
           <button className="large-button">Let's get started!</button>
         </Link>
       </div>
-      <img src="https://i.ibb.co/ysBbxRH/party-pic-nightlife.jpg" alt="party" />
+      <img src="./images/splash.jpg" alt="Group of people partying" />
     </div>
   );
 };
