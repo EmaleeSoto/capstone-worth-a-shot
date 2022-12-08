@@ -1,3 +1,16 @@
+.venue-photo {
+  width: 60%;
+  height: auto;
+}
+
+.venue-photo-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
 .establishment-show {
   text-align: center;
 }

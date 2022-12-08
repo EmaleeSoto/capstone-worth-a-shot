@@ -174,7 +174,7 @@ const App = () => {
           />
           <Route path="/about" element={<About />} />
           <Route path="/alcohols/category/:category" element={<Drinks />} />
-          <Route path="*" element={<FourOFour />} />
+          <Route path="*" element={<FourOFour loggedIn={loggedIn} />} />
         </Routes>
       </Router>
     </div>
