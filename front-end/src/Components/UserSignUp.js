@@ -16,6 +16,12 @@ export default function SignUp() {
     setProfile({ ...profile, [event.target.id]: event.target.value });
   };
 
+  const handlePress = (e) => {
+    if (e.key === "Enter") {
+      signUp();
+    }
+  };
+
   const signUp = () => {
     createUserWithEmailAndPassword(auth, profile.email, profile.password)
       .then((userCredential) => {
@@ -32,11 +38,21 @@ export default function SignUp() {
       })
       .catch((error) => {
         const errorCode = error.code;
+        console.log(errorCode);
 
-        alert(
-          `${errorCode} - Please enter a valid email address and password.`
-        );
-        // ..
+        if (error.code === "auth/email-already-in-use") {
+          alert(
+            "There's already an account associated with this email address. Please try logging in instead."
+          );
+        } else if (error.code === "auth/invalid-email") {
+          alert(
+            "That's not a valid email address! Please enter a valid email address and password."
+          );
+        } else {
+          alert(
+            `${errorCode} - Please enter a valid email address and password.`
+          );
+        }
       });
   };
 
@@ -53,6 +69,7 @@ export default function SignUp() {
             onChange={handleTextChange}
             autoComplete="off"
             required
+            onKeyDown={handlePress}
           />
         </div>
         <br></br>
@@ -65,6 +82,7 @@ export default function SignUp() {
             onChange={handleTextChange}
             autoComplete="off"
             required
+            onKeyDown={handlePress}
           />
         </div>
         <br></br>
