@@ -7,7 +7,7 @@
 .one-establishment {
   width: 325px;
   text-align: center;
-  box-shadow: 4px 4px 4px #061A43;
+  box-shadow: 4px 4px 4px #061a43;
   border-radius: 15px;
   padding: 5px;
 }
@@ -30,6 +30,7 @@
   grid-gap: 1rem;
   margin: 2em 2em;
   justify-content: center;
+  justify-items: center;
 }
 
 .establishment-grid a {
@@ -55,7 +56,11 @@
 
 @media screen and (max-width: 767px) {
   .establishment-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     margin: 2em 0.5em;
+  }
+  #index-button {
+    position: relative;
+    margin-left: 0%;
   }
 }
