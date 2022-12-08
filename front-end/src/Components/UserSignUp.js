@@ -70,7 +70,7 @@ export default function SignUp() {
           Create account
         </button>
         <h3>
-          Our quick and easy Onboarding experience will allow our algorithm to
+          Our quick and easy onboarding experience will allow our algorithm to
           find the right nightlife venues for you!
         </h3>
       </div>
