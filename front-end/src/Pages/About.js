@@ -45,6 +45,7 @@ const About = () => {
             alt="Headshot of Matt Munroe"
           />
           <h3 className="bio-name">Matt Munroe</h3>
+          <h3 className="title-text">Front-End/Synergist</h3>
           <a
             href="https://github.com/MattNMunroe"
             target="_blank"
@@ -82,6 +83,7 @@ const About = () => {
             alt="Headshot of Cesar Ortiz"
           />
           <h3 className="bio-name">Cesar Ortiz</h3>
+          <h3 className="title-text">&nbsp;</h3>
           <a
             href="https://github.com/CeazTheMoment"
             target="_blank"
@@ -119,6 +121,7 @@ const About = () => {
             alt="Headshot of Jonathan Scheiber"
           />
           <h3 className="bio-name">Jonathan Scheiber</h3>
+          <h3 className="title-text">Design/UX Lead</h3>
           <a
             href="https://github.com/Scheiber"
             target="_blank"
@@ -157,6 +160,7 @@ const About = () => {
             alt="Headshot of Emalee Soto"
           />
           <h3 className="bio-name">Emalee Soto</h3>
+          <h3 className="title-text">Back-End/Team Lead</h3>
           <a
             href="https://github.com/EmaleeSoto"
             target="_blank"
