@@ -11,7 +11,6 @@ function EditProfile({
   userVerified,
   deleteFirebaseAccount,
 }) {
-  //const { id } = useParams();
   const navigate = useNavigate();
   const [userEdit, setUserEdit] = useState({
     name: "",

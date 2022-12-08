@@ -1,5 +1,32 @@
-.sign-up-section {
+.sign-in-section {
   text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.sign-in-section-container {
+  border: 1px solid #F3C743;
+  border-radius: 15px;
+  background-color: #061A43;
+  width: 30%;
+  padding: 3%;
+  margin: 3%;
+}
+
+.input-label-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.sign-in-section label {
+  display: inline-block;
+  width: 25%;
+}
+
+.sign-in-section input {
+  width: 60%;
+  margin-left: 2%;
+  border-radius: 5px;
 }
 
 #forgot-password:hover {

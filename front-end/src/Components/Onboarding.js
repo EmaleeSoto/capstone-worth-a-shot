@@ -70,6 +70,11 @@ export default function Onboarding({ userFirebaseId, callback }) {
     return true;
   };
 
+  //Check User Age
+  const handleAgeCheck = (age) => {
+    return age < 18 ? false : true;
+  };
+
   const goToNextForm = (event) => {
     event.preventDefault();
     setDisplayNextForm(true);
@@ -84,6 +89,10 @@ export default function Onboarding({ userFirebaseId, callback }) {
     user.atmosphere = atmospheres.join(", ");
     if (!zipCodeCheck(user.zip_code)) {
       alert("Please enter a valid Zip Code!");
+    } else if (!handleAgeCheck(user.age)) {
+      alert(
+        "Sorry, you need to be over 18 to create an account with our site!"
+      );
     } else {
       addUser(user);
     }

@@ -9,6 +9,7 @@ const YELP_API = process.env.REACT_APP_YELP_API_URL;
 //SOMETIMES ADDRESS1 IS UNDEFINED AND CRASHES APP DESPITE CONDITIONAL
 export default function ShowEstablishment({ user }) {
   const [establishment, setEstablishment] = useState({});
+  const [venueReviews, setVenueReviews] = useState([]);
   const [like, setLike] = useState(false);
   const navigate = useNavigate();
   let { id } = useParams();
@@ -18,6 +19,15 @@ export default function ShowEstablishment({ user }) {
       .get(`${YELP_API}/${id}`)
       .then((res) => {
         setEstablishment(res.data);
+      })
+      .catch(() => {
+        navigate("/not found");
+      });
+
+    axios
+      .get(`${YELP_API}/reviews/${id}`)
+      .then((res) => {
+        setVenueReviews(res.data.reviews);
       })
       .catch(() => {
         navigate("/not found");
@@ -63,21 +73,21 @@ export default function ShowEstablishment({ user }) {
         />
         <div>
           <h1 className="establishment-show-name">{establishment.name}</h1>
-          {/* <h3>Address: {establishment.location.display_address}</h3> */}
+          {/* <h3>Address: {establishment.location.display_address[0]}</h3> */}
           <h4>Contact: {establishment.display_phone}</h4>
           <h4>Rating: {establishment.rating} / 5</h4>
           <button onClick={handleLike}>⭐️</button>
         </div>
         {/* <h3>
-        Hours:{" "}
-        {militaryToUSD(establishment.hours[0].open[0].start) -
-          militaryToUSD(establishment.hours[0].open[0].end)}
-      </h3> */}
+          Hours: {militaryToUSD(establishment.hours[0].open[0].start)} -
+          {militaryToUSD(establishment.hours[0].open[0].end)}
+        </h3> */}
 
         {/* {establishment.photos.map((photo) => {
         return <img src={photo} alt="photo" />;
       })} */}
       </section>
+      {/* <section>{venueReviews[0].user.name}</section> */}
     </div>
   );
 }

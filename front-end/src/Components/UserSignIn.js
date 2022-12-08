@@ -39,34 +39,40 @@ export default function UserSignIn({ resetPassword }) {
       });
   };
   return (
-    <div className="sign-up-section">
-      <h1 className="login-header">Let's get you logged in.</h1>
-      <label htmlFor="email">Email: </label>
-      <input
-        id="email"
-        type="email"
-        placeholder="user@example.com"
-        onChange={handleTextChange}
-        autoComplete="off"
-        required
-      />
-      <br></br>
-      <label htmlFor="password">Password: </label>
-      <input
-        id="password"
-        type="password"
-        placeholder="Enter password"
-        onChange={handleTextChange}
-        autoComplete="off"
-        required
-      />
-      <br></br>
-      <button id="login" onClick={signIn}>
-        Log in
-      </button>
-      <h4 id="forgot-password" onClick={resetPassword}>
-        Forgot Password?
-      </h4>
+    <div className="sign-in-section">
+      <div className="sign-in-section-container">
+        <h1 className="login-header">Let's get you logged in.</h1>
+        <div className="input-label-wrap">
+          <label htmlFor="email">Email: </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="user@example.com"
+            onChange={handleTextChange}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <br></br>
+        <div className="input-label-wrap">
+          <label htmlFor="password">Password: </label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter Password"
+            onChange={handleTextChange}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <br></br>
+        <button id="login" onClick={signIn}>
+          Log in
+        </button>
+        <h4 id="forgot-password" onClick={resetPassword}>
+          Forgot Password?
+        </h4>
+      </div>
     </div>
   );
 }

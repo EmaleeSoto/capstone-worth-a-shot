@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
-export default function OneEstablishment({ preference, handleLikes }) {
+export default function OneEstablishment({ preference }) {
+  let array = [];
+  const formatCategories = () => {
+    preference.categories.forEach((pref) => {
+      array.push(pref.title);
+    });
+    return array.join(" | ");
+  };
   return (
     <div className="one-establishment" key={preference.id}>
       <div>
@@ -12,10 +19,14 @@ export default function OneEstablishment({ preference, handleLikes }) {
             alt={preference.name}
           />
         </Link>
-        <p>{preference.location.display_address}</p>
+        <p>
+          {preference.location.display_address[0]}
+          {", "}
+          {preference.location.display_address[1]}
+        </p>
         <p>Rating: {preference.rating} / 5</p>
-        <label htmlFor="favorite">Favorite this Spot?</label>
-        <button onClick={handleLikes}>⭐️</button>
+
+        <p className="pref-category"> Categories: {formatCategories()}</p>
       </div>
     </div>
   );

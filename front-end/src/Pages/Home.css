@@ -1,7 +1,27 @@
 .home-container {
   text-align: center;
+  margin-top: 2%;
   margin-left: 50px;
   margin-right: 50px;
+  padding: 2%;
+  background-color: #051A42;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+  justify-content: center;
+}
+
+.home-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10%;
+}
+
+.home-subcontainer {
+  width: 100%;
+  margin-top: 10%;
+  padding: 5%;
 }
 
 .home-header {

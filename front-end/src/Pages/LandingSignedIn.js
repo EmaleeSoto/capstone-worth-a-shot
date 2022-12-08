@@ -9,7 +9,7 @@ const LandingPageSignedIn = ({ user }) => {
       <div className="image-container">
         <div>
           <img
-            src="https://us.123rf.com/450wm/miny/miny1208/miny120800017/14969245-des-gens-qui-dansent-lors-d-une-f%C3%AAte.jpg"
+            src="https://i.pinimg.com/originals/d3/00/bf/d300bfa12c36a34ac511c27e44541b88.png"
             alt="clubs and bars"
           />
           <br></br>
@@ -23,9 +23,15 @@ const LandingPageSignedIn = ({ user }) => {
             alt="alcohols"
           />
           <br></br>
-          <Link to="/alcohols/category">
-            <button className="large-button">Find Drinks</button>
-          </Link>
+          {user.age < 21 ? (
+            <h2>
+              Sorry, the legal drinking age in the US is 21. Come back soon!
+            </h2>
+          ) : (
+            <Link to="/alcohols/category">
+              <button className="large-button">Find Drinks</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

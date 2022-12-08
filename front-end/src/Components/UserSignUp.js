@@ -42,30 +42,38 @@ export default function SignUp() {
 
   return (
     <div className="sign-up-section">
-      <h1 className="signup-header">Let's get you signed up.</h1>
-      <label htmlFor="email">Email: </label>
-      <input
-        id="email"
-        type="email"
-        placeholder="user@example.com"
-        onChange={handleTextChange}
-        autoComplete="off"
-        required
-      />
-      <br></br>
-      <label htmlFor="password">Password:</label>
-      <input
-        id="password"
-        type="password"
-        placeholder="Enter Password"
-        onChange={handleTextChange}
-        autoComplete="off"
-        required
-      />
-      <br></br>
-      <button id="create" onClick={signUp}>
-        Create account
-      </button>
+      <div className="sign-up-container">
+        <h1 className="signup-header">Let's get you signed up.</h1>
+        <div className="input-label-wrap">
+          <label htmlFor="email">Email: </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="user@example.com"
+            onChange={handleTextChange}
+            autoComplete="off"
+            required
+          />
+        </div>
+        <br></br>
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter Password"
+          onChange={handleTextChange}
+          autoComplete="off"
+          required
+        />
+        <br></br>
+        <button id="create" onClick={signUp}>
+          Create account
+        </button>
+        <h3>
+          Our quick and easy Onboarding experience will allow our algorithm to
+          find the right nightlife venues for you!
+        </h3>
+      </div>
     </div>
   );
 }

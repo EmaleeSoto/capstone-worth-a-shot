@@ -41,6 +41,7 @@ const App = () => {
       // User is signed in.
       setLogin(true);
       setFirebaseId(user.uid); //firebase
+      setUserEmail("");
     } else {
       // No user is signed in.
       setLogin(false);
@@ -151,8 +152,6 @@ const App = () => {
             path="/sign-up"
             element={<UserSignUp userFirebaseId={firebaseId} />}
           />
-          <Route path="/myfavorites" element={<Favorites user={user} />} />
-          <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/myfavorites" element={<Favorites user={user} />} />
           <Route
             path="/editprofile"

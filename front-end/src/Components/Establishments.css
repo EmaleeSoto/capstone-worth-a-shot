@@ -7,7 +7,7 @@
 .one-establishment {
   width: 325px;
   text-align: center;
-  border: dotted;
+  box-shadow: 4px 4px 4px #061A43;
   border-radius: 15px;
   padding: 5px;
 }
