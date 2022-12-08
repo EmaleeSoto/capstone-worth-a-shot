@@ -27,10 +27,13 @@ function EditProfile({
   useEffect(() => {
     setUserEdit(user);
     let userAtmospheres = user.atmosphere.split(", ");
-    setAtmospheres([...atmospheres, ...userAtmospheres]);
+    setAtmospheres(userAtmospheres);
   }, [user, userVerified]);
   console.log(userEdit);
 
+  const checkAtmosphereExists = (string) => {
+    return userEdit.atmosphere.includes(string) ? true : false;
+  };
   const handleTextChange = (event) => {
     event.preventDefault();
     setUserEdit({ ...userEdit, [event.target.id]: event.target.value });
@@ -55,6 +58,9 @@ function EditProfile({
 
   const handleAtmosphere = (event) => {
     event.preventDefault();
+    event.target.className === "clicked"
+      ? (event.target.className = "not-clicked")
+      : (event.target.className = "clicked");
     let newArray = atmospheres;
     if (newArray.indexOf(event.target.value) >= 0) {
       newArray.splice(newArray.indexOf(event.target.value), 1);
@@ -97,172 +103,305 @@ function EditProfile({
         <h4 id="verified">Your email address is verified ✅</h4>
       )}
       <form className="user-edit-form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input
-          id="name"
-          type="text"
-          onChange={handleTextChange}
-          autoComplete="off"
-          value={userEdit.name}
-          required
-        />
-        <br />
-        <label htmlFor="age">Age? </label>
-        <input
-          id="age"
-          name="age"
-          type="number" //TODO: Change to calendar and calculate age later
-          onChange={handleAgeChange}
-          value={userEdit.age}
-          autoComplete="off"
-          required
-        />
-        <br />
-        <br />
-        <label>What is your gender identity?</label>
-        <br />
-        <label htmlFor="male">Male</label>
-        <input
-          id="male"
-          type="radio"
-          name="gender"
-          onChange={handleTextChange}
-          value="Male"
-        />
-        <br />
-        <label htmlFor="female">Female</label>
-        <input
-          id="female"
-          type="radio"
-          name="gender"
-          onChange={handleTextChange}
-          value="Female"
-        />
-        <br />
-        <label htmlFor="other">Other</label>
-        <input
-          id="other"
-          type="radio"
-          name="gender"
-          onChange={handleTextChange}
-          value="Other"
-        />
-        <br />
-        <br />
-        <label htmlFor="zip_code">Zip Code: </label>
-        <input
-          id="zip_code"
-          type="text"
-          size="5"
-          maxLength="5"
-          onChange={handleTextChange}
-          value={userEdit.zip_code}
-          autoComplete="off"
-          required
-        />
-        <br />
-        <select id="personality" onChange={handleTextChange}>
-          <option hidden disabled selected value>
-            -- select an option --
-          </option>
-          <option value="Extrovert">Extrovert</option>
-          <option value="Introvert">Introvert</option>
-          <option value="Ambivert">Ambivert</option>
-        </select>
-        <br></br>
-
-        <label>Sweet</label>
-        <input
-          id="flavors"
-          type="radio"
-          onChange={handleTextChange}
-          name="flavors"
-          value="Sweet"
-        />
-        <br></br>
-        <label>Bitter</label>
-        <input
-          id="flavors"
-          type="radio"
-          onChange={handleTextChange}
-          name="flavors"
-          value="Bitter"
-        />
-        <br></br>
-        <label>Sour</label>
-        <input
-          id="flavors"
-          type="radio"
-          onChange={handleTextChange}
-          name="flavors"
-          value="Sour"
-        />
-        <br></br>
+        <section className="info-wrap">
+          <div className="input-label-wrap">
+            <label className="bold" htmlFor="name">
+              Name:{" "}
+            </label>
+            <input
+              id="name"
+              type="text"
+              onChange={handleTextChange}
+              autoComplete="off"
+              value={userEdit.name}
+              required
+            />
+            <br />
+            <br />
+            <label className="bold" htmlFor="age">
+              Age:{" "}
+            </label>
+            <input
+              id="age"
+              name="age"
+              type="number" //TODO: Change to calendar and calculate age later
+              onChange={handleAgeChange}
+              value={userEdit.age}
+              autoComplete="off"
+              required
+            />
+          </div>
+          <br />
+          <br />
+          <label className="bold">What is your gender identity?</label>
+          <br />
+          <label htmlFor="male">Male</label>
+          <input
+            id="male"
+            type="radio"
+            name="gender"
+            onChange={handleTextChange}
+            value="Male"
+          />
+          <br />
+          <label htmlFor="female">Female</label>
+          <input
+            id="female"
+            type="radio"
+            name="gender"
+            onChange={handleTextChange}
+            value="Female"
+          />
+          <br />
+          <label htmlFor="other">Other</label>
+          <input
+            id="other"
+            type="radio"
+            name="gender"
+            onChange={handleTextChange}
+            value="Other"
+          />
+          <br />
+          <br />
+          <label className="bold" htmlFor="zip_code">
+            Zip Code:{" "}
+          </label>
+          <input
+            id="zip_code"
+            type="text"
+            size="5"
+            maxLength="5"
+            onChange={handleTextChange}
+            value={userEdit.zip_code}
+            autoComplete="off"
+            required
+          />
+          <br />
+          <br />
+          <label className="bold">Social Personality</label>
+          <select id="personality" onChange={handleTextChange}>
+            <option hidden disabled selected value>
+              -- select an option --
+            </option>
+            <option value="Extrovert">Extrovert</option>
+            <option value="Introvert">Introvert</option>
+            <option value="Ambivert">Ambivert</option>
+          </select>
+          <br />
+          <br />
+          <label id="bev-flavors">Bev Flavors</label>
+          <br />
+          <label>Sweet</label>
+          <input
+            id="flavors"
+            type="radio"
+            onChange={handleTextChange}
+            name="flavors"
+            value="Sweet"
+          />
+          <br />
+          <label>Bitter</label>
+          <input
+            id="flavors"
+            type="radio"
+            onChange={handleTextChange}
+            name="flavors"
+            value="Bitter"
+          />
+          <br />
+          <label>Sour</label>
+          <input
+            id="flavors"
+            type="radio"
+            onChange={handleTextChange}
+            name="flavors"
+            value="Sour"
+          />
+          <br />
+        </section>
         <button
           id="atmosphere"
+          className={
+            checkAtmosphereExists("adultentertainment")
+              ? "clicked"
+              : "not-clicked"
+          }
           onClick={handleAtmosphere}
           value="adultentertainment"
         >
           Adult Entertainment
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="stripclubs">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("stripclubs") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="stripclubs"
+        >
           Strip Club
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="cocktailbars">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("cocktailbars") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="cocktailbars"
+        >
           Cocktails
         </button>
         <button
           id="atmosphere"
+          className={
+            checkAtmosphereExists("champagne_bars") ? "clicked" : "not-clicked"
+          }
           onClick={handleAtmosphere}
           value="champagne_bars"
         >
           Fancy
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="divebars">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("divebars") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="divebars"
+        >
           Casual and Social
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="gaybars">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("gaybars") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="gaybars"
+        >
           LGBTQ+
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="hookah_bars">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("hookah_bars") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="hookah_bars"
+        >
           Hookah
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="lounges">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("lounges") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="lounges"
+        >
           Lounge
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="pubs">
+        <button
+          id="atmosphere"
+          className={checkAtmosphereExists("pubs") ? "clicked" : "not-clicked"}
+          onClick={handleAtmosphere}
+          value="pubs"
+        >
           Pubs
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="sakebars">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("sakebars") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="sakebars"
+        >
           Sake
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="sportsbars">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("sportsbars") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="sportsbars"
+        >
           Sports
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="coffeeshops">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("coffeeshops") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="coffeeshops"
+        >
           Coffee
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="comedyclubs">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("comedyclubs") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="comedyclubs"
+        >
           Comedy
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="danceclubs">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("danceclubs") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="danceclubs"
+        >
           Dancing
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="jazzandblues">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("jazzandblues") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="jazzandblues"
+        >
           Jazz and Blues
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="karaoke">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("karaoke") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="karaoke"
+        >
           Karaoke
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="musicvenues">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("musicvenues") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="musicvenues"
+        >
           Music
         </button>
-        <button id="atmosphere" onClick={handleAtmosphere} value="poolhalls">
+        <button
+          id="atmosphere"
+          className={
+            checkAtmosphereExists("poolhalls") ? "clicked" : "not-clicked"
+          }
+          onClick={handleAtmosphere}
+          value="poolhalls"
+        >
           Pool Hall
         </button>
 
-        <br></br>
-        <br></br>
+        <br />
+        <br />
         <input id="edit-user" type="submit" value="Update Profile" />
       </form>
       <button onClick={handleDelete}>Delete Profile</button>

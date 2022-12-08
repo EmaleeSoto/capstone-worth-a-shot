@@ -73,21 +73,39 @@ export default function ShowEstablishment({ user }) {
         />
         <div>
           <h1 className="establishment-show-name">{establishment.name}</h1>
-          {/* <h3>Address: {establishment.location.display_address[0]}</h3> */}
+          <h3>Address: {establishment?.location?.display_address[0]}</h3>
           <h4>Contact: {establishment.display_phone}</h4>
           <h4>Rating: {establishment.rating} / 5</h4>
-          <button onClick={handleLike}>⭐️</button>
+          <button onClick={handleLike}>Like this bar? Save it! ⭐️</button>
         </div>
-        {/* <h3>
-          Hours: {militaryToUSD(establishment.hours[0].open[0].start)} -
-          {militaryToUSD(establishment.hours[0].open[0].end)}
-        </h3> */}
-
-        {/* {establishment.photos.map((photo) => {
-        return <img src={photo} alt="photo" />;
-      })} */}
+        <h3>
+          Hours: {militaryToUSD(establishment?.hours?.[0].open?.[0].start)} -
+          {militaryToUSD(establishment?.hours?.[0].open?.[0].end)}
+        </h3>
       </section>
-      {/* <section>{venueReviews[0].user.name}</section> */}
+      <h4>Photo Gallery</h4>
+      <section className="venue-photo-wrap">
+        {establishment?.photos?.map((photo) => {
+          return <img className="venue-photo" src={photo} alt="photo" />;
+        })}
+      </section>
+
+      <section>
+        {venueReviews?.map((review) => {
+          return (
+            <div>
+              <span>
+                <h4>{review.user?.name}</h4>
+                <p>{review.text}</p>
+                <p>Rating: {review.rating} / 5</p>
+              </span>
+            </div>
+          );
+        })}
+      </section>
     </div>
   );
 }
+
+//javascript optional chaining
+//? before array

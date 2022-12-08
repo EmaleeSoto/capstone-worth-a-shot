@@ -49,6 +49,9 @@ export default function Onboarding({ userFirebaseId, callback }) {
 
   const handleAtmosphere = (event) => {
     event.preventDefault();
+    event.target.className === "clicked"
+      ? (event.target.className = "not-clicked")
+      : (event.target.className = "clicked");
     if (atmospheres.indexOf(event.target.value) > 0) {
       atmospheres.splice(atmospheres.indexOf(event.target.value), 1);
       setAtmospheres(atmospheres);
@@ -104,112 +107,130 @@ export default function Onboarding({ userFirebaseId, callback }) {
       <form onSubmit={handleSubmit}>
         <div id={!displayNextForm ? "show" : "hidden"}>
           <h1 className="onboarding-header">Let's get to know you better.</h1>
-          <label htmlFor="name">What's your name? </label>
-          <input
-            id="name"
-            type="text"
-            onChange={handleTextChange}
-            autoComplete="off"
-            required
-          />
-          <br />
-          <label htmlFor="age">Age? </label>
-          <input
-            id="age"
-            name="age"
-            type="number" //TODO: Change to calendar and calculate age later
-            onChange={handleAgeChange}
-            autoComplete="off"
-            required
-          />
-          <br />
-          <br />
-          <label>What is your gender identity?</label>
-          <br />
-          <label htmlFor="male">Male</label>
-          <input
-            id="male"
-            type="radio"
-            name="gender"
-            onChange={handleTextChange}
-            value="Male"
-          />
-          <br />
-          <label htmlFor="female">Female</label>
-          <input
-            id="female"
-            type="radio"
-            name="gender"
-            onChange={handleTextChange}
-            value="Female"
-          />
-          <br />
-          <label htmlFor="other">Other</label>
-          <input
-            id="other"
-            type="radio"
-            name="gender"
-            onChange={handleTextChange}
-            value="Other"
-          />
-          <br />
-          <br />
-          <label htmlFor="zip_code">Zip Code: </label>
-          <input
-            id="zip_code"
-            type="text"
-            size="5"
-            maxLength="5"
-            onChange={handleTextChange}
-            autoComplete="off"
-            required
-          />
-          <br />
-          <br />
+          <section className="info-wrap-onboarding">
+            <div className="input-label-wrap-onboarding">
+              <label htmlFor="name">What's your name? </label>
+              <input
+                id="name"
+                type="text"
+                onChange={handleTextChange}
+                autoComplete="off"
+                required
+              />
+            </div>
+            <br />
+            <div className="input-label-wrap-onboarding">
+              <label htmlFor="age">Age? </label>
+              <input
+                id="age"
+                name="age"
+                type="number" //TODO: Change to calendar and calculate age later
+                onChange={handleAgeChange}
+                autoComplete="off"
+                required
+              />
+            </div>
+            <br />
+            <br />
+            <label className="onboarding-label">
+              What is your gender identity?
+            </label>
+            <br />
+            <label htmlFor="male">Male</label>
+            <input
+              id="male"
+              type="radio"
+              name="gender"
+              onChange={handleTextChange}
+              value="Male"
+            />
+            <br />
+            <label htmlFor="female">Female</label>
+            <input
+              id="female"
+              type="radio"
+              name="gender"
+              onChange={handleTextChange}
+              value="Female"
+            />
+            <br />
+            <label htmlFor="other">Other</label>
+            <input
+              id="other"
+              type="radio"
+              name="gender"
+              onChange={handleTextChange}
+              value="Other"
+            />
+            <br />
+            <br />
+            <label className="onboarding-label" htmlFor="zip_code">
+              Zip Code:{" "}
+            </label>
+            <input
+              id="zip_code"
+              type="text"
+              size="5"
+              maxLength="5"
+              onChange={handleTextChange}
+              autoComplete="off"
+              required
+            />
+          </section>
           <button type="button" onClick={goToNextForm}>
             Next
           </button>
         </div>
         <div id={displayNextForm ? "show" : "hidden"}>
-          <h1 className="onboarding-header">Great! Let's keep going.</h1>
-          <label htmlFor="personality">How would you describe yourself?</label>
-          <select id="personality" onChange={handleTextChange}>
-            <option hidden disabled selected value>
-              -- select an option --
-            </option>
-            <option value="Extrovert">Extrovert</option>
-            <option value="Introvert">Introvert</option>
-            <option value="Ambivert">Ambivert</option>
-          </select>
-          <br></br>
-
-          <label>Sweet</label>
-          <input
-            id="flavors"
-            type="radio"
-            onChange={handleTextChange}
-            name="flavors"
-            value="Sweet"
-          />
-          <br></br>
-          <label>Bitter</label>
-          <input
-            id="flavors"
-            type="radio"
-            onChange={handleTextChange}
-            name="flavors"
-            value="Bitter"
-          />
-          <br></br>
-          <label>Sour</label>
-          <input
-            id="flavors"
-            type="radio"
-            onChange={handleTextChange}
-            name="flavors"
-            value="Sour"
-          />
-          <br></br>
+          <section className="info-wrap-onboarding">
+            <h1 className="onboarding-header">Great! Let's keep going.</h1>
+            <label className="onboarding-label" htmlFor="personality">
+              How would you describe yourself?
+            </label>
+            <select id="personality" onChange={handleTextChange}>
+              <option hidden disabled selected value>
+                -- select an option --
+              </option>
+              <option value="Extrovert">Extrovert</option>
+              <option value="Introvert">Introvert</option>
+              <option value="Ambivert">Ambivert</option>
+            </select>
+            <br></br>
+            <br />
+            <label className="onboarding-label">
+              Choose your favorite beverage flavors:{" "}
+            </label>
+            <br />
+            <label>Sweet</label>
+            <input
+              id="flavors"
+              type="radio"
+              onChange={handleTextChange}
+              name="flavors"
+              value="Sweet"
+            />
+            <br></br>
+            <label>Bitter</label>
+            <input
+              id="flavors"
+              type="radio"
+              onChange={handleTextChange}
+              name="flavors"
+              value="Bitter"
+            />
+            <br></br>
+            <label>Sour</label>
+            <input
+              id="flavors"
+              type="radio"
+              onChange={handleTextChange}
+              name="flavors"
+              value="Sour"
+            />
+          </section>
+          <label className="onboarding-label">Pick your venue vibes</label>
+          <br />
+          <br />
           <button
             id="atmosphere"
             onClick={handleAtmosphere}

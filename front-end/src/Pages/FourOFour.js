@@ -1,6 +1,6 @@
 import "./FourOFour.css";
 
-export default function FourOFour() {
+export default function FourOFour({ loggedIn }) {
   return (
     <div className="error-page">
       <div className="error-headings">
@@ -20,9 +20,15 @@ export default function FourOFour() {
             The page you are looking for might have been removed, had its named
             changed, or is temporarily unavailable.
           </p>
-          <p>
-            <a href="/">Click here</a> to go back home.
-          </p>
+          {loggedIn ? (
+            <p>
+              <a href="/myhome">Click here</a> to go back home.
+            </p>
+          ) : (
+            <p>
+              <a href="/">Click here</a> to go back home.
+            </p>
+          )}
         </div>
       </div>
     </div>

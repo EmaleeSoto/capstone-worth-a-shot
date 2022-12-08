@@ -9,7 +9,7 @@ const Home = () => {
         <h1 className="home-header">This is Worth a Shot!</h1>
         <section className="home-text-container">
           <p className="home-text">
-            Welcome to Worth a Shot, an app designed to help people explore one
+            Welcome to Worth a Shot, an app designed to help adults explore one
             of the world's favorite pastimes.
           </p>
           <p className="home-text">

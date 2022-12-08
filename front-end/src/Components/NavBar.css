@@ -8,12 +8,36 @@
 
 .nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   font-size: 25px;
   font-weight: bold;
   padding-top: 10px;
   font-weight: unset;
   z-index: 101;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
+#nav-loggedin {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 10px;
+  font-weight: unset;
+  z-index: 101;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .nav a:link {
@@ -31,21 +55,8 @@
 }
 
 .nav-link {
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 2%;
   font-weight: bold;
-}
-
-.about-link {
-  padding-top: 15px;
-  text-align: right;
-}
-
-#login-wrapper {
-  text-align: right;
-  padding-right: 25px;
-  padding-top: 5px;
 }
 
 @media screen and (max-width: 1024px) {

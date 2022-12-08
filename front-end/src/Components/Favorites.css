@@ -14,7 +14,7 @@
 .favorites-cell {
     width: 325px;
     text-align: center;
-    border: dotted #8CCCE4;
+    box-shadow: 4px 4px 4px #061a43;
     border-radius: 15px;
     padding: 5px;
 }
