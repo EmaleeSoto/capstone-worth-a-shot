@@ -1,0 +1,93 @@
+.trending-section{
+    background-color: #00296b;
+    padding-bottom: 100px;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.trending-bg{
+    background-image: url("../images/nycskyline.png");
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position:  top;
+    background-size: 90% 120%;
+    background-color: #00296b;
+    padding-top: 25%;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.trending-text{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    width: 39em;
+    font-weight: bold;
+    text-shadow: 1.5px 1.5px #0b0b0b;
+}
+
+
+.trending-sub {
+    color: #fdc500;
+    text-align: center;
+}
+
+.trending-header {
+    text-align: center;
+    font-size: 70px;
+    text-shadow: 1px 1px #ff0000;
+    text-rendering: optimizeLegibility;
+    font-family:'Franklin Gothic Medium';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.trending-Name {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 45px;
+    width: 18em;
+    font-weight: bold;
+    text-shadow: 1.5px 1.5px #f503bc;
+
+}
+
+.trending-sub {
+    text-align: center;
+    color: #fdc500;
+    font-size: 40px;
+    text-shadow: 1px 1px #ff0000;
+    font-weight: bold;
+    font-family: fantasy;
+}
+
+.trending-subtext {
+    text-align: center;
+    color: #fdc500;
+    font-size: 40px;
+    text-shadow: 1px 1px #ff0000;
+    font-weight: bold;
+    font-family: fantasy ;
+}
+
+.trending-add {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.venue-Header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.venue-section{
+    padding-bottom: 1000 px;
+}

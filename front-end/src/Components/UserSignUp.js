@@ -56,15 +56,17 @@ export default function SignUp() {
           />
         </div>
         <br></br>
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Enter Password"
-          onChange={handleTextChange}
-          autoComplete="off"
-          required
-        />
+        <div className="input-label-wrap">
+          <label htmlFor="password">Password:</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter Password"
+            onChange={handleTextChange}
+            autoComplete="off"
+            required
+          />
+        </div>
         <br></br>
         <button id="create" onClick={signUp}>
           Create account

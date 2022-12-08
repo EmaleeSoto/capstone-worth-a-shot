@@ -9,6 +9,53 @@
   width: 300px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.info-wrap {
+  border: 1px solid #F3C743;
+  border-radius: 15px;
+  background-color: #061A43;
+  text-align: center;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  width: fit-content;
+  padding: 3%;
+}
+
+.input-label-wrap {
+  display: block;
+  margin-top: 3%;
+  justify-content: center;
+}
+
+.input-label-wrap label {
+  display: inline-block;
+  font-weight: bold;
+  width: 5%;
+  margin-right: 5%;
+}
+
+.input-label-wrap input {
+  border-radius: 5px;
+  width: 50%;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+.clicked {
+  background-color: #459BC4;
+  color: #F4D247;
+}
+
+#bev-flavors {
+  margin-top: 20%;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 #not-verified {
   color: red;
 }

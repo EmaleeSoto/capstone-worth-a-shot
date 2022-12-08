@@ -91,7 +91,6 @@ export default function ShowEstablishment({ user }) {
       </section>
 
       <section>
-        {/* <section>{venueReviews?.[0]?.user?.name} */}
         {venueReviews?.map((review) => {
           return (
             <div>
