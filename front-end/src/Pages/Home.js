@@ -25,7 +25,7 @@ const Home = () => {
           <button className="large-button">Let's get started!</button>
         </Link>
       </div>
-      <img src="./images/splash.jpg" alt="Group of people partying" />
+      <img className="splash" src="./images/splash.jpg" alt="Group of people partying" />
     </div>
   );
 };
