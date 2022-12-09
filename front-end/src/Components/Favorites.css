@@ -30,11 +30,11 @@
     font-size: 30px;
 }
 
-.favorite-name a {
+.favorite-container a {
     text-decoration: none;
 }
 
-.favorite:hover {
+.favorite-name:hover {
     text-decoration: underline;
 }
 
