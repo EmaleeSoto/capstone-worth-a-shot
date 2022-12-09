@@ -5,9 +5,9 @@
 }
 
 .sign-up-container {
-  border: 1px solid #F3C743;
+  border: 1px solid #f3c743;
   border-radius: 15px;
-  background-color: #061A43;
+  background-color: #061a43;
   width: 30%;
   padding: 3%;
   margin: 3%;
@@ -28,4 +28,16 @@
   width: 50%;
   margin-left: 7%;
   margin-right: 7%;
+}
+
+@media screen and (max-width: 1024px) {
+  .sign-up-container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .sign-up-container {
+    width: 80%;
+  }
 }
