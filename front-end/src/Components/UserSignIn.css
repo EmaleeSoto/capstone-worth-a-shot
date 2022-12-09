@@ -33,3 +33,15 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 1024px) {
+  .sign-in-section-container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .sign-in-section-container {
+    width: 80%;
+  }
+}

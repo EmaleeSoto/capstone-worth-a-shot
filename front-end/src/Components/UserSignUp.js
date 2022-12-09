@@ -48,6 +48,10 @@ export default function SignUp() {
           alert(
             "That's not a valid email address! Please enter a valid email address and password."
           );
+        } else if (error.code === "auth/internal-error") {
+          alert(
+            "That's not a valid password! Please enter a valid email address and password."
+          );
         } else {
           alert(
             `${errorCode} - Please enter a valid email address and password.`

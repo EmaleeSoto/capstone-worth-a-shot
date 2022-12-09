@@ -27,7 +27,7 @@ export default function Favorites({ user, Favorite }) {
           return (
             <div className="favorites-cell" key={index}>
               <Link to={`/establishment/${establishment.yelp_id}`}>
-                <h1>{establishment.name}</h1>
+                <h1 className="favorite-name">{establishment.name}</h1>
                 <img src={establishment.image} alt={establishment.name} />
               </Link>
             </div>

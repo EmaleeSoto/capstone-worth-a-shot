@@ -4,7 +4,7 @@
   margin-left: 50px;
   margin-right: 50px;
   padding: 2%;
-  background-color: #051A42;
+  background-color: #051a42;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5%;
@@ -32,4 +32,20 @@
 
 .home-tagline {
   font-size: 35px;
+}
+
+@media screen and (max-width: 690px) {
+  .home-container {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 25px;
+    margin-right: 25px;
+    gap: 0%;
+  }
+  .home-subcontainer {
+    margin-top: 0%;
+    padding: 0%;
+  }
+  .home-container img {
+    margin-top: 0%;
+  }
 }
