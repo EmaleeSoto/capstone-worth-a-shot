@@ -138,7 +138,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <br />
             <label htmlFor="male">Male</label>
             <input
-              id="male"
+              id="gender"
               type="radio"
               name="gender"
               onChange={handleTextChange}
@@ -147,7 +147,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <br />
             <label htmlFor="female">Female</label>
             <input
-              id="female"
+              id="gender"
               type="radio"
               name="gender"
               onChange={handleTextChange}
@@ -156,7 +156,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <br />
             <label htmlFor="other">Other</label>
             <input
-              id="other"
+              id="gender"
               type="radio"
               name="gender"
               onChange={handleTextChange}

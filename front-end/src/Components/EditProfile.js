@@ -142,6 +142,7 @@ function EditProfile({
             name="gender"
             onChange={handleTextChange}
             value="Male"
+            checked={user.gender === "Male" && "checked"}
           />
           <br />
           <label htmlFor="female">Female</label>
@@ -151,6 +152,7 @@ function EditProfile({
             name="gender"
             onChange={handleTextChange}
             value="Female"
+            checked={user.gender === "Female" && "checked"}
           />
           <br />
           <label htmlFor="other">Other</label>
@@ -160,6 +162,7 @@ function EditProfile({
             name="gender"
             onChange={handleTextChange}
             value="Other"
+            checked={user.gender === "Other" && "checked"}
           />
           <br />
           <br />
@@ -404,7 +407,9 @@ function EditProfile({
         <br />
         <input id="edit-user" type="submit" value="Update Profile" />
       </form>
-      <button className="delete-button" onClick={handleDelete}>Delete Profile</button>
+      <button className="delete-button" onClick={handleDelete}>
+        Delete Profile
+      </button>
     </div>
   );
 }
