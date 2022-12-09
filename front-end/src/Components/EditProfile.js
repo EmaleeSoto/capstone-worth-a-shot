@@ -404,7 +404,7 @@ function EditProfile({
         <br />
         <input id="edit-user" type="submit" value="Update Profile" />
       </form>
-      <button onClick={handleDelete}>Delete Profile</button>
+      <button className="delete-button" onClick={handleDelete}>Delete Profile</button>
     </div>
   );
 }
