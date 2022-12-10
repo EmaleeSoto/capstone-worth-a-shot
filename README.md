@@ -7,7 +7,7 @@ Looking to get back into the nightlife scene? Whether you're a seasoned bar-hopp
 
 In addition to helping you find the best bars and nightclubs, Worth a Shot also offers a feature that allows you to discover new drinks and cocktails. You can browse our curated list to search for a specific type of drink. Each drink comes with a description and a list of ingredients, making it easy for you to try out something new at the bar. No matter if you're looking for a laid-back sports bar or a trendy nightclub, Worth a Shot has you covered.
 
-## Important Links
+## Links
 
 - [Deployed Frontend](https://worth-a-shot.netlify.app/)
 - [Deployed Backend](https://worth-a-shot-api-server.onrender.com/)
@@ -17,10 +17,17 @@ In addition to helping you find the best bars and nightclubs, Worth a Shot also 
 
 ## Contributors
 
-- [Matt Munroe](https://github.com/MattNMunroe)
+- [Matt Munroe](https://github.com/MattNMunroe) - Front-End/Synergist
 - [Cesar Ortiz](https://github.com/CeazTheMoment)
-- [Jonathan Scheiber](https://github.com/Scheiber)
-- [Emalee Soto](https://github.com/EmaleeSoto)
+- [Jonathan Scheiber](https://github.com/Scheiber) - Design/UX Lead
+- [Emalee Soto](https://github.com/EmaleeSoto) - Back-End/Team Lead
+
+## Technical Details
+
+- This project was created using a React-based front-end, an Express-based back-end, and a PostgreSQL database.
+- The front-end is hosted on Netlify and the back-end is hosted on Render.
+- Establishment data is dynamically fetched using the [Yelp Fusion API](https://fusion.yelp.com/), and drink data is stored in [our back-end database](https://worth-a-shot-api-server.onrender.com/alcohols).
+- This project went from conception to completion in five weeks and was created while fully remote through the [Pursuit](https://www.pursuit.org/) program.
 
 ## Local Setup
 
@@ -67,7 +74,7 @@ Prerequisites are Git, Node.js, Postgres, and a [Yelp Fusion API key](https://fu
 First, navigate to the back-end directory.
 
 ```bash
-cd saucesource/back-end
+cd capstone-worth-a-shot/back-end
 ```
 
 Next, create a .env file to access the database locally, inserting your Yelp Fusion API key into the command where indicated.
