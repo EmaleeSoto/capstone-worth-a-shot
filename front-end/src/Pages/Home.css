@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.home-container h4 {
+  font-style: italic;
+  color: #E4C841;
+}
+
 .home-container img {
   display: block;
   width: 100%;

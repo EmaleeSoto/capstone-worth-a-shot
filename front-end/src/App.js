@@ -8,7 +8,6 @@ import {
   sendPasswordResetEmail,
   deleteUser,
 } from "firebase/auth";
-import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import "./App.css";
@@ -167,7 +166,6 @@ const App = () => {
               />
             }
           />
-          <Route path="/splash" element={<SplashPage />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route
             path="/alcohols/categories"
