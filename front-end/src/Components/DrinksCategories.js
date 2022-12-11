@@ -150,6 +150,9 @@ const DrinksCategories = ({ user }) => {
         </section>
         <section className="drink-category-grid">{handleButtonShow}</section>
       </div>
+      <Link id="user-flavors-button" to="/alcohols/drinksforyou">
+        <button>Alcohols We Think You'd Enjoy!</button>
+      </Link>
     </div>
   );
 };

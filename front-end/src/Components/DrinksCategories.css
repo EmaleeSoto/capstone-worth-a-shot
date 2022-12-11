@@ -32,6 +32,15 @@
   margin: 2em 2em;
 }
 
+#user-flavors-button {
+  position: absolute;
+  padding: 2%;
+  font-size: 25px;
+  font-weight: bold;
+  left: 55%;
+  bottom: 15%;
+}
+
 .drink-category-button {
   font-size: 25px;
   margin-top: 50px;

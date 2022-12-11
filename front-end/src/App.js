@@ -14,6 +14,7 @@ import "./App.css";
 import Onboarding from "./Components/Onboarding";
 import NavBar from "./Components/NavBar";
 import Drinks from "./Components/Drinks";
+import DrinksByPrefs from "./Components/DrinksByPrefs";
 import LandingPageSignedIn from "./Pages/LandingSignedIn";
 import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
@@ -172,6 +173,10 @@ const App = () => {
             element={<DrinksCategories user={user} />}
           />
           <Route path="/alcohols/category/:category" element={<Drinks />} />
+          <Route
+            path="alcohols/drinksforyou"
+            element={<DrinksByPrefs user={user} />}
+          />
           <Route path="/trending" element={<Trending />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<FourOFour loggedIn={loggedIn} />} />
