@@ -58,6 +58,10 @@
   font-weight: bold;
 }
 
+.trending-link {
+  text-align: center;
+}
+
 @media screen and (max-width: 1024px) {
   .nav {
     font-size: 18px;
