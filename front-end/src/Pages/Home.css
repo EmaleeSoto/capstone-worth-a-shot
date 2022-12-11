@@ -12,7 +12,7 @@
 
 .home-container h4 {
   font-style: italic;
-  color: #E4C841;
+  color: #F4C745;
 }
 
 .home-container img {
@@ -24,7 +24,6 @@
 
 .home-subcontainer {
   width: 100%;
-  margin-top: 10%;
   padding: 5%;
 }
 
