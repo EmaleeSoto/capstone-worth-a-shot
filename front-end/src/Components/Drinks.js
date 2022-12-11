@@ -30,6 +30,7 @@ const Drinks = () => {
           return (
             <div key={index}>
               <h1>{booze.name}</h1>
+              <img src={booze.image} alt={booze.name} />
               <h3>Proof: {booze.proof}%</h3>
               <h5>{booze.description}</h5>
             </div>

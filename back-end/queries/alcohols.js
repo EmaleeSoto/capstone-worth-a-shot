@@ -41,9 +41,22 @@ const getAlcoholByType = async (type) => {
   }
 };
 
+const getAlcoholByFlavor = async (flavor) => {
+  try {
+    const alcohols = await db.any(
+      `SELECT * FROM alcohols WHERE flavors LIKE '%${flavor}%'`,
+      flavor
+    );
+    return alcohols;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllAlcohols,
   getAlcohol,
   getAlcoholByCategory,
   getAlcoholByType,
+  getAlcoholByFlavor,
 };
