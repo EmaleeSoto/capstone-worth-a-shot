@@ -36,8 +36,6 @@ const Trending = () => {
               <img
                 classname="frost-Pic"
                 src={frostyPic}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -54,15 +52,13 @@ const Trending = () => {
           holiday pop-up bars that should be on your winter list!"
         </p>
         <break></break>
-        <p className="trending-Name">1. Santa Clause's North Pole, Seaport</p>
+        <p className="trending-name">1. Santa Clause's North Pole, Seaport</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="light-North"
                 src={lightNorth}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -79,15 +75,13 @@ const Trending = () => {
           snow globe!
           <p className="trending-add">Where: 78 South St</p>
         </p>
-        <p className="trending-Name">2. City Winery Winter Domes, Midtown</p>
+        <p className="trending-name">2. City Winery Winter Domes, Midtown</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="city-Winery"
                 src={cityWinery}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -100,7 +94,7 @@ const Trending = () => {
           spot for you and up to 8 people to hang out.
           <p className="trending-add"> Where: Rockefeller Plaza</p>
         </p>
-        <p className="trending-Name">
+        <p className="trending-name">
           3. Magic Hour's Pink Winter Lounge, Midtown
         </p>
         <h1 className="venue-Header">
@@ -109,8 +103,6 @@ const Trending = () => {
               <img
                 classname="pink-Lounge"
                 src={pinkLounge}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -125,15 +117,13 @@ const Trending = () => {
           Campfire S'mores!
           <p className="trending-add"> Where: 485 7th Ave, Floor 1</p>
         </p>
-        <p className="trending-Name">4. The Skinny, LES</p>
+        <p className="trending-name">4. The Skinny, LES</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="skinny-Le"
                 src={skinnyLe}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -146,15 +136,13 @@ const Trending = () => {
           even host events such as seductive burlesque performances!
           <p className="trending-add"> Where: 174 Orchard St.</p>
         </p>
-        <p className="trending-Name">5. Miracle on 9th Street, East Village</p>
+        <p className="trending-name">5. Miracle on 9th Street, East Village</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="miracle-9"
                 src={miracle9}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -172,15 +160,13 @@ const Trending = () => {
             Ave, Brooklyn (Miracle on Union at Thief's)
           </p>
         </p>
-        <p className="trending-Name">6. Feliz Coctelería, Nolita</p>
+        <p className="trending-name">6. Feliz Coctelería, Nolita</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="feliz-Latin"
                 src={felizLatin}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -195,7 +181,7 @@ const Trending = () => {
           holiday-themed glassware.
           <p className="trending-add"> Where: 349 Broome St</p>
         </p>
-        <p className="trending-Name">
+        <p className="trending-name">
           7. Maccabee Bar at Ollie's, West Village
         </p>
         <h1 className="venue-Header">
@@ -204,8 +190,6 @@ const Trending = () => {
               <img
                 classname="maccabee-West"
                 src={maccabeeWest}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -218,15 +202,13 @@ const Trending = () => {
           offerings like the Everything Bagel Martini and the Latke Sour.
           <p className="trending-add">Where: 64 Downing St</p>
         </p>
-        <p className="trending-Name">8. Santa Clause's North Pole, Seaport</p>
+        <p className="trending-name">8. Santa Clause's North Pole, Seaport</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="tinsel-West"
                 src={tinselWest}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -239,15 +221,13 @@ const Trending = () => {
           required for this pop-up.
           <p className="trending-add"> Where: 594 Amsterdam Ave</p>
         </p>
-        <p className="trending-Name">9. Frosty's, Midtown West</p>
+        <p className="trending-name">9. Frosty's, Midtown West</p>
         <h1 className="venue-Header">
           <section className="venue-section">
             <article>
               <img
                 classname="midtown-West"
                 src={midtownWest}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -261,7 +241,7 @@ const Trending = () => {
           levels makes it seem like you're stepping into a Christmas movie.
           <p className="trending-add"> Where: 220 W 44th St</p>
         </p>
-        <p className="trending-Name">
+        <p className="trending-name">
           10. Loreley Garden's Winter Wonderland, Lower East Side
         </p>
         <h1 className="venue-Header">
@@ -270,8 +250,6 @@ const Trending = () => {
               <img
                 classname="garden-Winter"
                 src={gardenWinter}
-                width="800"
-                height="600"
                 alt="wait until the page loads"
               />
             </article>
@@ -285,12 +263,6 @@ const Trending = () => {
           decor, this is the perfect place to hangout, even on the coldest of
           days.
           <p className="trending-add"> Where: 7 Rivington St</p>
-        </p>
-        <p className="source-text">
-          <a href="https://github.com/EmaleeSoto/capstone-worth-a-shot">
-            Technical information and source code
-          </a>{" "}
-          available on GitHub.
         </p>
       </section>
     </section>

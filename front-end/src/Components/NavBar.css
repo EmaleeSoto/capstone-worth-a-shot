@@ -58,9 +58,16 @@
   font-weight: bold;
 }
 
+.trending-link {
+  text-align: center;
+}
+
 @media screen and (max-width: 1024px) {
   .nav {
-    font-size: 20px;
+    font-size: 18px;
+  }
+  #nav-loggedin {
+    font-size: 18px;
   }
   .nav-link {
     padding-top: 5px;
@@ -75,7 +82,7 @@
 
 @media screen and (max-width: 690px) {
   .nav {
-    font-size: 18px;
+    font-size: 16px;
   }
   .nav-link {
     padding-bottom: 15px;
