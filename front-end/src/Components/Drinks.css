@@ -1,10 +1,13 @@
 .drink-header {
   text-align: center;
+  text-decoration: underline;
 }
 
 .alcohol-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
   margin: 2em 2em;
+}
+
+.alcohol-list img {
+  width: 60%;
+  height: auto;
 }

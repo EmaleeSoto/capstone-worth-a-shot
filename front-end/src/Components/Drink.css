@@ -1,0 +1,41 @@
+.alcohol-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+#alcohol-back-button {
+    position: absolute;
+    left: 10%;
+}
+
+.first-cell h3 {
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.first-cell img {
+    margin-left: 20%;
+    border: 10px solid #061A43;
+}
+
+.second-cell {
+    display: flex;
+    margin: auto;
+    background-color: #061A43;
+    border: solid #F4C744;
+    border-radius: 15px;
+    width: 50%;
+    padding: 5%;
+}
+
+
+.third-cell {
+    display: flex;
+    margin: auto;
+    background-color: #061A43;
+    border: solid #F4C744;
+    border-radius: 15px;
+    padding: 5%;
+}
