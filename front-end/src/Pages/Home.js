@@ -13,19 +13,29 @@ const Home = () => {
             of the world's favorite pastimes.
           </p>
           <p className="home-text">
-            With this tool, you'll be able to create an account, choose a
-            preferred ambience, vibe, or scene, and we'll proide you with
-            nightlife venues curated to your tastes. With our help, you'll have
-            an easy time deciding the direction of your night out on the town
-            (or day, should that be your energy!).
+            New to the nightlife scene and don't know where to begin? Or are you
+            a nightlife veteran looking for a way to explore new places? Well
+            with our app, you can create an account, choose a preferred vibe or
+            scene, and we'll provide you with new and exciting nightlife venues
+            curated to your tastes. Decide the direction of your night out on
+            the town with our app! It's worth a shot.
           </p>
         </section>
         <h1 className="home-tagline">Your ultimate nightlife guide!</h1>
         <Link to={`/sign-up`}>
           <button className="large-button">Let's get started!</button>
         </Link>
+        <h4>
+          {
+            "I feel sorry for people that don't drink because when they wake up in the morning, that is the best they're going to feel all day - Frank Sinatra"
+          }
+        </h4>
       </div>
-      <img className="splash" src="./images/splash.jpg" alt="Group of people partying" />
+      <img
+        className="splash"
+        src="./images/splash.jpg"
+        alt="Group of people partying"
+      />
     </div>
   );
 };

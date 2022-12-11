@@ -17,7 +17,7 @@ const LandingPageSignedIn = ({ user }) => {
           </Link>
         </div>
         <div>
-          <Link to="/alcohols/category">
+          <Link to="/alcohols/categories">
             <img src="./images/find-drinks.png" alt="Find Drinks" />
           </Link>
           <br></br>
@@ -26,7 +26,7 @@ const LandingPageSignedIn = ({ user }) => {
               Sorry, the legal drinking age in the US is 21. Come back soon!
             </h2>
           ) : (
-            <Link to="/alcohols/category">
+            <Link to="/alcohols/categories">
               <button className="large-button">Find Drinks</button>
             </Link>
           )}

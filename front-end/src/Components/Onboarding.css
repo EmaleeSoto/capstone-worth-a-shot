@@ -32,7 +32,7 @@
 
 .input-label-wrap-onboarding label {
   display: inline-block;
-  width: 25%;
+  min-width: 25%;
   font-weight: bold;
 }
 
@@ -45,4 +45,8 @@
   width: 50%;
   margin-left: 7%;
   margin-right: 7%;
+}
+
+#flavors:hover {
+  cursor: pointer;
 }

@@ -22,12 +22,9 @@ function EditProfile({
     atmosphere: "",
     firebase_id: "",
   });
-  const [atmospheres, setAtmospheres] = useState([]);
 
   useEffect(() => {
     setUserEdit(user);
-    let userAtmospheres = user.atmosphere.split(", ");
-    setAtmospheres(userAtmospheres);
   }, [user, userVerified]);
   console.log(userEdit);
 
@@ -35,12 +32,10 @@ function EditProfile({
     return userEdit.atmosphere.includes(string) ? true : false;
   };
   const handleTextChange = (event) => {
-    event.preventDefault();
     setUserEdit({ ...userEdit, [event.target.id]: event.target.value });
   };
 
   const handleAgeChange = (event) => {
-    event.preventDefault();
     setUserEdit({ ...userEdit, [event.target.id]: Number(event.target.value) });
   };
 
@@ -61,22 +56,44 @@ function EditProfile({
     event.target.className === "clicked"
       ? (event.target.className = "not-clicked")
       : (event.target.className = "clicked");
-    let newArray = atmospheres;
+    let atmosphereString = userEdit.atmosphere;
+    let newArray = userEdit.atmosphere.split(", ");
     if (newArray.indexOf(event.target.value) >= 0) {
       newArray.splice(newArray.indexOf(event.target.value), 1);
-      setAtmospheres(newArray);
+      setUserEdit({ ...user, atmosphere: newArray.join(", ") });
     } else {
-      setAtmospheres((atmospheres) => [...atmospheres, event.target.value]);
+      setUserEdit({
+        ...user,
+        atmosphere: atmosphereString + ", " + event.target.value,
+      });
+    }
+  };
+
+  const handleFlavorsAdding = (event) => {
+    let flavorsString = userEdit.flavors;
+    let newArray = userEdit.flavors.split(", ");
+    if (newArray.indexOf(event.target.value) >= 0) {
+      newArray.splice(newArray.indexOf(event.target.value), 1);
+      setUserEdit({ ...user, flavors: newArray.join(", ") });
+    } else {
+      setUserEdit({
+        ...user,
+        flavors: flavorsString + ", " + event.target.value,
+      });
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(atmospheres.join(", "));
-    setUserEdit({ atmosphere: atmospheres.join(", ") });
-    updateUserInfo(userEdit);
+    if (userEdit.flavors === "") {
+      alert("Please choose at least one flavor preference!");
+    } else if (userEdit.atmosphere === "") {
+      alert("Please choose at least one atmospheric vibe!");
+    } else {
+      updateUserInfo(userEdit);
+    }
   };
-  console.log("Atmospheres: ", atmospheres);
+  console.log("Flavors: ", userEdit.flavors);
 
   const deleteUser = () => {
     axios.delete(`${API}/users/${user.id}`).catch((error) => {
@@ -137,29 +154,32 @@ function EditProfile({
           <br />
           <label htmlFor="male">Male</label>
           <input
-            id="male"
+            id="gender"
             type="radio"
             name="gender"
             onChange={handleTextChange}
             value="Male"
+            checked={userEdit.gender === "Male" && "checked"}
           />
           <br />
           <label htmlFor="female">Female</label>
           <input
-            id="female"
+            id="gender"
             type="radio"
             name="gender"
             onChange={handleTextChange}
             value="Female"
+            checked={userEdit.gender === "Female" && "checked"}
           />
           <br />
           <label htmlFor="other">Other</label>
           <input
-            id="other"
+            id="gender"
             type="radio"
             name="gender"
             onChange={handleTextChange}
             value="Other"
+            checked={userEdit.gender === "Other" && "checked"}
           />
           <br />
           <br />
@@ -180,12 +200,24 @@ function EditProfile({
           <br />
           <label className="bold">Social Personality</label>
           <select id="personality" onChange={handleTextChange}>
-            <option hidden disabled selected value>
-              -- select an option --
+            <option
+              value="Extrovert"
+              selected={userEdit.personality === "Extrovert" && "selected"}
+            >
+              Extrovert
             </option>
-            <option value="Extrovert">Extrovert</option>
-            <option value="Introvert">Introvert</option>
-            <option value="Ambivert">Ambivert</option>
+            <option
+              value="Introvert"
+              selected={userEdit.personality === "Introvert" && "selected"}
+            >
+              Introvert
+            </option>
+            <option
+              value="Ambivert"
+              selected={userEdit.personality === "Ambivert" && "selected"}
+            >
+              Ambivert
+            </option>
           </select>
           <br />
           <br />
@@ -194,28 +226,51 @@ function EditProfile({
           <label>Sweet</label>
           <input
             id="flavors"
-            type="radio"
-            onChange={handleTextChange}
-            name="flavors"
+            type="checkbox"
+            onChange={handleFlavorsAdding}
+            name="flavors-6"
             value="Sweet"
+            checked={userEdit.flavors.includes("Sweet") && "checked"}
           />
           <br />
           <label>Bitter</label>
           <input
             id="flavors"
-            type="radio"
-            onChange={handleTextChange}
-            name="flavors"
+            type="checkbox"
+            onChange={handleFlavorsAdding}
+            name="flavors-7"
             value="Bitter"
+            checked={userEdit.flavors.includes("Bitter") && "checked"}
           />
           <br />
           <label>Sour</label>
           <input
             id="flavors"
-            type="radio"
-            onChange={handleTextChange}
-            name="flavors"
+            type="checkbox"
+            onChange={handleFlavorsAdding}
+            name="flavors-8"
             value="Sour"
+            checked={userEdit.flavors.includes("Sour") && "checked"}
+          />
+          <br />
+          <label>Tangy</label>
+          <input
+            id="flavors"
+            type="checkbox"
+            onChange={handleFlavorsAdding}
+            name="flavors-9"
+            value="Tangy"
+            checked={userEdit.flavors.includes("Tangy") && "checked"}
+          />
+          <br />
+          <label>Dry</label>
+          <input
+            id="flavors"
+            type="checkbox"
+            onChange={handleFlavorsAdding}
+            name="flavors-10"
+            value="Dry"
+            checked={userEdit.flavors.includes("Dry") && "checked"}
           />
           <br />
         </section>
@@ -404,7 +459,9 @@ function EditProfile({
         <br />
         <input id="edit-user" type="submit" value="Update Profile" />
       </form>
-      <button className="delete-button" onClick={handleDelete}>Delete Profile</button>
+      <button className="delete-button" onClick={handleDelete}>
+        Delete Profile
+      </button>
     </div>
   );
 }

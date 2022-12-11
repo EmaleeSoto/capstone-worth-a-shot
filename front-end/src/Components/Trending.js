@@ -1,3 +1,5 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "./Trending.css";
 import frostyPic from "../images/frostyPic.jpeg";
 import lightNorth from "../images/lightNorth.jpeg";
@@ -10,10 +12,15 @@ import miracle9 from "../images/miracle9.png";
 import maccabeeWest from "../images/maccabeeWest.jpeg";
 import midtownWest from "../images/midtownWest.jpeg";
 import felizLatin from "../images/felizLatin.jpeg";
+import { useEffect } from "react";
 
 const Trending = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
-    <section className="trending-section">
+    <section className="trending-section" data-aos="fade-up">
       <p className="trending-bg">
         <h1 className="trending-header">Trending Nightlife Experience</h1>
         <br></br>
