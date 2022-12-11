@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import "./DrinksByPref.css";
+import { Link } from "react-router-dom";
+import "./DrinksCategories.css";
 const API = process.env.REACT_APP_API_URL;
 
-const DrinksByPref = ({ user }) => {
+const DrinksCategories = ({ user }) => {
   const [allDrinks, setAllDrinks] = useState([]);
   const [clickedType, setClickedType] = useState("");
   const [type, setType] = useState([]);
@@ -150,7 +150,10 @@ const DrinksByPref = ({ user }) => {
         </section>
         <section className="drink-category-grid">{handleButtonShow}</section>
       </div>
+      <Link id="user-flavors-button" to="/alcohols/drinksforyou">
+        <button>Alcohols We Think You'd Enjoy!</button>
+      </Link>
     </div>
   );
 };
-export default DrinksByPref;
+export default DrinksCategories;

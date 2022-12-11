@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Drink from "./Drink";
 import axios from "axios";
 import "./Drinks.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 const API = process.env.REACT_APP_API_URL;
 
 //import from backend
@@ -12,6 +15,7 @@ const Drinks = () => {
   let { category } = useParams();
 
   useEffect(() => {
+    Aos.init({ duration: 2000 });
     axios
       .get(`${API}/alcohols/category/${category}`)
       .then((response) => {
@@ -23,17 +27,16 @@ const Drinks = () => {
   }, [category]);
 
   return (
-    <div>
-      <h1 className="drink-header">Boozer's Index</h1>
+    <div data-aos="fade-up">
+      <Link id="alcohol-back-button" to="/alcohols/categories">
+        <button>Back</button>
+      </Link>
+      <h1 className="drink-header">
+        {category.charAt(0).toUpperCase() + category.slice(1)}
+      </h1>
       <section className="alcohol-list">
         {booze.map((booze, index) => {
-          return (
-            <div key={index}>
-              <h1>{booze.name}</h1>
-              <h3>Proof: {booze.proof}%</h3>
-              <h5>{booze.description}</h5>
-            </div>
-          );
+          return <Drink booze={booze} index={index} />;
         })}
       </section>
     </div>

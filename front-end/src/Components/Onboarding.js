@@ -20,6 +20,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
     firebase_id: "",
   });
   let [atmospheres, setAtmospheres] = useState([]);
+  let [flavorPrefs, setFlavorPrefs] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,6 +29,8 @@ export default function Onboarding({ userFirebaseId, callback }) {
   }, []);
 
   const addUser = async (user) => {
+    // let finalFlavors = flavorPrefs.join(", ");
+    // user.flavors = finalFlavors;
     await axios
       .post(`${API}/users`, user)
       .then((response) => {
@@ -57,6 +60,30 @@ export default function Onboarding({ userFirebaseId, callback }) {
       setAtmospheres(atmospheres);
     } else {
       setAtmospheres((atmospheres) => [...atmospheres, event.target.value]);
+    }
+  };
+
+  const handleFlavorsAdding = (event) => {
+    let flavorsString = user.flavors;
+    if (user.flavors !== undefined) {
+      let newArray = user.flavors.split(", ");
+      console.log(newArray);
+      if (newArray.indexOf(event.target.value) >= 0) {
+        newArray.splice(newArray.indexOf(event.target.value), 1);
+        console.log("REMOVED: ", user.flavors);
+        setUser({ ...user, flavors: newArray.join(", ") });
+      } else {
+        setUser({
+          ...user,
+          flavors: flavorsString + ", " + event.target.value,
+        });
+        console.log("ADD: ", user.flavors);
+      }
+    } else {
+      setUser({
+        ...user,
+        flavors: event.target.value,
+      });
     }
   };
 
@@ -90,12 +117,29 @@ export default function Onboarding({ userFirebaseId, callback }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     user.atmosphere = atmospheres.join(", ");
-    if (!zipCodeCheck(user.zip_code)) {
-      alert("Please enter a valid Zip Code!");
+
+    if (user.name === undefined) {
+      alert("Please enter your name");
+    } else if (user.age === undefined) {
+      alert(
+        "Sorry, you need to be over 18 to create an account with our site!"
+      );
     } else if (!handleAgeCheck(user.age)) {
       alert(
         "Sorry, you need to be over 18 to create an account with our site!"
       );
+    } else if (user.gender === undefined) {
+      alert("Please select your gender!");
+    } else if (user.zip_code === undefined) {
+      alert("Please enter a valid Zip Code!");
+    } else if (!zipCodeCheck(user.zip_code)) {
+      alert("Please enter a valid Zip Code!");
+    } else if (user.personality === undefined) {
+      alert("Please describe yourself");
+    } else if (user.flavors === undefined) {
+      alert("Please choose at least one flavor preference");
+    } else if (user.atmosphere === undefined) {
+      alert("Please choose at least one atmospheric vibe!");
     } else {
       addUser(user);
     }
@@ -115,7 +159,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
                 type="text"
                 onChange={handleTextChange}
                 autoComplete="off"
-                required
+                novalidate
               />
             </div>
             <br />
@@ -127,7 +171,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
                 type="number" //TODO: Change to calendar and calculate age later
                 onChange={handleAgeChange}
                 autoComplete="off"
-                required
+                novalidate
               />
             </div>
             <br />
@@ -138,7 +182,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <br />
             <label htmlFor="male">Male</label>
             <input
-              id="male"
+              id="gender"
               type="radio"
               name="gender"
               onChange={handleTextChange}
@@ -147,7 +191,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <br />
             <label htmlFor="female">Female</label>
             <input
-              id="female"
+              id="gender"
               type="radio"
               name="gender"
               onChange={handleTextChange}
@@ -156,7 +200,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <br />
             <label htmlFor="other">Other</label>
             <input
-              id="other"
+              id="gender"
               type="radio"
               name="gender"
               onChange={handleTextChange}
@@ -174,7 +218,7 @@ export default function Onboarding({ userFirebaseId, callback }) {
               maxLength="5"
               onChange={handleTextChange}
               autoComplete="off"
-              required
+              novalidate
             />
           </section>
           <button type="button" onClick={goToNextForm}>
@@ -182,8 +226,8 @@ export default function Onboarding({ userFirebaseId, callback }) {
           </button>
         </div>
         <div id={displayNextForm ? "show" : "hidden"}>
+          <h1 className="onboarding-header">Great! Let's keep going.</h1>
           <section className="info-wrap-onboarding">
-            <h1 className="onboarding-header">Great! Let's keep going.</h1>
             <label className="onboarding-label" htmlFor="personality">
               How would you describe yourself?
             </label>
@@ -204,29 +248,48 @@ export default function Onboarding({ userFirebaseId, callback }) {
             <label>Sweet</label>
             <input
               id="flavors"
-              type="radio"
-              onChange={handleTextChange}
-              name="flavors"
+              type="checkbox"
+              onChange={handleFlavorsAdding}
+              name="flavor-1"
               value="Sweet"
             />
             <br></br>
             <label>Bitter</label>
             <input
               id="flavors"
-              type="radio"
-              onChange={handleTextChange}
-              name="flavors"
+              type="checkbox"
+              onChange={handleFlavorsAdding}
+              name="flavor-2"
               value="Bitter"
             />
             <br></br>
             <label>Sour</label>
             <input
               id="flavors"
-              type="radio"
-              onChange={handleTextChange}
-              name="flavors"
+              type="checkbox"
+              onChange={handleFlavorsAdding}
+              name="flavor-3"
               value="Sour"
             />
+            <br />
+            <label>Tangy</label>
+            <input
+              id="flavors"
+              type="checkbox"
+              onChange={handleFlavorsAdding}
+              name="flavor-4"
+              value="Tangy"
+            />
+            <br />
+            <label>Dry</label>
+            <input
+              id="flavors"
+              type="checkbox"
+              onChange={handleFlavorsAdding}
+              name="flavor-5"
+              value="Dry"
+            />
+            <br />
           </section>
           <label className="onboarding-label">Pick your venue vibes</label>
           <br />

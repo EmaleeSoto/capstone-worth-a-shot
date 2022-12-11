@@ -23,7 +23,8 @@ CREATE TABLE alcohols (
     description TEXT NOT NULL,
     category TEXT NOT NULL,
     flavors TEXT NOT NULL,
-    type TEXT
+    type TEXT,
+    image TEXT
 );
 
 CREATE TABLE user_establishments (

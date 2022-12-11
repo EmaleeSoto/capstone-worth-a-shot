@@ -8,18 +8,18 @@ import {
   sendPasswordResetEmail,
   deleteUser,
 } from "firebase/auth";
-import SplashPage from "./Pages/SplashPage";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import "./App.css";
 import Onboarding from "./Components/Onboarding";
 import NavBar from "./Components/NavBar";
 import Drinks from "./Components/Drinks";
+import DrinksByPrefs from "./Components/DrinksByPrefs";
 import LandingPageSignedIn from "./Pages/LandingSignedIn";
 import UserSignIn from "./Components/UserSignIn";
 import UserSignUp from "./Components/UserSignUp";
 import IndividualDrink from "./Components/IndividualDrink";
-import DrinksByPref from "./Components/DrinksByPref";
+import DrinksCategories from "./Components/DrinksCategories";
 import Establishments from "./Components/Establishments";
 import Favorites from "./Components/Favorites";
 import EditProfile from "./Components/EditProfile";
@@ -27,7 +27,6 @@ import ShowEstablishment from "./Components/ShowEstablishment";
 import FourOFour from "./Pages/FourOFour";
 import axios from "axios";
 import Trending from "./Components/Trending";
-import ScrollToTop from "./Components/scrollToTop";
 const API = process.env.REACT_APP_API_URL;
 
 const App = () => {
@@ -124,7 +123,6 @@ const App = () => {
   return (
     <div className="worth-a-shot">
       <Router>
-        <ScrollToTop />
         <NavBar
           signOutOfAccount={signOutOfAccount}
           loggedIn={loggedIn}
@@ -169,13 +167,16 @@ const App = () => {
               />
             }
           />
-          <Route path="/splash" element={<SplashPage />} />
           <Route path="/alcohols/:id" element={<IndividualDrink />} />
           <Route
-            path="/alcohols/category"
-            element={<DrinksByPref user={user} />}
+            path="/alcohols/categories"
+            element={<DrinksCategories user={user} />}
           />
           <Route path="/alcohols/category/:category" element={<Drinks />} />
+          <Route
+            path="alcohols/drinksforyou"
+            element={<DrinksByPrefs user={user} />}
+          />
           <Route path="/trending" element={<Trending />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<FourOFour loggedIn={loggedIn} />} />

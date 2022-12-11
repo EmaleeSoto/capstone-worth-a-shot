@@ -32,7 +32,7 @@ const Establishments = ({ user }) => {
 
   return (
     <div>
-      <Link to="/alcohols/category">
+      <Link to="/alcohols/categories">
         <button id="index-button">Find Alcohol</button>
       </Link>
       <h1 className="establishment-header">
