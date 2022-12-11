@@ -26,9 +26,9 @@ const Home = () => {
           <button className="large-button">Let's get started!</button>
         </Link>
         <h4>
-          {
-            "I feel sorry for people that don't drink because when they wake up in the morning, that is the best they're going to feel all day - Frank Sinatra"
-          }
+          &ldquo;I feel sorry for people that don't drink, because when they
+          wake up in the morning, that is the best they're going to feel all
+          day.&rdquo; &#8211; Frank Sinatra
         </h4>
       </div>
       <img
