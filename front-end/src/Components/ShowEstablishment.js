@@ -58,30 +58,34 @@ export default function ShowEstablishment({ user }) {
 
   return (
     <div className="establishment-show">
-      <Link to="/establishments">
+      <Link id="establishment-back-button" to="/establishments">
         <button>Go back to Establishments</button>
       </Link>
       <section className="establishment-info-grid">
-        <img
-          alt="Establishment"
-          className="establishment-info-image"
-          src={
-            establishment.image_url !== ""
-              ? establishment.image_url
-              : "./images/no-image.png"
-          }
-        />
-        <div>
+        <div className="establishment-first-cell">
+          <img
+            alt="Establishment"
+            className="establishment-info-image"
+            src={
+              establishment.image_url !== ""
+                ? establishment.image_url
+                : "./images/no-image.png"
+            }
+          />
+          <h3>
+            Hours: {militaryToUSD(establishment?.hours?.[0].open?.[0].start)} -
+            {militaryToUSD(establishment?.hours?.[0].open?.[0].end)}
+          </h3>
+        </div>
+        <div className="establishment-second-cell">
           <h1 className="establishment-show-name">{establishment.name}</h1>
           <h3>Address: {establishment?.location?.display_address[0]}</h3>
           <h4>Contact: {establishment.display_phone}</h4>
           <h4>Rating: {establishment.rating} / 5</h4>
-          <button onClick={handleLike}>Like this bar? Save it! ⭐️</button>
+          <button id="like-button" onClick={handleLike}>
+            Like this bar? Save it! ⭐️
+          </button>
         </div>
-        <h3>
-          Hours: {militaryToUSD(establishment?.hours?.[0].open?.[0].start)} -
-          {militaryToUSD(establishment?.hours?.[0].open?.[0].end)}
-        </h3>
       </section>
       <h4>Photo Gallery</h4>
       <section className="venue-photo-wrap">

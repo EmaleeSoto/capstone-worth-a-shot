@@ -1,3 +1,8 @@
+#establishment-back-button {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+}
 .venue-photo {
   width: 60%;
   height: auto;
@@ -25,11 +30,22 @@
   grid-template-columns: repeat(2, 1fr);
   margin-left: 50px;
   margin-right: 50px;
-  margin-top: 50px;
+  margin-top: 5%;
 }
 
 .establishment-info-image {
   height: 500px;
+  width: auto;
+  border: 10px solid #061A43;
+}
+
+.establishment-second-cell {
+  background-color: #051A42;
+  padding: 3%;
+  border: solid #F4C744;
+  border-radius: 15px;
+  width: 70%;
+  max-height: 70%;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
