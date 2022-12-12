@@ -80,13 +80,13 @@ const About = () => {
         <article>
           <img
             className="headshot"
-            src="./headshots/cesar.png"
-            alt="Headshot of Cesar Ortiz"
+            src="./headshots/emalee.png"
+            alt="Headshot of Emalee Soto"
           />
-          <h3 className="bio-name">Cesar Ortiz</h3>
-          <h3 className="title-text">&nbsp;</h3>
+          <h3 className="bio-name">Emalee Soto</h3>
+          <h3 className="title-text">Back-End/Team Lead</h3>
           <a
-            href="https://github.com/CeazTheMoment"
+            href="https://github.com/EmaleeSoto"
             target="_blank"
             rel="noreferrer"
           >
@@ -98,7 +98,7 @@ const About = () => {
             />
           </a>
           <a
-            href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/"
+            href="https://www.linkedin.com/in/emalee-soto/"
             target="_blank"
             rel="noreferrer"
           >
@@ -110,9 +110,10 @@ const About = () => {
             />
           </a>
           <p className="bio-text">
-            My name is Cesar Ortiz. I'm a full stack software engineer currently
-            enrolled in the pursuit fellowship. Pursuit is a 12 month training
-            program with a 9% acceptance rate.
+            I'm a full-stack Junior Web Developer at the Pursuit Fellowship. I
+            have studied Computer Science at Hunter College, and plan to finish
+            my Bachelor's within the next two years. I love coding, gaming, and
+            music!
           </p>
         </article>
         <article>
@@ -157,13 +158,13 @@ const About = () => {
         <article>
           <img
             className="headshot"
-            src="./headshots/emalee.png"
-            alt="Headshot of Emalee Soto"
+            src="./headshots/cesar.png"
+            alt="Headshot of Cesar Ortiz"
           />
-          <h3 className="bio-name">Emalee Soto</h3>
-          <h3 className="title-text">Back-End/Team Lead</h3>
+          <h3 className="bio-name">Cesar Ortiz</h3>
+          <h3 className="title-text">&nbsp;</h3>
           <a
-            href="https://github.com/EmaleeSoto"
+            href="https://github.com/CeazTheMoment"
             target="_blank"
             rel="noreferrer"
           >
@@ -175,7 +176,7 @@ const About = () => {
             />
           </a>
           <a
-            href="https://www.linkedin.com/in/emalee-soto/"
+            href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/"
             target="_blank"
             rel="noreferrer"
           >
@@ -187,10 +188,9 @@ const About = () => {
             />
           </a>
           <p className="bio-text">
-            I'm a full-stack Junior Web Developer at the Pursuit Fellowship. I
-            have studied Computer Science at Hunter College, and plan to finish
-            my Bachelor's within the next two years. I love coding, gaming, and
-            music!
+            My name is Cesar Ortiz. I'm a full stack software engineer currently
+            enrolled in the pursuit fellowship. Pursuit is a 12 month training
+            program with a 9% acceptance rate.
           </p>
         </article>
       </section>
