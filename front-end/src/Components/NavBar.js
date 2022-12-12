@@ -14,17 +14,16 @@ const Nav = ({ signOutOfAccount, loggedIn, userVerified }) => {
           />
         </div>
       </Link>
+      <div className="trending-link">
+        <Link className="nav-link" to={loggedIn ? "/myhome" : "/"}>
+          {loggedIn ? "My Home" : "Home Page"}
+        </Link>
+      </div>
       <div className="about-link">
         <Link className="nav-link" to="/about">
           About
         </Link>
       </div>
-      <div className="trending-link">
-        <Link className="nav-link" to="/trending">
-          Trending in NYC
-        </Link>
-      </div>
-
       <Link className={loggedIn ? "show nav-link" : "hide"} to="/myfavorites">
         Favorites
       </Link>

@@ -91,9 +91,13 @@
   max-height: 70%;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
-  .establishment-info-image {
-    height: 350px;
+
+@media (max-width: 695px) {
+  .establishment-show {
+    margin-top: 5%;
+  }
+  #establishment-back-button {
+    position: inherit;
   }
 }
 
@@ -104,4 +108,49 @@
   .establishment-info-grid {
     display: block;
   }
+  .second-grid {
+    grid-template-columns: 1fr;
+    row-gap: 1%;
+  }
+  #review-section {
+    margin-right: 2%;
+  }
+  .venue-photo-wrap {
+    margin-left: 2%;
+  }
 }
+
+@media (max-width: 900px) {
+  #establishment-back-button {
+    width: 50px;
+  }
+  .establishment-first-cell {
+    height: 500px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .establishment-info-grid {
+    display: grid; 
+    grid-template-columns: 1fr;
+  }
+  #establishment-back-button {
+    left: 5%;
+  }
+  .establishment-first-cell {
+    height: 500px;
+  }
+  .establishment-second-cell h3 {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1279px) {
+  .establishment-info-image {
+    height: 350px;
+  }
+  .establishment-first-cell {
+    height: 600px;
+  }
+}
+

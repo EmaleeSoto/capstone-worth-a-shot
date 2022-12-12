@@ -18,7 +18,7 @@ const Home = () => {
             with our app, you can create an account, choose a preferred vibe or
             scene, and we'll provide you with new and exciting nightlife venues
             curated to your tastes. Decide the direction of your night out on
-            the town with our app! It's worth a shot.
+            the town with our app! <span>It's worth a shot.</span>
           </p>
         </section>
         <h1 className="home-tagline">Your ultimate nightlife guide!</h1>
