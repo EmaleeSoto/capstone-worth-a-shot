@@ -155,44 +155,6 @@ const About = () => {
             cybersecurity, and accessibility.
           </p>
         </article>
-        <article>
-          <img
-            className="headshot"
-            src="./headshots/cesar.png"
-            alt="Headshot of Cesar Ortiz"
-          />
-          <h3 className="bio-name">Cesar Ortiz</h3>
-          <h3 className="title-text">&nbsp;</h3>
-          <a
-            href="https://github.com/CeazTheMoment"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className="icon"
-              alt="GitHub"
-              title="GitHub"
-              src="./icons/github.png"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/cesar-ortiz-a5830121b/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className="icon"
-              alt="LinkedIn"
-              title="LinkedIn"
-              src="./icons/linkedin.png"
-            />
-          </a>
-          <p className="bio-text">
-            My name is Cesar Ortiz. I'm a full stack software engineer currently
-            enrolled in the pursuit fellowship. Pursuit is a 12 month training
-            program with a 9% acceptance rate.
-          </p>
-        </article>
       </section>
       <div className="source-text">
         <p>
