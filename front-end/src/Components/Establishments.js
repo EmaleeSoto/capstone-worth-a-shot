@@ -32,9 +32,11 @@ const Establishments = ({ user }) => {
 
   return (
     <div>
-      <Link to="/alcohols/categories">
-        <button id="index-button">Find Alcohol</button>
-      </Link>
+      {user.age >= 21 ? (
+        <Link to="/alcohols/categories">
+          <button id="index-button">Find Alcohol</button>
+        </Link>
+      ) : null}
       <h1 className="establishment-header">
         Here are some great places to try.
       </h1>

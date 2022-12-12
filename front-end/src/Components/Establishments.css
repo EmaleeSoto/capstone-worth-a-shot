@@ -42,6 +42,32 @@
   left: 10%;
 }
 
+
+@media (min-width: 687px) {
+  #index-button {
+    position: absolute;
+    top: 15%;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 799px) {
+  #index-button {
+    left: 0;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 874px) {
+  #index-button {
+    left: 1%;
+  }
+}
+
+@media (min-width: 875px) and (max-width: 980px) {
+    #index-button {
+      left: 5%;
+    }
+}
+
 @media screen and (min-width: 1100px) and (max-width: 1439px) {
   .establishment-grid {
     grid-template-columns: repeat(3, 1fr);
