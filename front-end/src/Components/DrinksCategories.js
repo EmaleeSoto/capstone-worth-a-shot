@@ -167,6 +167,16 @@ const DrinksCategories = ({ user }) => {
 
         <section className="drink-category-grid">{handleButtonShow}</section>
       </div>
+      <h5 id="source-info">
+        For basic categorization of alcohol, we took inspiration from this{" "}
+        <a
+          href="https://www.alcoholrehabguide.org/alcohol/types/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Source
+        </a>
+      </h5>
     </div>
   );
 };
