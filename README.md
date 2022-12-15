@@ -18,9 +18,8 @@ In addition to helping you find the best bars and nightclubs, Worth a Shot also 
 ## Contributors
 
 - [Matt Munroe](https://github.com/MattNMunroe) - Front-End/Synergist
-- [Cesar Ortiz](https://github.com/CeazTheMoment)
-- [Jonathan Scheiber](https://github.com/Scheiber) - Design/UX Lead
 - [Emalee Soto](https://github.com/EmaleeSoto) - Back-End/Team Lead
+- [Jonathan Scheiber](https://github.com/Scheiber) - Design/UX Lead
 
 ## Technical Details
 
@@ -103,4 +102,4 @@ nodemon server.js
 
 ## Acknowledgments
 
-Much gratitude goes towards the testers, reviewers, and consultants of this project, particularly our instructors Myra Smith, Tristan Angieri, and Gary Kertis, as well as our mentors Maria Masiar and Risham Waraich.
+Much gratitude goes towards our instructors, mentors, and colleagues for their support and encouragement, particularly Myra Smith, Gary Kertis, Tristan Angieri, Maria Masiar, Na'taja Flood, and Lakisha Gonsalves.
